@@ -48,21 +48,6 @@ body {
         -5px -5px 12px #ffffff;
 }
 
-.web-box {
-    width: 150px;
-    height: 40px;
-    display: flex;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-}
-
-.web-icon {
-    width: 20px;
-    height: 20px;
-}
 
 .web-text {
     font-size: 20px;
