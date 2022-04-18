@@ -81,3 +81,14 @@ body {
     height: 200px;
     border-radius: 100px;
 }
+
+#profile-href-wrapper {
+    padding: 2px;
+    margin-top: 1em;
+}
+
+#profile-href {
+    position: relative;
+    text-decoration: none;
+    color: var(--text);
+}
