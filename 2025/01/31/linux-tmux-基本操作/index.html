@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="linux tmux 基本操作"><meta name="keywords" content="software,linux,tmux"><meta name="author" content="TaylorAndTony,undefined"><meta name="copyright" content="TaylorAndTony"><title>linux tmux 基本操作【Hexo】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- script(src=url_for("/js/mathjax/mathjax.js"))--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"2J9NCG4VA1","apiKey":"e2286fef4db1fed3731c0afa0c68d9ed","indexName":"hexo","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {},
+  twikoo: {},
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">tmux 基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-number">1.1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run"><span class="toc-number">1.2.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shortcut"><span class="toc-number">1.3.</span> <span class="toc-text">Shortcut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-session"><span class="toc-number">1.4.</span> <span class="toc-text">New session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detach-session"><span class="toc-number">1.5.</span> <span class="toc-text">Detach session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-session"><span class="toc-number">1.6.</span> <span class="toc-text">Enter session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kill-session"><span class="toc-number">1.7.</span> <span class="toc-text">Kill session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Switch-session"><span class="toc-number">1.8.</span> <span class="toc-text">Switch session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rename-session"><span class="toc-number">1.9.</span> <span class="toc-text">Rename session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#More-shortcuts"><span class="toc-number">1.10.</span> <span class="toc-text">More shortcuts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E4%BC%9A%E8%AF%9D"><span class="toc-number">1.10.1.</span> <span class="toc-text">控制会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3"><span class="toc-number">1.10.2.</span> <span class="toc-text">窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E6%A0%BC-%E9%9D%A2%E6%9D%BF-%E5%88%86%E5%89%B2%E7%AA%97%E5%8F%A3"><span class="toc-number">1.10.3.</span> <span class="toc-text">窗格&#x2F;面板&#x2F;分割窗口</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">TaylorAndTony</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/TaylorAndTony" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:doyijian@163.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="https://space.bilibili.com/47256272" target="_blank">Bilibili<i class="icon-dot bg-color5"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">31</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">52</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">9</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">Hexo</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">linux tmux 基本操作</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2025-01-31 | 更新于 2025-01-31</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/linux/">linux</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/software/">software</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/linux/">linux</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/tmux/">tmux</a></div></div></div><div class="main-content"><h1 id="tmux-基本操作"><a href="#tmux-基本操作" class="headerlink" title="tmux 基本操作"></a>tmux 基本操作</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
+
+<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>面命令会启动 Tmux 窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。</p>
+<p>按下<code>Ctrl+d</code>或者显式输入<code>exit</code>命令，就可以退出 Tmux 窗口。</p>
+<h2 id="Shortcut"><a href="#Shortcut" class="headerlink" title="Shortcut"></a>Shortcut</h2><p>Tmux 默认的前缀键是 <code>Ctrl+b</code>，即先按下 Ctrl+b，快捷键才会生效。</p>
+<h2 id="New-session"><a href="#New-session" class="headerlink" title="New session"></a>New session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Detach-session"><a href="#Detach-session" class="headerlink" title="Detach session"></a>Detach session</h2><p>在 Tmux 窗口中，按下<code>Ctrl+b</code> <code>d</code>或者输入：<code>tmux detach</code>命令，就会将当前会话窗退出。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux detach</span><br></pre></td></tr></table></figure>
+
+<p>上面命令执行后，就会退出当前 tmux 窗口，但是会话和里面的进程仍然在后台运行。</p>
+<p><code>tmux ls</code>命令可以查看当前所有的 tmux 会话。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">tmux list-session</span><br></pre></td></tr></table></figure>
+
+<h2 id="Enter-session"><a href="#Enter-session" class="headerlink" title="Enter session"></a>Enter session</h2><p><code>tmux attach</code>命令用于重新接入某个已存在的会话。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">tmux attach -t 0    <span class="comment"># 0 是会话名称</span></span><br><span class="line"><span class="comment">#or</span></span><br><span class="line">tmux a -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">tmux attach -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Kill-session"><a href="#Kill-session" class="headerlink" title="Kill session"></a>Kill session</h2><p><code>tmux kill-session</code>命令用于杀死某个会话。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">tmux kill-session -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">tmux kill-session -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Switch-session"><a href="#Switch-session" class="headerlink" title="Switch session"></a>Switch session</h2><p><code>tmux switch</code>命令用于切换会话。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">tmux switch -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">tmux switch -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Rename-session"><a href="#Rename-session" class="headerlink" title="Rename session"></a>Rename session</h2><p><code>tmux rename-session</code>命令用于重命名会话。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux rename-session -t 0 &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="More-shortcuts"><a href="#More-shortcuts" class="headerlink" title="More shortcuts"></a>More shortcuts</h2><p>下面是一些会话相关的快捷键。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>Shell 命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新建会话</td>
+<td><code>tmux [new -s 会话名 n 窗口名]</code></td>
+</tr>
+<tr>
+<td>删除会话</td>
+<td><code>tmux kill-session -t 会话名</code></td>
+</tr>
+<tr>
+<td>恢复会话</td>
+<td><code>tmux at [-t 会话名]</code></td>
+</tr>
+<tr>
+<td>列出所有会话</td>
+<td><code>tmux ls</code></td>
+</tr>
+<tr>
+<td>关闭所有会话</td>
+<td><code>tmux kill-server</code></td>
+</tr>
+</tbody></table>
+<h3 id="控制会话"><a href="#控制会话" class="headerlink" title="控制会话"></a>控制会话</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>Tmux 命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>会话重命名</td>
+<td><code>:rename-session [新会话名]</code></td>
+</tr>
+<tr>
+<td>新建会话</td>
+<td><code>:new&lt;回车&gt;</code></td>
+</tr>
+<tr>
+<td>离开(detach)当前会话</td>
+<td><code>Ctrl+b d</code></td>
+</tr>
+<tr>
+<td>列出所有会话</td>
+<td><code>Ctrl+b s</code></td>
+</tr>
+<tr>
+<td>重命名当前会话</td>
+<td><code>Ctrl+b $</code></td>
+</tr>
+<tr>
+<td>前往上一个会话</td>
+<td><code>Ctrl+b (</code></td>
+</tr>
+<tr>
+<td>前往下一个会话</td>
+<td><code>Ctrl+b )</code></td>
+</tr>
+<tr>
+<td><strong>预览会话及其从属的窗口</strong></td>
+<td><code>Ctro+b w</code></td>
+</tr>
+<tr>
+<td>向上滚动</td>
+<td><code>Ctro+b PageUp</code>可多次按 PageUp</td>
+</tr>
+<tr>
+<td>向下滚动</td>
+<td><code>Ctro+b PageDown</code>可多次按 PageDown</td>
+</tr>
+</tbody></table>
+<h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>Tmux 命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建新窗口</td>
+<td><code>Ctrl+b c</code></td>
+</tr>
+<tr>
+<td>后一个窗口</td>
+<td><code>Ctrl+b n</code></td>
+</tr>
+<tr>
+<td>前一个窗口</td>
+<td><code>Ctrl+b p</code></td>
+</tr>
+<tr>
+<td>根据编号切换窗口</td>
+<td><code>Ctrl+b 0..9</code></td>
+</tr>
+<tr>
+<td>切换到最后一个窗口</td>
+<td><code>Ctrl+b l</code></td>
+</tr>
+<tr>
+<td>查找窗口</td>
+<td><code>Ctrl+b f</code></td>
+</tr>
+<tr>
+<td>重命名当前窗口</td>
+<td><code>Ctrl+b ,</code></td>
+</tr>
+<tr>
+<td>关闭当前窗口</td>
+<td><code>Ctrl+b &amp;</code></td>
+</tr>
+</tbody></table>
+<h3 id="窗格-面板-分割窗口"><a href="#窗格-面板-分割窗口" class="headerlink" title="窗格&#x2F;面板&#x2F;分割窗口"></a>窗格&#x2F;面板&#x2F;分割窗口</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>Tmux 命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>垂直分割</td>
+<td><code>Ctrl+b %</code></td>
+</tr>
+<tr>
+<td>水平分割</td>
+<td><code>Ctrl+b &quot;</code></td>
+</tr>
+<tr>
+<td>交换窗格</td>
+<td><code>Ctrl+b o</code></td>
+</tr>
+<tr>
+<td>关闭窗格</td>
+<td><code>Ctrl+b x</code></td>
+</tr>
+<tr>
+<td>切换布局</td>
+<td><code>Ctrl+b Space</code></td>
+</tr>
+<tr>
+<td>显示每个窗格是第几个</td>
+<td><code>Ctrl+b q</code></td>
+</tr>
+<tr>
+<td>与上一个窗格交换位置</td>
+<td><code>Ctrl+b &#123;</code></td>
+</tr>
+<tr>
+<td>与下一个窗格交换位置</td>
+<td><code>Ctrl+b &#125;</code></td>
+</tr>
+<tr>
+<td>切换窗格最大化&#x2F;最小化</td>
+<td><code>Ctrl+b z</code></td>
+</tr>
+</tbody></table>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">TaylorAndTony</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://taylorandtony.github.io/2025/01/31/linux-tmux-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">https://taylorandtony.github.io/2025/01/31/linux-tmux-基本操作/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本站点所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://taylorandtony.github.io">Hexo</a>！</span></div></div></article><div id="pagination"><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2025/01/31/linux-ubuntu-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"><span>Ubuntu 添加环境变量</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2025 By TaylorAndTony</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>
