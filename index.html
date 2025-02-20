@@ -1,411 +1,1011 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords"><meta name="author" content="TaylorAndTony,undefined"><meta name="copyright" content="TaylorAndTony"><title>【Hexo】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- script(src=url_for("/js/mathjax/mathjax.js"))--><script type="text/x-mathjax-config">MathJax.Hub.Config({
-    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-});
-</script><script>var isPassword = '' || false;
-if (isPassword) {
-    if (prompt('请输入文章密码') !== '') {
-        alert('密码错误！');
-        history.back();
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="TaylorAndTony">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://taylorandtony.github.io/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="TaylorAndTony">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"taylorandtony.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-}</script><script>window.GLOBAL_CONFIG = {
-  root: '/',
-  algolia: {"appId":"2J9NCG4VA1","apiKey":"e2286fef4db1fed3731c0afa0c68d9ed","indexName":"hexo","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
-  localSearch: undefined,
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  gitment: {},
-  valine: {},
-  twikoo: {},
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="author-info"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">TaylorAndTony</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/TaylorAndTony" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:doyijian@163.com" target="_blank">E-Mail<i class="icon-dot bg-color6"></i></a><a class="links-button button-hover" href="https://space.bilibili.com/47256272" target="_blank">Bilibili<i class="icon-dot bg-color3"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">38</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">56</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">11</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">Hexo</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><div id="recent-posts"><!-- each post in page.posts.sort('date', -1).limit(10).toArray()--><!-- config中配置按照什么排序--><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/2025/01/21/top/">置顶</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-01-31</time></div><div class="post-content"><div class="main-content content"><h1 id="✨欢迎来到我的博客✨"><a href="#✨欢迎来到我的博客✨" class="headerlink" title="✨欢迎来到我的博客✨"></a>✨欢迎来到我的博客✨</h1><p>此博客使用 Hexo 搭建，并使用 Github Pages 进行部署，通过 Algolia 完成搜索。此博客同时还部署到了 netlify 上面以加快国内访问速度。</p>
-<p>博客主要记录：</p>
-<ul>
-<li>代码开发日常</li>
-<li>Windows&#x2F;Linux 系统配置</li>
-<li>各类计算机文章</li>
-</ul>
-<p>你可以点击左上角<strong><a href="/archives/">归档</a></strong>查看所有发过的文章，或者点击<strong><a href="/tags/">标签</a></strong>，<strong><a href="/categories/">分类</a></strong>查看各个专题。</p>
-<p>如果域名是 <a target="_blank" rel="noopener" href="https://taylorblog.netlify.app/">https://taylorblog.netlify.app/</a> 那么是 netlify 上面部署的。</p>
-<p>如果域名是 <a href="https://taylorandtony.github.io/">https://taylorandtony.github.io/</a> 那么是 Github Pages 的原页面。</p>
-</div></div><a class="button-hover more" href="/2025/01/21/top/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/">支持中文的等宽字体</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-12</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/other/">other</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/font/">font</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/mono-font/">mono font</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/monospace-font/">monospace font</a></div></div><div class="post-content"><div class="main-content content"><h1 id="支持中文的等宽字体（中英文可对其）"><a href="#支持中文的等宽字体（中英文可对其）" class="headerlink" title="支持中文的等宽字体（中英文可对其）"></a>支持中文的等宽字体（中英文可对其）</h1><h2 id="更纱黑体系列"><a href="#更纱黑体系列" class="headerlink" title="更纱黑体系列"></a>更纱黑体系列</h2><p><a target="_blank" rel="noopener" href="https://github.com/be5invis/Sarasa-Gothic">Sarasa Gothic</a> 是一个免费的开源字体，支持拉丁语，希腊语和西里尔字母。</p>
-<p><strong>Sarasa Fixed SC</strong></p>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEun8fS.png" alt="Sarasa Fixed SC"></p>
-<p><strong>Sarasa Term SC</strong></p>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEunJSg.png" alt="Sarasa Term SC"></p>
-<h2 id="Maple-mono"><a href="#Maple-mono" class="headerlink" title="Maple mono"></a>Maple mono</h2><p><a target="_blank" rel="noopener" href="https://github.com/subframe7536/maple-font">maple-font</a> Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font for IDE and command line, fine-grained customization options.</p>
-<p>带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEun1Ff.png" alt="Maple mono"></p>
-<p>其<a target="_blank" rel="noopener" href="https://github.com/subframe7536/maple-font">官方 github 页面</a>给出了图片示例</p>
-<p><img src="https://github.com/subframe7536/maple-font/raw/variable/resources/header.png" alt="maple mono banner"></p>
-<p><img src="https://github.com/subframe7536/maple-font/raw/variable/resources/2-1.png" alt="maple mono github example 1"></p>
-<p><img src="https://github.com/subframe7536/maple-font/blob/variable/resources/showcase.png?raw=true" alt="maple mono github example 2"></p>
-<p>这个字体的斜体有特殊设计，看起来挺好看</p>
-<h2 id="LXGW-Bright-Code"><a href="#LXGW-Bright-Code" class="headerlink" title="LXGW Bright Code"></a>LXGW Bright Code</h2><p><a target="_blank" rel="noopener" href="https://github.com/lxgw/LxgwBright-Code">LxgwBright-Code</a> A merged font of Monaspace Argon and LXGW WenKai.</p>
-<p>仓库介绍：</p>
-<blockquote>
-<p>LXGW Bright Code 是由 <a target="_blank" rel="noopener" href="https://github.com/githubnext/monaspace">Monaspace Argon</a> 与 <a target="_blank" rel="noopener" href="https://github.com/lxgw/LxgwWenKai">霞鹜文楷系列字体</a> 合并而成的字体，采用 <a target="_blank" rel="noopener" href="https://github.com/nowar-fonts/Warcraft-Font-Merger">魔兽字体合并补全工具</a> 合并。仅提供 TrueType 格式字体文件。</p>
-</blockquote>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEun3Y8.png" alt="LXGW Bright Code"></p>
-<h2 id="Noto-Sans-Mono-CJK-SC"><a href="#Noto-Sans-Mono-CJK-SC" class="headerlink" title="Noto Sans Mono CJK SC"></a>Noto Sans Mono CJK SC</h2><p><a target="_blank" rel="noopener" href="https://notofonts.github.io/noto-docs/specimen/NotoSansMonoCJKsc/">Noto Sans Mono CJK SC</a> is a monospaced, unmodulated (“sans serif”) design suitable for programming code and other uses where a fixed-width font is needed.</p>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEunMwt.png" alt="Noto Sans Mono CJK SC"></p>
-<p>Noto 字体官方指出，”Noto Sans Mono CJK SC contains 65,535 glyphs”。这一字体包括的字形非常多，可以涵盖部分生僻字。这款字体同样适合给 $\LaTeX$ 编辑器使用，方便编辑生僻字文档。</p>
-<h2 id="YaHei-Ubuntu-Mono"><a href="#YaHei-Ubuntu-Mono" class="headerlink" title="YaHei Ubuntu Mono"></a>YaHei Ubuntu Mono</h2><p><a target="_blank" rel="noopener" href="https://github.com/chenyium/Microsoft-Yahei-Mono">Github</a></p>
-<p>其仓库注明</p>
-<blockquote>
-<p>个人非常喜欢的一款编程字体，所以从网上找来资源，放到 GitHub 上备用，后续如果有更新，也方便版本追溯。</p>
-</blockquote>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEunQTP.png" alt="YaHei Ubuntu Mono"></p>
-<h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><p>在支持字体 fallback 机制的编辑器中，还可以设置字体为 Ubuntu Mono derivative Powerline 和微软雅黑，这两个字体刚好能够将中英文进行对齐。</p>
-<p><img src="https://s21.ax1x.com/2025/02/12/pEunKeI.png" alt="Ubuntu Mono derivative Powerline+yahei"></p>
-</div></div><a class="button-hover more" href="/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/06/windows-%E5%B1%8F%E5%B9%95%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%BA%AE%E8%B5%B7/">windows 屏幕自动关闭后又会自动亮起</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-06</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/windows/">windows</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/troubleshoot/">troubleshoot</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/windows/">windows</a></div></div><div class="post-content"><div class="main-content content"><h1 id="windows-屏幕自动关闭后又会自动亮起"><a href="#windows-屏幕自动关闭后又会自动亮起" class="headerlink" title="windows 屏幕自动关闭后又会自动亮起"></a>windows 屏幕自动关闭后又会自动亮起</h1><p>现象：到电源设置的指定时间后息屏，1秒后屏幕有立即亮起。使用如下脚本人工触发息屏，仍然1秒后亮起：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell (Add-Type <span class="string">&#x27;[DllImport(\&quot;user32.dll\&quot;)]^public static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);&#x27;</span> -Name a -Pas)::SendMessage(-1,0x0112,0xF170,2)</span><br></pre></td></tr></table></figure>
-
-<p>根据网络上搜索，以尝试一下的<strong>方案均无效</strong>：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>原因</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>拔出罗技鼠标</td>
-<td>有人提到罗技 G903 会唤醒屏幕。经测试拔出自己的 G502 后无效。</td>
-</tr>
-<tr>
-<td>关闭蓝牙</td>
-<td>台式机自带蓝牙，且平时是开启状态。无效。</td>
-</tr>
-<tr>
-<td>关闭高漫数位板驱动</td>
-<td>无效。</td>
-</tr>
-</tbody></table>
-<h2 id="尝试解决"><a href="#尝试解决" class="headerlink" title="尝试解决"></a>尝试解决</h2><p>此问题发生是因为自己把电脑搬到了另一个房间，随后就出现了自动亮屏的问题。在 <a target="_blank" rel="noopener" href="https://www.chiphell.com/thread-2579147-1-1.html">显示器自动息屏后，过一会时间就会自动亮屏是什么原因</a> 上看到了疑似的解决方案：</p>
-<blockquote>
-<p>我的小主机有遇到这情况，雷电4转DP或自带的DP接口接U2410，老是无缘无故自动亮屏+息屏反复循环。<br>后来换HDMI就解决了，搞不懂是什么情况。</p>
-</blockquote>
-<p>结合自己遇到的情况，很有可能是显示器接口问题。</p>
-</div></div><a class="button-hover more" href="/2025/02/06/windows-%E5%B1%8F%E5%B9%95%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%BA%AE%E8%B5%B7/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/05/blazor-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">blazor 上传文件</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-05</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/csharp/">csharp</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/csharp/">csharp</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/asp-net/">asp.net</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/web/">web</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/balzor/">balzor</a></div></div><div class="post-content"><div class="main-content content"><h1 id="blazor-上传文件"><a href="#blazor-上传文件" class="headerlink" title="blazor 上传文件"></a>blazor 上传文件</h1><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/aspnet/core/blazor/file-uploads?view=aspnetcore-9.0">ASP.NET Core Blazor 文件上传 | Microsoft Learn</a></p>
-<p>前端</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">InputFile</span> <span class="attr">OnChange</span>=<span class="string">&quot;LoadIconFiles&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>后端，为了方便，封装一个可以保存到不同目录，并回显保存到何处的函数</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">async</span> Task&lt;<span class="built_in">string</span>&gt; __UploadTo(InputFileChangeEventArgs obj, <span class="built_in">string</span> saveToFolderName)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj?.File != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Log.Information(<span class="string">&quot;File uploading: &#123;Name&#125;&quot;</span>, obj.File.Name);</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">file</span> = obj.File;</span><br><span class="line">        <span class="keyword">var</span> fileName = <span class="keyword">file</span>.Name;</span><br><span class="line">        <span class="keyword">var</span> ext = Path.GetExtension(fileName);</span><br><span class="line">        <span class="keyword">var</span> stem = Path.GetFileNameWithoutExtension(fileName);</span><br><span class="line">        <span class="keyword">var</span> newFileName = stem + ext;</span><br><span class="line">        <span class="keyword">var</span> filePath = Path.Combine(<span class="string">&quot;wwwroot&quot;</span>, saveToFolderName, newFileName);</span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> stream = <span class="keyword">new</span> FileStream(filePath, FileMode.Create))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">await</span> <span class="keyword">file</span>.OpenReadStream(<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">30</span>).CopyToAsync(stream);</span><br><span class="line">        &#125;</span><br><span class="line">        Log.Information(<span class="string">&quot;File uploaded: &#123;Name&#125; - &#123;Path&#125;&quot;</span>, fileName, filePath);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">$&quot;使用此名称作为文件图片名: /<span class="subst">&#123;saveToFolderName&#125;</span>/<span class="subst">&#123;fileName&#125;</span>&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;请选择图片上传&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">async</span> Task <span class="title">LoadIconFiles</span>(<span class="params">InputFileChangeEventArgs arg</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> msg = <span class="keyword">await</span> __UploadTo(arg, saveToFolderName: <span class="string">&quot;img&quot;</span>);</span><br><span class="line">    _loadIconPrompt = msg;</span><br><span class="line">    StateHasChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意其中的 <code>await file.OpenReadStream(1024 * 1024 * 30).CopyToAsync(stream);</code>，里面指定的是文件大小，单位为字节。若此数量过低，则无法上传文件。</p>
-<p><strong>这样的方法会把上传的文件载入内存。如果上传大文件，看下文的微软官方文档</strong></p>
-<blockquote>
-<p>服务器端或客户端，没有文件读取或上传大小限制，尤其对于 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.components.forms.inputfile">InputFile</a> 组件。 但是，将数据从 JavaScript 封送到 C# 时，客户端 Blazor 会将文件的字节读取到单个 JavaScript 数组缓冲区中，大小不超过 2 GB 或设备的可用内存。 使用 &gt; 组件进行客户端上传时，大型文件上传 (<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.components.forms.inputfile">InputFile</a> 250 MB) 可能会失败。 有关详细信息，请参阅以下讨论：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/dotnet/runtime/issues/84685">文件上传时，Blazor InputFile Component 应处理分块 (dotnet&#x2F;runtime #84685)</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/dotnet/runtime/issues/36634">通过 http 处理程序请求流式上传 (dotnet&#x2F;runtime #36634)</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p> 对于尝试使用 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.components.forms.inputfile">InputFile</a> 组件时失败的大型客户端文件上传，建议使用多个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/docs/Web/HTTP/Range_requests">HTTP 范围请求</a>（而不是使用 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.aspnetcore.components.forms.inputfile">InputFile</a> 组件）通过自定义组件将大型文件分块。</p>
-</blockquote>
-</div></div><a class="button-hover more" href="/2025/02/05/blazor-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/02/csharp-%E4%B8%B4%E6%97%B6%E8%AE%A9%E5%87%BA-sqlite-%E6%95%B0%E6%8D%AE%E5%BA%93/">csharp 临时让出 sqlite 数据库</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-02</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/dev/">dev</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/csharp/">csharp</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/asp-net/">asp.net</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/microsoft/">microsoft</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/ef-core/">ef core</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/sqlite/">sqlite</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/dotnet/">dotnet</a></div></div><div class="post-content"><div class="main-content content"><h1 id="csharp-临时让出-sqlite-数据库"><a href="#csharp-临时让出-sqlite-数据库" class="headerlink" title="csharp 临时让出 sqlite 数据库"></a>csharp 临时让出 sqlite 数据库</h1><h2 id="使用-Dump"><a href="#使用-Dump" class="headerlink" title="使用 .Dump"></a>使用 .Dump</h2><p>SQLite 提供了 <code>.dump</code> 命令，可以将整个数据库导出为 SQL 脚本。你可以通过执行此命令生成备份文件，然后传输该文件。</p>
-<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>使用 SQLite 命令行工具或代码执行 <code>.dump</code> 命令。</li>
-<li>将生成的 SQL 文件传输到前端。</li>
-</ol>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SQLiteConnection(<span class="string">&quot;Data Source=path/to/your/database.db&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    connection.Open();</span><br><span class="line">    <span class="keyword">var</span> command = connection.CreateCommand();</span><br><span class="line">    command.CommandText = <span class="string">&quot;.dump&quot;</span>; <span class="comment">// 导出整个数据库为 SQL 脚本</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> reader = command.ExecuteReader())</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> writer = <span class="keyword">new</span> StreamWriter(<span class="string">&quot;backup.sql&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (reader.Read())</span><br><span class="line">        &#123;</span><br><span class="line">            writer.WriteLine(reader.GetString(<span class="number">0</span>)); <span class="comment">// 将 SQL 脚本写入文件</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-VACUUM（推荐）"><a href="#使用-VACUUM（推荐）" class="headerlink" title="使用 VACUUM（推荐）"></a>使用 VACUUM（推荐）</h2><p>SQLite 3.27.0 及以上版本支持 <code>VACUUM INTO</code> 命令，可以将数据库备份到一个新的文件中。</p>
-<h3 id="实现步骤-1"><a href="#实现步骤-1" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>执行 <code>VACUUM INTO</code> 命令，将数据库备份到新文件。</li>
-<li>传输新文件。</li>
-</ol>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SQLiteConnection(<span class="string">&quot;Data Source=path/to/your/database.db&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    connection.Open();</span><br><span class="line">    <span class="keyword">var</span> command = connection.CreateCommand();</span><br><span class="line">    command.CommandText = <span class="string">&quot;VACUUM INTO &#x27;path/to/backup.db&#x27;&quot;</span>; <span class="comment">// 备份到新文件</span></span><br><span class="line">    command.ExecuteNonQuery();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="EF-Core-版本"><a href="#EF-Core-版本" class="headerlink" title="EF Core 版本"></a>EF Core 版本</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">async</span> Task <span class="title">DownloadSql</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (File.Exists(<span class="string">&quot;backup.db&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        File.Delete(<span class="string">&quot;backup.db&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> db=<span class="keyword">new</span> Models.ChargeDb())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> connection = db.Database.GetDbConnection();</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="comment">// execute .dump command</span></span><br><span class="line">        <span class="keyword">using</span> <span class="keyword">var</span> command = connection.CreateCommand();</span><br><span class="line">        command.CommandText = <span class="string">&quot;VACUUM INTO &#x27;backup.db&#x27;;&quot;</span>;</span><br><span class="line">        command.ExecuteNonQuery();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fileStream = File.OpenRead(<span class="string">&quot;backup.db&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> fileName = <span class="string">$&quot;charging_<span class="subst">&#123;DateTime.Now:yyyy-MM-dd&#125;</span>.db&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">var</span> streamRef = <span class="keyword">new</span> DotNetStreamReference(stream: fileStream);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> JS.InvokeVoidAsync(<span class="string">&quot;downloadFileFromStream&quot;</span>, fileName, streamRef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-EF-Core-迁移"><a href="#使用-EF-Core-迁移" class="headerlink" title="使用 EF Core 迁移"></a>使用 EF Core 迁移</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet ef migrations script --output backup.sql</span><br></pre></td></tr></table></figure>
-
-</div></div><a class="button-hover more" href="/2025/02/02/csharp-%E4%B8%B4%E6%97%B6%E8%AE%A9%E5%87%BA-sqlite-%E6%95%B0%E6%8D%AE%E5%BA%93/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/02/csharp-EF-Core%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BD%93%E8%A2%AB%E5%A4%9A%E6%AC%A1tracked/">csharp EF Core 同一个实体被多次 tracked</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-02</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/csharp/">csharp</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/csharp/">csharp</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/asp-net/">asp.net</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/microsoft/">microsoft</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/ef-core/">ef core</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/dotnet/">dotnet</a></div></div><div class="post-content"><div class="main-content content"><h1 id="csharp-EF-Core-同一个实体被多次-tracked"><a href="#csharp-EF-Core-同一个实体被多次-tracked" class="headerlink" title="csharp EF Core 同一个实体被多次 tracked"></a>csharp EF Core 同一个实体被多次 tracked</h1><p>具体体现为：</p>
-<p><code>he instance of entity type ‘XXXX’ cannot be tracked because another instance with the same key value for &#123;‘Key’&#125; is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.</code></p>
-<p>原因：在使用 ef 查询后，再使用 ef 更新参与了查询的实体，就会报此错误。</p>
-<h2 id="重现"><a href="#重现" class="headerlink" title="重现"></a>重现</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _selectedCategory 是 db.Category 里的一个实例</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> relatedDevices = db.Devices</span><br><span class="line">    .Include(d =&gt; d.Category)</span><br><span class="line">    .Where(d =&gt; d.Category == _selectedCategory)</span><br><span class="line">    .ToList();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">db.Categories.Remove(_selectedCategory);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
 
-<h2 id="解决：AsNoTracking"><a href="#解决：AsNoTracking" class="headerlink" title="解决：AsNoTracking"></a>解决：AsNoTracking</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面位置添加 .AsNoTracking()</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> relatedDevices = db.Devices.AsNoTracking()</span><br><span class="line">    .Include(d =&gt; d.Category)</span><br><span class="line">    .Where(d =&gt; d.Category == _selectedCategory)</span><br><span class="line">    .ToList();</span><br><span class="line"></span><br><span class="line">db.Categories.Remove(_selectedCategory);</span><br></pre></td></tr></table></figure>
 
-</div></div><a class="button-hover more" href="/2025/02/02/csharp-EF-Core%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BD%93%E8%A2%AB%E5%A4%9A%E6%AC%A1tracked/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/02/blazor-%E8%BF%9B%E8%A1%8C%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/">blazor 进行表单校验</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-02</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/csharp/">csharp</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/csharp/">csharp</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/asp-net/">asp.net</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/blazor/">blazor</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/web/">web</a></div></div><div class="post-content"><div class="main-content content"><h1 id="Blazor-表单校验"><a href="#Blazor-表单校验" class="headerlink" title="Blazor 表单校验"></a>Blazor 表单校验</h1><h2 id="使用-EditForm"><a href="#使用-EditForm" class="headerlink" title="使用 EditForm"></a>使用 EditForm</h2><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/aspnet/core/blazor/forms/input-components?view=aspnetcore-9.0">ASP.NET Core Blazor 输入组件 | Microsoft Learn</a></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditForm</span> <span class="attr">EditContext</span>=<span class="string">&quot;editContext&quot;</span> <span class="attr">OnValidSubmit</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">FormName</span>=<span class="string">&quot;newCategoryForm&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;CatName&quot;</span>&gt;</span>类别名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">InputText</span> <span class="attr">class</span>=<span class="string">&quot;text-input&quot;</span> <span class="attr">id</span>=<span class="string">&quot;CatName&quot;</span> @<span class="attr">bind-Value</span>=<span class="string">&quot;_newCategory.CatName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ValidationMessage</span> <span class="attr">class</span>=<span class="string">&quot;text-orange-300&quot;</span> <span class="attr">For</span>=<span class="string">&quot;() =&gt; _newCategory.CatName&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ValidationMessage</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;CatColor&quot;</span>&gt;</span>类别颜色<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">InputText</span> <span class="attr">id</span>=<span class="string">&quot;CatColor&quot;</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span> @<span class="attr">bind-Value</span>=<span class="string">&quot;_newCategory.CatColor&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ValidationMessage</span> <span class="attr">class</span>=<span class="string">&quot;text-orange-300&quot;</span> <span class="attr">For</span>=<span class="string">&quot;() =&gt; _newCategory.CatColor&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ValidationMessage</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;my-btn&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">EditForm</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<body>
+  
 
-<p>其中：</p>
-<ul>
-<li><code>FormName</code> 填写一个每个表单不重复的名称</li>
-<li><code>_newCategory</code> 是后台绑定的一个模型，具有 <code>CatName</code> 和 <code>CatColor</code> 属性。</li>
-</ul>
-<p>后天</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">NewCategory</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> CatName &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> CatColor &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要标注 [SupplyParameterFromForm]</span></span><br><span class="line">[<span class="meta">SupplyParameterFromForm</span>] <span class="keyword">private</span> NewCategory _newCategory &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; = <span class="keyword">new</span> NewCategory();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于检查</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> Regex _colorRegex = <span class="keyword">new</span>(<span class="string">&quot;^#[0-9a-fA-F]&#123;6&#125;$&quot;</span>, RegexOptions.Compiled);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 EditContext 和 ValidationMessageStore</span></span><br><span class="line"><span class="keyword">private</span> EditContext? editContext;</span><br><span class="line"><span class="keyword">private</span> ValidationMessageStore? messageStore;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnInitialized</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    _newCategory ??= <span class="keyword">new</span>();</span><br><span class="line">    editContext = <span class="keyword">new</span>(_newCategory);</span><br><span class="line">    editContext.OnValidationRequested += (sender, <span class="keyword">args</span>) =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        messageStore?.Clear();</span><br><span class="line">        <span class="comment">// 添加到 messageStore 后，就会在前端对应的 ValidationMessage 内显示。</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(_newCategory.CatName))</span><br><span class="line">        &#123;</span><br><span class="line">            messageStore?.Add(editContext.Field(<span class="string">&quot;CatName&quot;</span>), <span class="string">&quot;类别名称不能为空。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">string</span>.IsNullOrEmpty(_newCategory.CatColor) || !_colorRegex.IsMatch(_newCategory.CatColor))</span><br><span class="line">        &#123;</span><br><span class="line">            messageStore?.Add(editContext.Field(<span class="string">&quot;CatColor&quot;</span>), <span class="string">&quot;类别颜色格式不正确。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    messageStore = <span class="keyword">new</span>(editContext);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <header>
+    
 
-<h2 id="使用手动检查"><a href="#使用手动检查" class="headerlink" title="使用手动检查"></a>使用手动检查</h2><p>对于简单的字符串检查：</p>
-<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/aspnet/core/blazor/components/data-binding?view=aspnetcore-9.0#use-bindgetbindset-modifiers-and-avoid-event-handlers-for-two-way-data-binding">ASP.NET Core Blazor 数据绑定 | Microsoft Learn</a></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;text-input&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">       @<span class="attr">bind:get</span>=<span class="string">&quot;chargeDate&quot;</span></span></span><br><span class="line"><span class="tag">       @<span class="attr">bind:set</span>=<span class="string">&quot;ValidateDateInput&quot;</span></span></span><br><span class="line"><span class="tag">       @<span class="attr">bind:event</span>=<span class="string">&quot;oninput&quot;</span> /&gt;</span></span><br><span class="line">@if (!isDateValid)</span><br><span class="line">&#123;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text-orange-300&quot;</span>&gt;</span>日期格式不正确<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
-<p><code>chargeDate</code> 是一个字符串。</p>
-<p>使用 <code>@bind:get</code>&#x2F;<code>@bind:set</code> 修饰符，既能通过 <code>@bind:set</code> 控制 <code>chargeDate</code> 的基础值，又能通过 <code>@bind:get</code> 将 <code>inputValue</code> 的值绑定到元素的值。 </p>
-<p><code>@bind:event=&quot;oninput&quot;</code> 会在输入变更后立即触发校验。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">string</span> chargeDate = DateTime.Now.ToString(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">bool</span> isDateValid = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ValidateDateInput</span>(<span class="params"><span class="built_in">string</span> obj</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 由于不再是直接 @bind，需要手动更新 chargeDate 的值</span></span><br><span class="line">    chargeDate = obj;</span><br><span class="line">    <span class="comment">// 更新布尔变量</span></span><br><span class="line">    isDateValid = DateTime.TryParse(obj, <span class="keyword">out</span> DateTime date);</span><br><span class="line">    <span class="comment">// 通知界面状态变化</span></span><br><span class="line">    StateHasChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-</div></div><a class="button-hover more" href="/2025/02/02/blazor-%E8%BF%9B%E8%A1%8C%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/02/01/blazor-EF-core-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E4%B8%8B%E6%8B%89%E9%80%89%E6%8B%A9%E7%89%A9%E5%93%81%E7%B1%BB%E5%88%AB/">blazor EF core 数据库实现前端下拉选择物品类别</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-01</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/csahrp/">csahrp</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/asp-net/">asp.net</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/microsoft/">microsoft</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/ef-core/">ef core</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/sqlite/">sqlite</a></div></div><div class="post-content"><div class="main-content content"><h1 id="使用-EF-Core-和-Blazor-实现设备类别关联修改"><a href="#使用-EF-Core-和-Blazor-实现设备类别关联修改" class="headerlink" title="使用 EF Core 和 Blazor  实现设备类别关联修改"></a>使用 EF Core 和 Blazor  实现设备类别关联修改</h1><p>使用<code>efcore</code>和<code>blazor</code>连接数据库，数据库有两个表，一个设备，一个类别，设备通过一个整数关联到类别表。</p>
-<p>类别表有类别id、类别名称两个字段，设备有设备id、设备名、类别id字段。</p>
-<p>在前端展示所有的设备，其类别显示为一个下拉框，我可以通过下拉框改变设备的类别，并通过按钮保存。</p>
-<h2 id="创建数据模型"><a href="#创建数据模型" class="headerlink" title="创建数据模型"></a>创建数据模型</h2><p>在<code>Models</code>文件夹下创建<code>Category.cs</code>和<code>Device.cs</code>文件。</p>
-<p><strong>Category.cs</strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">YourNamespace.Models</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Category</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> CategoryId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> CategoryName &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<p><strong>Device.cs</strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">YourNamespace.Models</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Device</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> DeviceId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> DeviceName &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">        <span class="comment">// 关键：CategoryId 和 Category</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> CategoryId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">        <span class="keyword">public</span> Category Category &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
 
-<h2 id="Blazor-组件"><a href="#Blazor-组件" class="headerlink" title="Blazor 组件"></a>Blazor 组件</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&lt;table <span class="keyword">class</span>=<span class="string">&quot;table&quot;</span>&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;设备名&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;类别&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">        </span><br><span class="line">@foreach (<span class="keyword">var</span> device <span class="keyword">in</span> devices)</span><br><span class="line">        &#123;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td&gt;@device.DeviceName&lt;/td&gt;</span><br><span class="line">                &lt;td&gt;</span><br><span class="line">                    &lt;<span class="keyword">select</span> @bind-<span class="keyword">value</span>=<span class="string">&quot;device.CategoryId&quot;</span>&gt;</span><br><span class="line">@foreach (<span class="keyword">var</span> category <span class="keyword">in</span> categories)</span><br><span class="line">                        &#123;</span><br><span class="line">                            &lt;option <span class="keyword">value</span>=<span class="string">&quot;@category.CategoryId&quot;</span>&gt;@category.CategoryName&lt;/option&gt;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &lt;/<span class="keyword">select</span>&gt;</span><br><span class="line">                &lt;/td&gt;</span><br><span class="line">                &lt;td&gt;</span><br><span class="line">                    &lt;button <span class="keyword">class</span>=<span class="string">&quot;btn btn-primary&quot;</span> @onclick=<span class="string">&quot;@(async () =&gt; await UpdateExistingEntry(device))&quot;</span>&gt;保存&lt;/button&gt;</span><br><span class="line">                &lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">@code</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> List&lt;DbContext.Category&gt; categories = <span class="keyword">new</span>();</span><br><span class="line">        <span class="keyword">private</span> List&lt;DbContext.Device&gt; devices = <span class="keyword">new</span>();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnInitialized</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            UpdateDeviceList();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">UpdateDeviceList</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">using</span> (<span class="keyword">var</span> db = <span class="keyword">new</span> ChargeDb())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// categories</span></span><br><span class="line">                categories = db.Categories.ToList();</span><br><span class="line">                <span class="comment">// devices</span></span><br><span class="line">                devices = db.Devices.Include(d =&gt; d.Category)</span><br><span class="line">                    .ToList();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">async</span> Task <span class="title">UpdateExistingEntry</span>(<span class="params">DbContext.Device device</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">using</span> (<span class="keyword">var</span> db = <span class="keyword">new</span> ChargeDb())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">var</span> existingDevice = db.Devices.Include(d =&gt; d.Category).FirstOrDefault(d =&gt; d.Id == device.Id);</span><br><span class="line"></span><br><span class="line">                </span><br><span class="line">                existingDevice.Description = device.Description;</span><br><span class="line">                existingDevice.ImageUrl = device.ImageUrl;</span><br><span class="line">                existingDevice.Name = device.Name;</span><br><span class="line">                existingDevice.CategoryId = device.CategoryId;</span><br><span class="line"></span><br><span class="line">                db.SaveChanges();</span><br><span class="line">                Log.Information(<span class="string">&quot;Device updated: dev &#123;Id&#125; - cat &#123;CategoryId&#125;&quot;</span>, device.Id, device.CategoryId);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            UpdateDeviceList(); <span class="comment">// 更新设备列表以显示更改</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/four.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Taylor 的博客"></span>
+          
+        </div>
 
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ol>
-<li><code>ef core</code> 实体模型在设置 <code>Category</code> 导航属性时，同时设置一个叫 <code>CategoryId</code> 的 <code>int</code> 属性，这样在前端做数据绑定时，绑定这个属性。</li>
-<li><code>select</code> 绑定 <code>device</code> 的 <code>CategoryId</code>，<code>select</code> 内部的 <code>option</code> 绑定 <code>category.CategoryId</code></li>
-</ol>
-<h2 id="附：EF-Core-命名约定"><a href="#附：EF-Core-命名约定" class="headerlink" title="附：EF Core 命名约定"></a>附：EF Core 命名约定</h2><p>考虑</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Blog</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ICollection&lt;Post&gt; Posts &#123; <span class="keyword">get</span>; &#125; = <span class="keyword">new</span> List&lt;Post&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Post</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span>? BlogId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> Blog? Blog &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      </div>
 
-<ul>
-<li><code>Blog</code> 类包含一个 <code>ICollection&lt;Post&gt;</code> 类型的 <code>Posts</code> 属性，这表明一个 <code>Blog</code> 可以包含多个 <code>Post</code>，是一对多关系中的 “一” 方。</li>
-<li><code>Post</code> 类包含一个可空的 <code>int? BlogId</code> 属性和一个可空的 <code>Blog? Blog</code> 属性。<code>BlogId</code> 属性名遵循 EF Core 的外键命名约定，即 <code>[导航属性名][主表主键名]</code>，在这种情况下，导航属性名是 <code>Blog</code>，主表（<code>Blog</code> 类）的主键名是 <code>Id</code>，所以 <code>BlogId</code> 会被 EF Core 自动识别为外键。</li>
-</ul>
-<p>完整示例如下</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.EntityFrameworkCore;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 Blog 类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Blog</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ICollection&lt;Post&gt; Posts &#123; <span class="keyword">get</span>; &#125; = <span class="keyword">new</span> List&lt;Post&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 Post 类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Post</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span>? BlogId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> Blog? Blog &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义数据库上下文类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BloggingContext</span> : <span class="title">DbContext</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> DbSet&lt;Blog&gt; Blogs &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> DbSet&lt;Post&gt; Posts &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnConfiguring</span>(<span class="params">DbContextOptionsBuilder optionsBuilder</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 使用 SQLite 数据库，这里可根据实际情况修改连接字符串</span></span><br><span class="line">        optionsBuilder.UseSqlite(<span class="string">&quot;Data Source=blogging.db&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> context = <span class="keyword">new</span> BloggingContext())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 创建数据库（如果不存在）</span></span><br><span class="line">            <span class="keyword">await</span> context.Database.EnsureCreatedAsync();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建一个 Blog 实例</span></span><br><span class="line">            <span class="keyword">var</span> blog = <span class="keyword">new</span> Blog();</span><br><span class="line">            context.Blogs.Add(blog);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建一个 Post 实例并关联到上面的 Blog</span></span><br><span class="line">            <span class="keyword">var</span> post = <span class="keyword">new</span> Post &#123; Blog = blog &#125;;</span><br><span class="line">            context.Posts.Add(post);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 保存更改到数据库</span></span><br><span class="line">            <span class="keyword">await</span> context.SaveChangesAsync();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 查询 Post 并验证关联</span></span><br><span class="line">            <span class="keyword">var</span> retrievedPost = <span class="keyword">await</span> context.Posts</span><br><span class="line">               .Include(p =&gt; p.Blog)</span><br><span class="line">               .FirstOrDefaultAsync();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (retrievedPost != <span class="literal">null</span> &amp;&amp; retrievedPost.Blog != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                System.Console.WriteLine(<span class="string">$&quot;Post <span class="subst">&#123;retrievedPost.Id&#125;</span> is associated with Blog <span class="subst">&#123;retrievedPost.Blog.Id&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
 
-</div></div><a class="button-hover more" href="/2025/02/01/blazor-EF-core-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E4%B8%8B%E6%8B%89%E9%80%89%E6%8B%A9%E7%89%A9%E5%93%81%E7%B1%BB%E5%88%AB/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/01/31/linux-tmux-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">linux tmux 基本操作</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-02-12</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/linux/">linux</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/software/">software</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/linux/">linux</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/tmux/">tmux</a></div></div><div class="post-content"><div class="main-content content"><h1 id="tmux-基本操作"><a href="#tmux-基本操作" class="headerlink" title="tmux 基本操作"></a>tmux 基本操作</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
+</div>
 
-<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+  </header>
 
-<p>面命令会启动 Tmux 窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。</p>
-<p>按下<code>Ctrl+d</code>或者显式输入<code>exit</code>命令，就可以退出 Tmux 窗口。</p>
-<h2 id="Shortcut"><a href="#Shortcut" class="headerlink" title="Shortcut"></a>Shortcut</h2><p>Tmux 默认的前缀键是 <code>Ctrl+b</code>，即先按下 Ctrl+b，快捷键才会生效。</p>
-<h2 id="New-session"><a href="#New-session" class="headerlink" title="New session"></a>New session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-<h2 id="Detach-session"><a href="#Detach-session" class="headerlink" title="Detach session"></a>Detach session</h2><p>在 Tmux 窗口中，按下<code>Ctrl+b</code> <code>d</code>或者输入：<code>tmux detach</code>命令，就会将当前会话窗退出。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux detach</span><br></pre></td></tr></table></figure>
 
-<p>上面命令执行后，就会退出当前 tmux 窗口，但是会话和里面的进程仍然在后台运行。</p>
-<p><code>tmux ls</code>命令可以查看当前所有的 tmux 会话。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">tmux list-session</span><br></pre></td></tr></table></figure>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/" target="_self">
+          支持中文的等宽字体
+        </a>
+      </h2>
 
-<h2 id="Enter-session"><a href="#Enter-session" class="headerlink" title="Enter session"></a>Enter session</h2><p><code>tmux attach</code>命令用于重新接入某个已存在的会话。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">tmux attach -t 0    <span class="comment"># 0 是会话名称</span></span><br><span class="line"><span class="comment">#or</span></span><br><span class="line">tmux a -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">tmux attach -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/" target="_self">
+        <div>
+          支持中文的等宽字体（中英文可对齐）本文介绍了一些可用于中文的编程字体，且中英文混排时，中英文可以对齐 更纱黑体系列Sarasa Gothic 是一个免费的开源字体，支持拉丁语，希腊语和西里尔字母。 Sarasa Fixed SC  Sarasa Term SC  Maple monomaple-font Maple Mono: Open source monospace font with rou
+        </div>
+      </a>
 
-<h2 id="Kill-session"><a href="#Kill-session" class="headerlink" title="Kill session"></a>Kill session</h2><p><code>tmux kill-session</code>命令用于杀死某个会话。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">tmux kill-session -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">tmux kill-session -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-12 09:28" pubdate>
+              2025-02-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-<h2 id="Switch-session"><a href="#Switch-session" class="headerlink" title="Switch session"></a>Switch session</h2><p><code>tmux switch</code>命令用于切换会话。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">tmux switch -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">tmux switch -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/other/" class="category-chain-item">other</a>
+  
+  
 
-<h2 id="Rename-session"><a href="#Rename-session" class="headerlink" title="Rename session"></a>Rename session</h2><p><code>tmux rename-session</code>命令用于重命名会话。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux rename-session -t 0 &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
+      </span>
+    
+  
+</span>
 
-<h2 id="More-shortcuts"><a href="#More-shortcuts" class="headerlink" title="More shortcuts"></a>More shortcuts</h2><p>下面是一些会话相关的快捷键。</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>Shell 命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>新建会话</td>
-<td><code>tmux [new -s 会话名 n 窗口名]</code></td>
-</tr>
-<tr>
-<td>删除会话</td>
-<td><code>tmux kill-session -t 会话名</code></td>
-</tr>
-<tr>
-<td>恢复会话</td>
-<td><code>tmux at [-t 会话名]</code></td>
-</tr>
-<tr>
-<td>列出所有会话</td>
-<td><code>tmux ls</code></td>
-</tr>
-<tr>
-<td>关闭所有会话</td>
-<td><code>tmux kill-server</code></td>
-</tr>
-</tbody></table>
-<h3 id="控制会话"><a href="#控制会话" class="headerlink" title="控制会话"></a>控制会话</h3><table>
-<thead>
-<tr>
-<th>操作</th>
-<th>Tmux 命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>会话重命名</td>
-<td><code>:rename-session [新会话名]</code></td>
-</tr>
-<tr>
-<td>新建会话</td>
-<td><code>:new&lt;回车&gt;</code></td>
-</tr>
-<tr>
-<td>离开(detach)当前会话</td>
-<td><code>Ctrl+b d</code></td>
-</tr>
-<tr>
-<td>列出所有会话</td>
-<td><code>Ctrl+b s</code></td>
-</tr>
-<tr>
-<td>重命名当前会话</td>
-<td><code>Ctrl+b $</code></td>
-</tr>
-<tr>
-<td>前往上一个会话</td>
-<td><code>Ctrl+b (</code></td>
-</tr>
-<tr>
-<td>前往下一个会话</td>
-<td><code>Ctrl+b )</code></td>
-</tr>
-<tr>
-<td><strong>预览会话及其从属的窗口</strong></td>
-<td><code>Ctro+b w</code></td>
-</tr>
-<tr>
-<td>向上滚动</td>
-<td><code>Ctro+b PageUp</code>可多次按 PageUp</td>
-</tr>
-<tr>
-<td>向下滚动</td>
-<td><code>Ctro+b PageDown</code>可多次按 PageDown</td>
-</tr>
-</tbody></table>
-<h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><table>
-<thead>
-<tr>
-<th>操作</th>
-<th>Tmux 命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>创建新窗口</td>
-<td><code>Ctrl+b c</code></td>
-</tr>
-<tr>
-<td>后一个窗口</td>
-<td><code>Ctrl+b n</code></td>
-</tr>
-<tr>
-<td>前一个窗口</td>
-<td><code>Ctrl+b p</code></td>
-</tr>
-<tr>
-<td>根据编号切换窗口</td>
-<td><code>Ctrl+b 0..9</code></td>
-</tr>
-<tr>
-<td>切换到最后一个窗口</td>
-<td><code>Ctrl+b l</code></td>
-</tr>
-<tr>
-<td>查找窗口</td>
-<td><code>Ctrl+b f</code></td>
-</tr>
-<tr>
-<td>重命名当前窗口</td>
-<td><code>Ctrl+b ,</code></td>
-</tr>
-<tr>
-<td>关闭当前窗口</td>
-<td><code>Ctrl+b &amp;</code></td>
-</tr>
-</tbody></table>
-<h3 id="窗格-面板-分割窗口"><a href="#窗格-面板-分割窗口" class="headerlink" title="窗格&#x2F;面板&#x2F;分割窗口"></a>窗格&#x2F;面板&#x2F;分割窗口</h3><table>
-<thead>
-<tr>
-<th>操作</th>
-<th>Tmux 命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>垂直分割</td>
-<td><code>Ctrl+b %</code></td>
-</tr>
-<tr>
-<td>水平分割</td>
-<td><code>Ctrl+b &quot;</code></td>
-</tr>
-<tr>
-<td>交换窗格</td>
-<td><code>Ctrl+b o</code></td>
-</tr>
-<tr>
-<td>关闭窗格</td>
-<td><code>Ctrl+b x</code></td>
-</tr>
-<tr>
-<td>切换布局</td>
-<td><code>Ctrl+b Space</code></td>
-</tr>
-<tr>
-<td>显示每个窗格是第几个</td>
-<td><code>Ctrl+b q</code></td>
-</tr>
-<tr>
-<td>与上一个窗格交换位置</td>
-<td><code>Ctrl+b &#123;</code></td>
-</tr>
-<tr>
-<td>与下一个窗格交换位置</td>
-<td><code>Ctrl+b &#125;</code></td>
-</tr>
-<tr>
-<td>切换窗格最大化&#x2F;最小化</td>
-<td><code>Ctrl+b z</code></td>
-</tr>
-</tbody></table>
-</div></div><a class="button-hover more" href="/2025/01/31/linux-tmux-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#more">阅读全文</a></div><div class="recent-post-item"><a class="post-title" href="/2025/01/31/linux-ubuntu-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">Ubuntu 添加环境变量</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2025-01-31</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/linux/">linux</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/ubuntu/">ubuntu</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/linux/">linux</a></div></div><div class="post-content"><div class="main-content content"><h1 id="ubuntu-添加环境变量"><a href="#ubuntu-添加环境变量" class="headerlink" title="ubuntu 添加环境变量"></a>ubuntu 添加环境变量</h1><p>Ubuntu Linux系统环境变量配置文件：</p>
-<p><code>/etc/profile</code> : 在登录时,操作系统定制用户环境时使用的第一个文件 ,此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。</p>
-<p><code>/etc/environment</code> : 在登录时操作系统使用的第二个文件, 系统在读取你自己的profile前,设置环境文件的环境变量。</p>
-<p><code>~/.profile</code> : 在登录时用到的第三个文件 是.profile文件,每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。</p>
-<p><code>/etc/bashrc</code> : 为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取.</p>
-<p><code>~/.bashrc</code> : 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。</p>
-<h2 id="方法一：用户主目录下的-profile或-bashrc文件（推荐）"><a href="#方法一：用户主目录下的-profile或-bashrc文件（推荐）" class="headerlink" title="方法一：用户主目录下的.profile或.bashrc文件（推荐）"></a>方法一：用户主目录下的.profile或.bashrc文件（推荐）</h2><p><code>sudo vim ~/.profile</code></p>
-<p>登录到你的用户（非root），在终端输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">登录到你的用户（非root），在终端输入：</span><br><span class="line"></span><br><span class="line">$ sudo vim ~/.profile(or .bashrc)</span><br><span class="line"></span><br><span class="line">可以在此文件末尾加入PATH的设置如下：</span><br><span class="line"></span><br><span class="line">export PATH=&quot;$PATH:your path1:your path2 ...&quot;</span><br><span class="line"></span><br><span class="line">保存文件，注销再登录，变量生效。</span><br><span class="line">该方式添加的变量只对当前用户有效。</span><br></pre></td></tr></table></figure>
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/font/">#font</a>
+            
+              <a href="/tags/mono-font/">#mono font</a>
+            
+              <a href="/tags/monospace-font/">#monospace font</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-<p>添加PYTHONPATH的方法也是这样，在.bashrc中添加：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONPATH=/home/kurumi/.local/lib/python3.8/site-packages:<span class="variable">$PYTHONPATH</span></span><br></pre></td></tr></table></figure>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/06/windows-%E5%B1%8F%E5%B9%95%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%BA%AE%E8%B5%B7/" target="_self">
+          windows 屏幕自动关闭后又会自动亮起
+        </a>
+      </h2>
 
-<p>PYTHONPATH是Python搜索路径，默认我们import的模块都会从PYTHONPATH里面寻找。保存后在终端输入 <code>source ~/.bashrc</code> 使<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F&spm=1001.2101.3001.7020">环境变量</a>立即生效.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/home/kurumi/.local/lib/python3.8/site-packages</span><br><span class="line">/usr/local/lib/python3.8/dist-packages</span><br><span class="line">/usr/lib/python3/dist-packages</span><br></pre></td></tr></table></figure>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/06/windows-%E5%B1%8F%E5%B9%95%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%BA%AE%E8%B5%B7/" target="_self">
+        <div>
+          windows 屏幕自动关闭后又会自动亮起现象：到电源设置的指定时间后息屏，1秒后屏幕有立即亮起。使用如下脚本人工触发息屏，仍然1秒后亮起： 1powershell (Add-Type &#x27;[DllImport(\&quot;user32.dll\&quot;)]^public static extern int SendMessage(int hWnd, int hMsg, int wP
+        </div>
+      </a>
 
-<h2 id="方法二：系统目录下的profile文件"><a href="#方法二：系统目录下的profile文件" class="headerlink" title="方法二：系统目录下的profile文件"></a>方法二：系统目录下的profile文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">在系统的etc目录下，有一个profile文件，编辑该文件：</span><br><span class="line"></span><br><span class="line">$ sudo gedit /etc/profile</span><br><span class="line"></span><br><span class="line">在最后加入PATH的设置如下：</span><br><span class="line"></span><br><span class="line">export PATH=”$PATH:your path1:your path2 ...”</span><br><span class="line"></span><br><span class="line">该文件编辑保存后，重启系统，变量生效。</span><br><span class="line">该方式添加的变量对所有的用户都有效。</span><br><span class="line"></span><br><span class="line">例：添加java：</span><br><span class="line">sudo vim /etc/profile </span><br><span class="line"></span><br><span class="line">export CLASS_PATH=./JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-06 15:21" pubdate>
+              2025-02-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-<h2 id="方法三：用于所有用户"><a href="#方法三：用于所有用户" class="headerlink" title="方法三：用于所有用户"></a>方法三：用于所有用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> gedit /etc/profile</span><br></pre></td></tr></table></figure>
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/windows/" class="category-chain-item">windows</a>
+  
+  
 
-<p>加入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=&lt;你要加入的路径&gt;:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+      </span>
+    
+  
+</span>
 
-<p><em>终端输入：<code>echo $PATH</code> 可以查看环境变量</em></p>
-<h2 id="方法四：系统目录下的-environment-文件（谨慎）"><a href="#方法四：系统目录下的-environment-文件（谨慎）" class="headerlink" title="方法四：系统目录下的 environment 文件（谨慎）"></a>方法四：系统目录下的 environment 文件（谨慎）</h2><p>在系统的etc目录下，有一个environment文件，编辑该文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gedit /etc/environment</span><br><span class="line"></span><br><span class="line">找到以下的 PATH 变量：</span><br><span class="line"></span><br><span class="line">PATH=&quot;&lt;......&gt;&quot;</span><br><span class="line"></span><br><span class="line">修改该 PATH 变量，在其中加入自己的path即可，例如：</span><br><span class="line"></span><br><span class="line">PATH=&quot;&lt;......&gt;:your path1:your path2 …&quot;</span><br><span class="line"></span><br><span class="line">各个path之间用冒号分割。该文件也是重启生效，影响所有用户。 </span><br><span class="line">注意这里不是添加export PATH=… 。</span><br></pre></td></tr></table></figure>
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/troubleshoot/">#troubleshoot</a>
+            
+              <a href="/tags/windows/">#windows</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-<h2 id="方法五：直接在终端下输入"><a href="#方法五：直接在终端下输入" class="headerlink" title="方法五：直接在终端下输入"></a>方法五：直接在终端下输入</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo export PATH=&quot;$PATH:your path1:your path2 …&quot;</span><br></pre></td></tr></table></figure>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/05/blazor-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" target="_self">
+          blazor 上传文件
+        </a>
+      </h2>
 
-<p>这种方式变量立即生效，但用户注销或系统重启后设置变成无效，适合临时变量的设置。</p>
-<h2 id="Trouble-shoot"><a href="#Trouble-shoot" class="headerlink" title="Trouble shoot"></a>Trouble shoot</h2><p>问题：因为不小心在 etc&#x2F;environment里设在环境变量导致无法登录</p>
-<p>提示：不要在 <code>etc/environment</code>里设置 <code>export PATH</code>这样会导致重启后登录不了系统</p>
-<p>解决方法：</p>
-<p>在登录界面 <code>alt +ctrl+f1</code>进入命令模式，如果不是root用户需要键入（root用户就不许这么罗嗦，gedit编辑会不可显示）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/sudo /usr/bin/vi /etc/environment</span><br></pre></td></tr></table></figure>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/05/blazor-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" target="_self">
+        <div>
+          blazor 上传文件ASP.NET Core Blazor 文件上传 | Microsoft Learn 前端 1&lt;InputFile OnChange=&quot;LoadIconFiles&quot;/&gt;  后端，为了方便，封装一个可以保存到不同目录，并回显保存到何处的函数 123456789101112131415161718192021222324252627282930pr
+        </div>
+      </a>
 
-<p>光标移到<code>export PATH**</code> 行，连续按 <code>d</code>两次删除该行；</p>
-<p>输入<code>:wq</code>保存退出；</p>
-<p>然后键入<code>/sbin/reboot</code>重启系统</p>
-</div></div><a class="button-hover more" href="/2025/01/31/linux-ubuntu-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more">阅读全文</a></div></div><div id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right"></i></a></div></div></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i></span><span id="busuanzi_value_site_uv"></span><span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i></span><span id="busuanzi_value_site_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2025 By TaylorAndTony</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-05 20:53" pubdate>
+              2025-02-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/csharp/" class="category-chain-item">csharp</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/csharp/">#csharp</a>
+            
+              <a href="/tags/asp-net/">#asp.net</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+              <a href="/tags/balzor/">#balzor</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/02/csharp-%E4%B8%B4%E6%97%B6%E8%AE%A9%E5%87%BA-sqlite-%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_self">
+          csharp 临时让出 sqlite 数据库
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/csharp-%E4%B8%B4%E6%97%B6%E8%AE%A9%E5%87%BA-sqlite-%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_self">
+        <div>
+          csharp 临时让出 sqlite 数据库使用 .DumpSQLite 提供了 .dump 命令，可以将整个数据库导出为 SQL 脚本。你可以通过执行此命令生成备份文件，然后传输该文件。 实现步骤 使用 SQLite 命令行工具或代码执行 .dump 命令。 将生成的 SQL 文件传输到前端。  123456789101112131415using (var connection = new S
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-02 15:58" pubdate>
+              2025-02-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/dev/" class="category-chain-item">dev</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/csharp/">#csharp</a>
+            
+              <a href="/tags/asp-net/">#asp.net</a>
+            
+              <a href="/tags/microsoft/">#microsoft</a>
+            
+              <a href="/tags/ef-core/">#ef core</a>
+            
+              <a href="/tags/sqlite/">#sqlite</a>
+            
+              <a href="/tags/dotnet/">#dotnet</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/02/csharp-EF-Core%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BD%93%E8%A2%AB%E5%A4%9A%E6%AC%A1tracked/" target="_self">
+          csharp EF Core 同一个实体被多次 tracked
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/csharp-EF-Core%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BD%93%E8%A2%AB%E5%A4%9A%E6%AC%A1tracked/" target="_self">
+        <div>
+          csharp EF Core 同一个实体被多次 tracked具体体现为： he instance of entity type ‘XXXX’ cannot be tracked because another instance with the same key value for &#123;‘Key’&#125; is already being tracked. When attachin
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-02 15:49" pubdate>
+              2025-02-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/csharp/" class="category-chain-item">csharp</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/csharp/">#csharp</a>
+            
+              <a href="/tags/asp-net/">#asp.net</a>
+            
+              <a href="/tags/microsoft/">#microsoft</a>
+            
+              <a href="/tags/ef-core/">#ef core</a>
+            
+              <a href="/tags/dotnet/">#dotnet</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/02/blazor-%E8%BF%9B%E8%A1%8C%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/" target="_self">
+          blazor 进行表单校验
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/blazor-%E8%BF%9B%E8%A1%8C%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/" target="_self">
+        <div>
+          Blazor 表单校验使用 EditFormASP.NET Core Blazor 输入组件 | Microsoft Learn 12345678910111213&lt;EditForm EditContext=&quot;editContext&quot; OnValidSubmit=&quot;Submit&quot; FormName=&quot;newCategoryForm&quot;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-02 15:40" pubdate>
+              2025-02-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/csharp/" class="category-chain-item">csharp</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/csharp/">#csharp</a>
+            
+              <a href="/tags/asp-net/">#asp.net</a>
+            
+              <a href="/tags/blazor/">#blazor</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/01/blazor-EF-core-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E4%B8%8B%E6%8B%89%E9%80%89%E6%8B%A9%E7%89%A9%E5%93%81%E7%B1%BB%E5%88%AB/" target="_self">
+          blazor EF core 数据库实现前端下拉选择物品类别
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/01/blazor-EF-core-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E4%B8%8B%E6%8B%89%E9%80%89%E6%8B%A9%E7%89%A9%E5%93%81%E7%B1%BB%E5%88%AB/" target="_self">
+        <div>
+          使用 EF Core 和 Blazor  实现设备类别关联修改使用efcore和blazor连接数据库，数据库有两个表，一个设备，一个类别，设备通过一个整数关联到类别表。 类别表有类别id、类别名称两个字段，设备有设备id、设备名、类别id字段。 在前端展示所有的设备，其类别显示为一个下拉框，我可以通过下拉框改变设备的类别，并通过按钮保存。 创建数据模型在Models文件夹下创建Category.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-01 19:42" pubdate>
+              2025-02-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/csahrp/" class="category-chain-item">csahrp</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/asp-net/">#asp.net</a>
+            
+              <a href="/tags/microsoft/">#microsoft</a>
+            
+              <a href="/tags/ef-core/">#ef core</a>
+            
+              <a href="/tags/sqlite/">#sqlite</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/01/31/linux-tmux-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_self">
+          linux tmux 基本操作
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/01/31/linux-tmux-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_self">
+        <div>
+          tmux 基本操作Install1sudo apt-get install tmux  Run1tmux new -s &lt;session-name&gt;  面命令会启动 Tmux 窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。 按下Ctrl+d或者显式输入exit命令，就可以退出 Tmux 窗口。 ShortcutTmux 默认的前缀键是 Ctrl+b，即先
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-01-31 15:22" pubdate>
+              2025-01-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/software/">#software</a>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+              <a href="/tags/tmux/">#tmux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/01/31/linux-ubuntu-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" target="_self">
+          Ubuntu 添加环境变量
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/01/31/linux-ubuntu-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" target="_self">
+        <div>
+          ubuntu 添加环境变量Ubuntu Linux系统环境变量配置文件： /etc/profile : 在登录时,操作系统定制用户环境时使用的第一个文件 ,此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。 /etc/environment : 在登录时操作系统使用的第二个文件, 系统在读取你自己的profile前,设置环境文件的环境变量。 ~/.profile : 在登录时用
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-01-31 15:19" pubdate>
+              2025-01-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ubuntu/">#ubuntu</a>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/01/31/linux-Ubuntu%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" target="_self">
+          Ubuntu安装搜狗输入法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/01/31/linux-Ubuntu%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" target="_self">
+        <div>
+          Ubuntu 安装搜狗输入法 本文图片来自搜狗官网  搜狗官网指南：搜狗输入法 for linux 安装指南 (sogou.com) 1、更新源在终端执行 sudo apt update 2、安装fcitx输入法框架 在终端输入 sudo apt install fcitx  设置fcitx为系统输入法   点击左下角菜单选择语言支持，将语言选择为fcitx   设置fcitx开机自启动  在终端
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-01-31 15:18" pubdate>
+              2025-01-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/software/">#software</a>
+            
+              <a href="/tags/ubuntu/">#ubuntu</a>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
