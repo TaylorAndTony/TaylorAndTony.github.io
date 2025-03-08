@@ -22,14 +22,16 @@
     <meta name="description" content="输入法问题现象：在切换窗口或输入框后，接着开始打字，会出现拼音首字母直接出现在输入框内，按下第二个字母才出现输入法。 在版本 23H2（OS 内部版本 22631.4751）上，通过切换窗口→复制一段文字→切换回文本编辑器→粘贴→立即打字，可以稳定复现此现象。 下面这个动图展示了该现象，我分别尝试打出以下内容：  第一行，期望打出你好，小鹤双拼为 nich，可看到字母 n 直接上屏，输入法识别到的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="win 输入法 首字母变成英文">
-<meta property="og:url" content="https://taylorandtony.github.io/2025/01/21/win-%E8%BE%93%E5%85%A5%E6%B3%95-%E9%A6%96%E5%AD%97%E6%AF%8D%E5%8F%98%E6%88%90%E8%8B%B1%E6%96%87/index.html">
+<meta property="og:url" content="https://taylorandtony.github.io/2025/03/08/win-%E8%BE%93%E5%85%A5%E6%B3%95-%E9%A6%96%E5%AD%97%E6%AF%8D%E5%8F%98%E6%88%90%E8%8B%B1%E6%96%87/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="输入法问题现象：在切换窗口或输入框后，接着开始打字，会出现拼音首字母直接出现在输入框内，按下第二个字母才出现输入法。 在版本 23H2（OS 内部版本 22631.4751）上，通过切换窗口→复制一段文字→切换回文本编辑器→粘贴→立即打字，可以稳定复现此现象。 下面这个动图展示了该现象，我分别尝试打出以下内容：  第一行，期望打出你好，小鹤双拼为 nich，可看到字母 n 直接上屏，输入法识别到的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/67930d85d0e0a243d4f76aa9.gif">
 <meta property="og:image" content="https://filestore.community.support.microsoft.com/api/images/45ae8b0f-a8b9-422c-bd63-d834c982c702?upload=true&fud_access=hC1SxZhn7m/ZQJkOIiOVstu10yTQgXS4A/DBzZTg8nbaCgIogkrcDydMeI5Y4za2dOqDdWtsG2JNS3E35V60i9TiGHR7STMpJHheeXuDvO8nwjUlqCBHhJ0NDvuYN7OSRRp9bmvjnhEISMadqToCfqKLVN9hlZDhkHR415ZMhl1NswjCQADON1C9TuNlqvXekgExslMTgQ53ybvVsiTJ8EMtmz+2oOJhm/5O+ImoRmXrOj3S/5ob00CwpEsjEgpc64HMVOec7iV5sbXiWN20HIynZFnehEhjStCFl5kh3XkNGtO/pgNXlhLipZwrl29TG3OqCiDpATLMsRDyIqoHy+EaRzIQsKCuuImQ4cCh20jbC+uptO6ZbFlPVTn6yYDAs4R21OyvjfgnceI3aycYoK1IU4lfBHQJXHr+i4nX2KE=">
-<meta property="article:published_time" content="2025-01-21T07:15:54.000Z">
-<meta property="article:modified_time" content="2025-01-24T08:02:41.319Z">
+<meta property="og:image" content="https://filestore.community.support.microsoft.com/api/images/2bada343-b6ca-412e-865b-61447398558d?upload=true&fud_access=hC1SxZhn7m/ZQJkOIiOVstu10yTQgXS4A/DBzZTg8nbaCgIogkrcDydMeI5Y4za2dOqDdWtsG2JNS3E35V60i9TiGHR7STMpJHheeXuDvO8nwjUlqCBHhJ0NDvuYN7OSRtmjyFL3ihM0u/CcRjbI9qZIew00ZUHmheBdPiF8nlasyx4hP47DKni8ntgovVbktfzOCLJ5I5qtjajaw+d8ThijvDcvylsgbzPGcTvQBfo+L+91d2+B+cLr01aTUCGEF7Y7I4NQ8alBj+wuiB0KEfGk9ufmB5f1+CC/A/jVfQ8hWVuXhr48XzDH9MnbKLfVv6yttgyBhJQO2qaGtum8Y2BuSEtrs74w8vkI+J3pFVCdEnylMhd3IUMChtl+mc31X0p9FJ5qrxkiORgqbZfjoxb9ZzW6M5tSGn/W2vKQWh8=">
+<meta property="og:image" content="https://private-user-images.githubusercontent.com/92753/416246250-468e960d-6a72-44ff-a66b-8d4e3c17c426.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE0NDE2MTgsIm5iZiI6MTc0MTQ0MTMxOCwicGF0aCI6Ii85Mjc1My80MTYyNDYyNTAtNDY4ZTk2MGQtNmE3Mi00NGZmLWE2NmItOGQ0ZTNjMTdjNDI2LmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA4VDEzNDE1OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE5MjY5ZGM3OGVhNDQ5Njg4MzgzZTVjMGQ2NWM4OTNmNDVjN2RiM2JlNGQ4ZjU1NTE1YjFkNDMwODkyNGFjMGImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.b8bu4QyqPzbe5Z1sLdRFgrXdzv-Zd0glM_eK4A-ZyPs">
+<meta property="article:published_time" content="2025-03-08T13:47:46.000Z">
+<meta property="article:modified_time" content="2025-03-08T13:47:47.463Z">
 <meta property="article:author" content="TaylorAndTony">
 <meta property="article:tag" content="troubleshoot">
 <meta property="article:tag" content="windows">
@@ -217,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-21 15:15" pubdate>
-          2025年1月21日 下午
+        <time datetime="2025-03-08 21:47" pubdate>
+          2025年3月8日 晚上
         </time>
       </span>
     
@@ -229,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          917 字
+          1.3k 字
         
       </span>
     
@@ -240,7 +242,7 @@
         
         
         
-          8 分钟
+          11 分钟
         
       </span>
     
@@ -292,11 +294,20 @@
 <li>第四行，期望打出<code>卡键</code>。</li>
 </ul>
 <p><img src="https://pic1.imgdb.cn/item/67930d85d0e0a243d4f76aa9.gif" srcset="/img/loading.gif" lazyload alt="example of IME&#39;s bug"></p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>非输入法原因造成，而是<strong>只要打开过一次屏幕键盘，就会永久产生此 bug</strong>，只能等待微软修复。微软社区问答同样提出了下面的这种情况</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>非输入法原因造成，而是<strong>只要打开过一次屏幕键盘，就会永久产生此 bug</strong>，只能等待微软修复。<a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e">微软社区</a>问答同样提出了下面的这种情况</p>
 <p><img src="https://filestore.community.support.microsoft.com/api/images/45ae8b0f-a8b9-422c-bd63-d834c982c702?upload=true&fud_access=hC1SxZhn7m/ZQJkOIiOVstu10yTQgXS4A/DBzZTg8nbaCgIogkrcDydMeI5Y4za2dOqDdWtsG2JNS3E35V60i9TiGHR7STMpJHheeXuDvO8nwjUlqCBHhJ0NDvuYN7OSRRp9bmvjnhEISMadqToCfqKLVN9hlZDhkHR415ZMhl1NswjCQADON1C9TuNlqvXekgExslMTgQ53ybvVsiTJ8EMtmz+2oOJhm/5O+ImoRmXrOj3S/5ob00CwpEsjEgpc64HMVOec7iV5sbXiWN20HIynZFnehEhjStCFl5kh3XkNGtO/pgNXlhLipZwrl29TG3OqCiDpATLMsRDyIqoHy+EaRzIQsKCuuImQ4cCh20jbC+uptO6ZbFlPVTn6yYDAs4R21OyvjfgnceI3aycYoK1IU4lfBHQJXHr+i4nX2KE=" srcset="/img/loading.gif" lazyload alt="IME bug from Microsoft community"></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c">此处提到</a>触摸键盘可能是引发这个问题的元凶 遂使用虚拟机全新安装24H2后 安装搜狗 打开触摸键盘后重启 问题果然复现  </p>
 </blockquote>
+<p><img src="https://filestore.community.support.microsoft.com/api/images/2bada343-b6ca-412e-865b-61447398558d?upload=true&fud_access=hC1SxZhn7m/ZQJkOIiOVstu10yTQgXS4A/DBzZTg8nbaCgIogkrcDydMeI5Y4za2dOqDdWtsG2JNS3E35V60i9TiGHR7STMpJHheeXuDvO8nwjUlqCBHhJ0NDvuYN7OSRtmjyFL3ihM0u/CcRjbI9qZIew00ZUHmheBdPiF8nlasyx4hP47DKni8ntgovVbktfzOCLJ5I5qtjajaw+d8ThijvDcvylsgbzPGcTvQBfo+L+91d2+B+cLr01aTUCGEF7Y7I4NQ8alBj+wuiB0KEfGk9ufmB5f1+CC/A/jVfQ8hWVuXhr48XzDH9MnbKLfVv6yttgyBhJQO2qaGtum8Y2BuSEtrs74w8vkI+J3pFVCdEnylMhd3IUMChtl+mc31X0p9FJ5qrxkiORgqbZfjoxb9ZzW6M5tSGn/W2vKQWh8=" srcset="/img/loading.gif" lazyload alt="打开触摸板并粘贴文本后复现"></p>
+<p>微软社区用户 KirsKiKi 指出，</p>
+<blockquote>
+<p>这个问题已经出现了半年左右。<br>我目前版本是Windows 11 24H2, 26100.3194</p>
+<p>依然会出现该问题。每次开机必须点击开启一次 触摸键盘 才可以临时解决，关机就失效，下次开机必须再次点击一次 触摸键盘。</p>
+<p>请求修复。</p>
+</blockquote>
+<p>同时，<a target="_blank" rel="noopener" href="https://github.com/rime/weasel/issues/1519">ctrl+c之后，rime出现奇怪的上屏问题 · Issue #1519 · rime&#x2F;weasel</a> 也反映了相同的情况</p>
+<p><img src="https://private-user-images.githubusercontent.com/92753/416246250-468e960d-6a72-44ff-a66b-8d4e3c17c426.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE0NDE2MTgsIm5iZiI6MTc0MTQ0MTMxOCwicGF0aCI6Ii85Mjc1My80MTYyNDYyNTAtNDY4ZTk2MGQtNmE3Mi00NGZmLWE2NmItOGQ0ZTNjMTdjNDI2LmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA4VDEzNDE1OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE5MjY5ZGM3OGVhNDQ5Njg4MzgzZTVjMGQ2NWM4OTNmNDVjN2RiM2JlNGQ4ZjU1NTE1YjFkNDMwODkyNGFjMGImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.b8bu4QyqPzbe5Z1sLdRFgrXdzv-Zd0glM_eK4A-ZyPs" srcset="/img/loading.gif" lazyload alt="github rime issue"></p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>截止 2025-01-24，微软仍未修复此问题，<strong>只能通过开关屏幕键盘来维持本次开机期间 bug 不出现</strong>。</p>
 <ol>
 <li>使用 <code>Win + i</code> 打开设置界面。</li>
@@ -304,7 +315,18 @@
 <li>下滑找到<code>触摸键盘</code>改成<code>始终</code></li>
 <li>桌面右下角任务栏出现键盘图标，点击打开屏幕键盘一次，再关闭，问题解决。</li>
 </ol>
-<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><ol>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><h3 id="github-rime-输入法给出的方案"><a href="#github-rime-输入法给出的方案" class="headerlink" title="github rime 输入法给出的方案"></a>github rime 输入法给出的方案</h3><p><a target="_blank" rel="noopener" href="https://github.com/oTnTh">oTnTh</a> 在 <a target="_blank" rel="noopener" href="https://github.com/rime/weasel/issues/1519">ctrl+c之后，rime出现奇怪的上屏问题 · Issue #1519 · rime&#x2F;weasel</a> 给出了解决方案：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/pqpeqr">@pqpeqr</a> 非常感谢~</p>
+<p>有人提到将这个文件删掉可以解决问题：<code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe</code></p>
+<p>去查了一下自己硬盘上的这个文件，创建时间2025&#x2F;2&#x2F;13，更新时间2025&#x2F;2&#x2F;21。</p>
+<p>在Windows更新历史记录里，2&#x2F;21安装了KB5051989。</p>
+<p>将这个更新卸载以后，该问题确实就消失了。看起来，确实是Windows系统更新所导致的。</p>
+<p>另外，如果不能或者不愿意卸载更新，也可以将<code>C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe</code>加入自动启动。</p>
+<p>Windows里的设置、个性化、文本输入，往下拉找触摸键盘，将键盘大小设置为最小，然后拖到桌面右下角。</p>
+<p>该触摸键盘似乎是会自动隐藏的，权且可以当作一个临时的解决办法。</p>
+</blockquote>
+<h3 id="杂项解决方法"><a href="#杂项解决方法" class="headerlink" title="杂项解决方法"></a>杂项解决方法</h3><ol>
 <li>新建用户</li>
 <li>重装系统</li>
 <li>使用微软拼音输入法</li>
@@ -377,7 +399,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>win 输入法 首字母变成英文</div>
-      <div>https://taylorandtony.github.io/2025/01/21/win-输入法-首字母变成英文/</div>
+      <div>https://taylorandtony.github.io/2025/03/08/win-输入法-首字母变成英文/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +411,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月21日</div>
+          <div>2025年3月8日</div>
         </div>
       
       
@@ -421,18 +443,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/21/top/" title="置顶">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">置顶</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/21/hexo-%E6%90%AD%E5%BB%BA%E7%9A%84%E5%9D%91/" title="hexo 搭建的坑">
-                        <span class="hidden-mobile">hexo 搭建的坑</span>
+                      <a href="/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/" title="支持中文的等宽字体">
+                        <span class="hidden-mobile">支持中文的等宽字体</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
