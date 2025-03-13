@@ -19,24 +19,22 @@
   <meta name="author" content="TaylorAndTony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="查看 linux 软件是通过什么方式安装的ubuntu 系统上有 qBittorrent，但安装时间过于久远，忘记了是怎么安装的了。 1. 使用 dpkg 检查dpkg 是管理 .deb 包的工具，可以查看软件是否通过 apt 安装。 1dpkg -l | grep qbittorrent  如果输出类似 ii qbittorrent 4.3.9-1，说明是通过 apt 安装的。 2. 使用 ap">
+    <meta name="description" content="LaTeX实现与下段同页需求用一个自定义命令\head{}生成类似标题的效果，当标题在页面结尾时，想让它出现在下一页，此页结尾处留白，类似word中“与下段同页”的设置。 没那么麻烦看 texdoc needspace 文档即可。 12\needspace&#123;5\baselineskip&#125;The next five lines ...   The \needspace &lt;l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="查看 linux 软件是通过什么方式安装的">
-<meta property="og:url" content="https://taylorandtony.github.io/2025/03/12/linux-%E8%BD%AF%E4%BB%B6%E6%98%AF%E9%80%9A%E8%BF%87%E4%BB%80%E4%B9%88%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E7%9A%84/index.html">
+<meta property="og:title" content="latex 实现空间不足时换到下一页">
+<meta property="og:url" content="https://taylorandtony.github.io/2025/03/13/latex-%E5%AE%9E%E7%8E%B0%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E6%97%B6%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E9%A1%B5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="查看 linux 软件是通过什么方式安装的ubuntu 系统上有 qBittorrent，但安装时间过于久远，忘记了是怎么安装的了。 1. 使用 dpkg 检查dpkg 是管理 .deb 包的工具，可以查看软件是否通过 apt 安装。 1dpkg -l | grep qbittorrent  如果输出类似 ii qbittorrent 4.3.9-1，说明是通过 apt 安装的。 2. 使用 ap">
+<meta property="og:description" content="LaTeX实现与下段同页需求用一个自定义命令\head{}生成类似标题的效果，当标题在页面结尾时，想让它出现在下一页，此页结尾处留白，类似word中“与下段同页”的设置。 没那么麻烦看 texdoc needspace 文档即可。 12\needspace&#123;5\baselineskip&#125;The next five lines ...   The \needspace &lt;l">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-12T08:25:48.000Z">
-<meta property="article:modified_time" content="2025-03-12T08:29:55.938Z">
+<meta property="article:published_time" content="2025-03-13T13:58:57.000Z">
+<meta property="article:modified_time" content="2025-03-13T14:01:17.703Z">
 <meta property="article:author" content="TaylorAndTony">
-<meta property="article:tag" content="ubuntu">
-<meta property="article:tag" content="qbittorrent">
-<meta property="article:tag" content="troubleshooting">
+<meta property="article:tag" content="latex">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>查看 linux 软件是通过什么方式安装的 - Hexo</title>
+  <title>latex 实现空间不足时换到下一页 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="查看 linux 软件是通过什么方式安装的"></span>
+            <span id="subtitle" data-typed-text="latex 实现空间不足时换到下一页"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-12 16:25" pubdate>
-          2025年3月12日 下午
+        <time datetime="2025-03-13 21:58" pubdate>
+          2025年3月13日 晚上
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          289 字
+          619 字
         
       </span>
     
@@ -236,7 +234,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -273,35 +271,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">查看 linux 软件是通过什么方式安装的</h1>
+            <h1 id="seo-header">latex 实现空间不足时换到下一页</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="查看-linux-软件是通过什么方式安装的"><a href="#查看-linux-软件是通过什么方式安装的" class="headerlink" title="查看 linux 软件是通过什么方式安装的"></a>查看 linux 软件是通过什么方式安装的</h1><p>ubuntu 系统上有 qBittorrent，但安装时间过于久远，忘记了是怎么安装的了。</p>
-<h3 id="1-使用-dpkg-检查"><a href="#1-使用-dpkg-检查" class="headerlink" title="1. 使用 dpkg 检查"></a>1. 使用 <code>dpkg</code> 检查</h3><p><code>dpkg</code> 是管理 <code>.deb</code> 包的工具，可以查看软件是否通过 <code>apt</code> 安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dpkg -l | grep qbittorrent<br></code></pre></td></tr></table></figure>
+                <h1 id="LaTeX实现与下段同页"><a href="#LaTeX实现与下段同页" class="headerlink" title="LaTeX实现与下段同页"></a>LaTeX实现与下段同页</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>用一个自定义命令\head{}生成类似标题的效果，当标题在页面结尾时，想让它出现在下一页，此页结尾处留白，类似word中“与下段同页”的设置。</p>
+<h2 id="没那么麻烦"><a href="#没那么麻烦" class="headerlink" title="没那么麻烦"></a>没那么麻烦</h2><p>看 <code>texdoc needspace</code> 文档即可。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\needspace</span>&#123;5<span class="hljs-keyword">\baselineskip</span>&#125;<br>The next five lines ...<br></code></pre></td></tr></table></figure>
 
-<p>如果输出类似 <code>ii qbittorrent 4.3.9-1</code>，说明是通过 <code>apt</code> 安装的。</p>
-<h3 id="2-使用-apt-检查"><a href="#2-使用-apt-检查" class="headerlink" title="2. 使用 apt 检查"></a>2. 使用 <code>apt</code> 检查</h3><p><code>apt</code> 也可以查询软件包的安装状态。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt list --installed | grep qbittorrent<br></code></pre></td></tr></table></figure>
-
-<p>如果输出类似 <code>qbittorrent/now 4.3.9-1 amd64 [installed]</code>，说明是通过 <code>apt</code> 安装的。</p>
-<h3 id="3-检查安装来源"><a href="#3-检查安装来源" class="headerlink" title="3. 检查安装来源"></a>3. 检查安装来源</h3><p>使用 <code>apt</code> 查看软件包的来源：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt-cache policy qbittorrent<br></code></pre></td></tr></table></figure>
-
-<p>输出中的 <code>Installed</code> 行会显示安装版本和来源，如果显示官方仓库的版本号，说明是通过 <code>apt</code> 安装的。</p>
-<h3 id="4-检查可执行文件路径"><a href="#4-检查可执行文件路径" class="headerlink" title="4. 检查可执行文件路径"></a>4. 检查可执行文件路径</h3><p>查看 <code>qBittorrent</code> 的安装路径：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">which</span> qbittorrent<br></code></pre></td></tr></table></figure>
-
-<p>如果路径是 <code>/usr/bin/qbittorrent</code>，通常是通过 <code>apt</code> 安装的。</p>
-<h3 id="5-检查软件包管理器日志"><a href="#5-检查软件包管理器日志" class="headerlink" title="5. 检查软件包管理器日志"></a>5. 检查软件包管理器日志</h3><p>查看 <code>apt</code> 的日志文件 <code>/var/log/apt/history.log</code>，搜索 <code>qbittorrent</code> 的安装记录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">grep qbittorrent /var/log/apt/history.log<br></code></pre></td></tr></table></figure>
-
-<p>如果找到相关记录，说明是通过 <code>apt</code> 安装的。</p>
 <blockquote>
-<p>linux-软件是通过什么方式安装的.md</p>
+<p>The <code>\needspace &lt;length&gt;</code> macro reserves an approximate amount of space <code>length</code> for the material following to be kept on the same page. The accuracy of its calculations depend on what penalties are in effect, but is efﬁcient and normally adequate. A short page will be ragged bottom even if \flushbottom is in effect.</p>
 </blockquote>
+<h2 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h2><p>要实现在<code>\head</code>命令发现自己出现在页尾时，将自己放到下一页，并在当前页结尾处留白，类似Word中的“与下段同页”设置，你可以使用<code>\needspace</code>命令和<code>\vfill</code>命令。</p>
+<p>以下是一种可能的实现方法：</p>
+<p>在导言区或你的自定义命令之前，添加以下代码：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">latexCopy</span> <span class="hljs-meta">Code</span>\usepackage&#123;needspace&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后，在你的自定义命令中添加如下代码：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs prolog">latexCopy <span class="hljs-symbol">Code</span>\newcommand&#123;\head&#125;[<span class="hljs-number">1</span>]&#123;<span class="hljs-comment">%</span><br>    \needspace&#123;<span class="hljs-number">2</span>\baselineskip&#125; <span class="hljs-comment">% 设置所需的空间大小，这里是2行文字的高度</span><br>    \par\nobreak <span class="hljs-comment">% 禁止在新页上方产生分页符</span><br>    \vspace*&#123;\fill&#125; <span class="hljs-comment">% 添加垂直间距以填充当前页剩余空间</span><br>    \clearpage <span class="hljs-comment">% 强制创建新页面</span><br>    \section*&#123;#<span class="hljs-number">1</span>&#125; <span class="hljs-comment">% 插入标题</span><br>    \markboth&#123;&#125;&#123;&#125; <span class="hljs-comment">% 如果需要设置页眉，可以在这里添加内容</span><br>    \vspace*&#123;\fill&#125; <span class="hljs-comment">% 添加垂直间距以填充新页面上方的空白</span><br>    \par\nobreak <span class="hljs-comment">% 禁止在新页面上方产生分页符</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上述代码首先使用<code>\needspace&#123;&#125;</code>命令指定了所需的空间大小，这里设为2倍行高。这意味着如果当前页剩余空间不足以放置2行文字的高度，<code>\head</code>命令将会在下一页开始新的一行。</p>
+<p>接着，我们使用<code>\par\nobreak</code>命令禁止在新页面的顶部产生分页符，并使用<code>\vspace*&#123;\fill&#125;</code>命令添加垂直间距以填充当前页面的剩余空间。这样可以确保标题出现在新页面的开头，并在当前页面结尾处留白。</p>
+<p>然后，我们使用<code>\clearpage</code>命令创建新页面，并插入标题使用<code>\section*&#123;&#125;</code>命令。再接着，使用<code>\vspace*&#123;\fill&#125;</code>命令添加垂直间距以填充新页面上方的空白，并使用<code>\par\nobreak</code>命令禁止在新页面的顶部产生分页符。</p>
+<p>通过这种方式，<code>\head</code>命令将在发现自己出现在页尾时，将标题放到下一页，并在当前页结尾处留白。希望对你有帮助！</p>
 
                 
               </div>
@@ -320,7 +313,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  <a href="/categories/latex/" class="category-chain-item">latex</a>
   
   
 
@@ -335,11 +328,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ubuntu/" class="print-no-link">#ubuntu</a>
-      
-        <a href="/tags/qbittorrent/" class="print-no-link">#qbittorrent</a>
-      
-        <a href="/tags/troubleshooting/" class="print-no-link">#troubleshooting</a>
+        <a href="/tags/latex/" class="print-no-link">#latex</a>
       
     </div>
   
@@ -351,8 +340,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>查看 linux 软件是通过什么方式安装的</div>
-      <div>https://taylorandtony.github.io/2025/03/12/linux-软件是通过什么方式安装的/</div>
+      <div>latex 实现空间不足时换到下一页</div>
+      <div>https://taylorandtony.github.io/2025/03/13/latex-实现空间不足时换到下一页/</div>
     </div>
     <div class="license-meta">
       
@@ -364,7 +353,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月12日</div>
+          <div>2025年3月13日</div>
         </div>
       
       
@@ -396,18 +385,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/13/latex-%E5%9C%A8%E5%88%97%E8%A1%A8%E5%89%8D%E6%98%BE%E7%A4%BA%E9%A1%B9%E7%9B%AE%E6%80%BB%E6%95%B0-%E4%BA%8C%E6%AC%A1%E7%BC%96%E8%AF%91%E6%98%BE%E7%A4%BA%E6%80%BB%E6%95%B0/" title="latex 在列表前显示项目总数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">latex 在列表前显示项目总数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/12/csharp-detect-image-ratio/" title="C# 检测图片比例遇到长宽颠倒（C# 读取图片被旋转）">
-                        <span class="hidden-mobile">C# 检测图片比例遇到长宽颠倒（C# 读取图片被旋转）</span>
+                      <a href="/2025/03/13/latex-%E5%A6%82%E4%BD%95%E8%AE%A9subfig%E4%B8%AD%E7%9A%84subfloat%E5%AD%90%E6%A0%87%E9%A2%98%E8%AE%BE%E4%B8%BA%E6%96%9C%E4%BD%93/" title="latex 如何让subfig中的subfloat子标题设为斜体">
+                        <span class="hidden-mobile">latex 如何让subfig中的subfloat子标题设为斜体</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
