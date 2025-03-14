@@ -4,7 +4,65 @@
   
   
   <entry>
-    <title>latex 实现空间不足时换到下一页</title>
+    <title>LaTeX 字体字形设置（斜体、加粗等）</title>
+    <link href="/2025/03/14/latex-%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E7%9A%84LATEX%E5%AD%97%E4%BD%93%E5%AD%97%E5%BD%A2%E5%AD%97%E5%9E%8B%E8%AE%BE%E7%BD%AE/"/>
+    <url>/2025/03/14/latex-%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E7%9A%84LATEX%E5%AD%97%E4%BD%93%E5%AD%97%E5%BD%A2%E5%AD%97%E5%9E%8B%E8%AE%BE%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="LaTeX-字体字形设置（斜体、加粗等）"><a href="#LaTeX-字体字形设置（斜体、加粗等）" class="headerlink" title="LaTeX 字体字形设置（斜体、加粗等）"></a>LaTeX 字体字形设置（斜体、加粗等）</h1><h3 id="设置字体类型"><a href="#设置字体类型" class="headerlink" title="设置字体类型"></a>设置字体类型</h3><table><thead><tr><th>命令</th><th>描述</th></tr></thead><tbody><tr><td><code>\bf</code></td><td>转变为罗马族，直立形状，黑体系列的字体属性。</td></tr><tr><td><code>\it</code></td><td>转变为罗马族，斜体形状，中等粗细系列的字体属性。</td></tr><tr><td><code>\rm</code></td><td>转变为罗马族，直立形状，中等粗细系列的字体属性，这是默认的字体。</td></tr><tr><td><code>\sc</code></td><td>转变为罗马族，小型大写形状，中等粗细系列的字体属性。</td></tr><tr><td><code>\sf</code></td><td>转变为无衬线族，直立形状，中等粗细系列的字体属性。</td></tr><tr><td><code>\sl</code></td><td>转变为罗马族，slanted的斜体形状，中等粗细系列的字体属性。</td></tr><tr><td><code>\tt</code></td><td>转变为打字机族，直立形状，中等粗细系列的字体属性。</td></tr></tbody></table><h3 id="设置字体效果"><a href="#设置字体效果" class="headerlink" title="设置字体效果"></a>设置字体效果</h3><p><code>\em</code> 声明选用强调字体，它与当前字体同族、同系列，但形状不同，通常是在直立字体与斜体间转换。</p><p><code>\emph&#123;文本&#125;</code> 用强调字体打印文本，它与当前字体同族、同系列，但形状不同，通常是在直立字体与斜体间转换，此命令等价于{\em 文本}，也就是说，自动插入了斜体附加留空。</p><p><code>\nocorr</code> 与字体命令<code>\emph</code>，<code>\textsl</code>，<code>\textit</code>合用，以取消自动的斜体校正。</p><h3 id="更改当前字体属性"><a href="#更改当前字体属性" class="headerlink" title="更改当前字体属性"></a>更改当前字体属性</h3><table><thead><tr><th>命令</th><th>描述</th></tr></thead><tbody><tr><td><code>\normalfont</code></td><td>把字体转换为默认的族、形状和系列。</td></tr><tr><td><code>\bfseries</code></td><td>不改变当前字体的族与形状，但转变成bold序列。</td></tr><tr><td><code>\mdseries</code></td><td>不改变当前字体的族与形状，但转变成中等粗细medium序列。</td></tr><tr><td><code>\itshape</code></td><td>把字体的形状属性改为斜体，但保留族与系列不变。</td></tr><tr><td><code>\scshape</code></td><td>把字体的形状属性改为小型大写，但保留族与系列不变。</td></tr><tr><td><code>\slshape</code></td><td>把字体的形状属性改为slanted的斜体，但保留族与系列不变。</td></tr><tr><td><code>\upshape</code></td><td>把字体的形状属性改为直立，但保留族与系列不变。</td></tr><tr><td><code>\rmfamily</code></td><td>本命令使字体保持当前的系列与形状属性，但转变为罗马族属性。</td></tr><tr><td><code>\sffamily</code></td><td>本命令使字体保持当前的系列与形状属性，但转变为无衬线族属性。</td></tr><tr><td><code>\ttfamily</code></td><td>使字体保持当前的系列与形状属性，但转变为打字机族属性。</td></tr></tbody></table><h3 id="数学字体"><a href="#数学字体" class="headerlink" title="数学字体"></a>数学字体</h3><table><thead><tr><th>命令</th><th>描述</th></tr></thead><tbody><tr><td><code>\mathbf&#123;文本&#125;</code></td><td>在数学模式里用粗体（\bfseries）打印文本，其中的空格被忽略。</td></tr><tr><td><code>\mathcal&#123;文本&#125;</code></td><td>在数学模式里用书写体打印文本。</td></tr><tr><td><code>\mathit&#123;文本&#125;</code></td><td>在数学模式里用斜体（\itshape）打印文本。</td></tr><tr><td><code>\mathnormal&#123;文本&#125;</code></td><td>在数学模式里用数学字体打印文本。</td></tr><tr><td><code>\mathrm&#123;文本&#125;</code></td><td>在数学模式里用罗马体（\rmfamily）打印文本，其中的空格被忽略。</td></tr><tr><td><code>\mathsf&#123;文本&#125;</code></td><td>在数学模式里用无衬线字体（\sffamily）打印文本，其中的空格被忽略。</td></tr><tr><td><code>\mathtt&#123;文本&#125;</code></td><td>在数学模式里用打印机字体（\ttfamily）打印文本，其中的空格被忽略。</td></tr></tbody></table><h3 id="文本命令"><a href="#文本命令" class="headerlink" title="文本命令"></a>文本命令</h3><table><thead><tr><th>命令</th><th>等价于</th><th>描述</th></tr></thead><tbody><tr><td><code>\textbf&#123;文本&#125;</code></td><td><code>&#123;\bfseries 文本&#125;</code></td><td>使用粗体系列格式化文本。</td></tr><tr><td><code>\textit&#123;文本&#125;</code></td><td><code>&#123;\itshape 文本&#125;</code></td><td>使用斜体形状格式化文本。</td></tr><tr><td><code>\textmd&#123;文本&#125;</code></td><td><code>&#123;\mdseries 文本&#125;</code></td><td>使用中等粗细系列格式化文本。</td></tr><tr><td><code>\textnormal&#123;文本&#125;</code></td><td><code>&#123;\normalfont 文本&#125;</code></td><td>将字体转换为默认的族、形状和系列。</td></tr><tr><td><code>\textrm&#123;文本&#125;</code></td><td><code>&#123;\rmfamily 文本&#125;</code></td><td>转变为罗马族属性，保持当前的系列与形状属性。</td></tr><tr><td><code>\textsc&#123;文本&#125;</code></td><td><code>&#123;\scshape 文本&#125;</code></td><td>把字体的形状属性改为小型大写，但保留族与系列不变。</td></tr><tr><td><code>\textsf&#123;文本&#125;</code></td><td><code>&#123;\sffamily 文本&#125;</code></td><td>转变为无衬线族属性，保持当前的系列与形状属性。</td></tr><tr><td><code>\textsl&#123;文本&#125;</code></td><td><code>&#123;\slshape 文本&#125;</code></td><td>把字体的形状属性改为slanted的斜体，但保留族与系列不变。</td></tr><tr><td><code>\texttt&#123;文本&#125;</code></td><td><code>&#123;\ttfamily 文本&#125;</code></td><td>转变为打字机族属性，保持当前的系列与形状属性。</td></tr><tr><td><code>\textup&#123;文本&#125;</code></td><td><code>&#123;\upshape 文本&#125;</code></td><td>把字体的形状属性改为直立，但保留族与系列不变。</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>latex</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>latex</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>网速正常但网站打开慢</title>
+    <link href="/2025/03/14/network-%E7%BD%91%E9%80%9F%E6%AD%A3%E5%B8%B8%E4%BD%86%E7%BD%91%E7%AB%99%E6%89%93%E5%BC%80%E6%85%A2/"/>
+    <url>/2025/03/14/network-%E7%BD%91%E9%80%9F%E6%AD%A3%E5%B8%B8%E4%BD%86%E7%BD%91%E7%AB%99%E6%89%93%E5%BC%80%E6%85%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="网速正常但网站打开慢"><a href="#网速正常但网站打开慢" class="headerlink" title="网速正常但网站打开慢"></a>网速正常但网站打开慢</h1><p>现象：网络测速 340Mbps，ping 延迟低于 50ms，但是访问 <a href="https://www.bilibili.com/">B 站</a> 经常出现白屏、https 超时、数据无法加载、刷新后长时间白屏的问题。同时，使用 B 站的手机 app 访问，也会出现长时间黑屏、点击点赞按钮后延迟 10 几秒才响应等。另外，访问局域网内自己部署的 web 服务，也会出现 10 几秒的延迟，才能加载页面。</p><h2 id="解决手机-app"><a href="#解决手机-app" class="headerlink" title="解决手机 app"></a>解决手机 app</h2><p>在路由器上<strong>更换 DNS</strong> 后访问正常。</p><h2 id="解决电脑访问-B-站卡顿"><a href="#解决电脑访问-B-站卡顿" class="headerlink" title="解决电脑访问 B 站卡顿"></a>解决电脑访问 B 站卡顿</h2><p>参考<a href="https://www.zhihu.com/question/309961843">为什么我的电脑网速正常 打开网页的速度却很慢?</a>，关闭计算机的 IPv6。</p><p>控制面板→网络和共享中心→更改适配器设置→选择当前网络→属性→取消勾选协议版本6→确定</p><p><a href="https://zhuanlan.zhihu.com/p/621371177">从原理到实践，彻底告别 IPv6 上网不稳定的问题</a> 做了很详细的介绍。</p><p>关于 IPv6 为何卡顿：</p><h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a><a href="https://www.belshe.com/2011/05/18/ipv6-will-slow-you-down-dns/">DNS解析</a></h3><p>IPv6的DNS解析速度通常比IPv4慢，尤其是在某些地区或网络环境下，IPv6 DNS服务器的性能不佳可能导致解析延迟。例如，有用户反映在某些地区开启IPv6后，DNS解析速度显著下降，从而影响网页加载速度</p><h3 id="PMTU黑洞"><a href="#PMTU黑洞" class="headerlink" title="PMTU黑洞"></a><a href="https://www.bilibili.com/opus/936935304495890481">PMTU黑洞</a></h3><p>IPv6不支持分片，而许多网络设备（如光猫和路由器）对IPv6的优化不足，可能会导致MTU（最大传输单元）设置不当，从而引发数据包丢失或丢弃，进一步影响网分片问题。</p><p><a href="https://www.cnblogs.com/toumingbai/p/16012239.html">家用路由器开启 IPV6， wifi 访问变慢甚至打不开网页？</a></p><p>MTU (Maximum transmission unit) 是一条链路上可以通过的三层数据包的最大尺寸（包含 IP 包头）。以太网上默认的 MTU 是 1500 字节，但是你和目标服务器之间的路径上可能存在小于 MTU 1500 的链路。这条路径上最小的 MTU 值就是整条路径的 PMTU 值。路由器在转发包时，超过 MTU 大小的包会被分片（ Fragmentation ），也就是一个大包会被分切为多个不超过 MTU 的小包进行传输，传输效率会下降。</p><p>现在国内 ISP 一般都是通过 PPPoE 虚拟拨号建立 WAN 口连接的。Ethernet 的默认 MTU 是 1500，但是 PPPoE 隧道有 8 个 bytes 的开销，所以 PPPoE 虚连接的 MTU 就是 1500-8&#x3D;1492，减掉 IPv4 包头（ 20 字节）和 TCP 包头（ 20 字节），可以得知 IPv4 下需要把 MSS 设为 1452 以下。</p><blockquote><p>此文章也表示：目前来看，要想在国内比较理想地体验 IPv6，你需要把光猫改为桥接模式，并使用 OpenWRT 或者 VyOS 这类对 IPv6 支持较好的软路由</p></blockquote><h3 id="双栈技术的切换延迟"><a href="#双栈技术的切换延迟" class="headerlink" title="双栈技术的切换延迟"></a><a href="https://www.bilibili.com/opus/936935304495890481">双栈技术的切换延迟</a></h3><p>现代浏览器通常采用双栈技术（同时支持IPv4和IPv6），但在切换过程中可能会出现短暂的延迟。例如，浏览器会优先尝试通过IPv6访问资源，如果失败则切换到IPv4，这种切换机制可能导致加载时间变长</p><h3 id="网站外链"><a href="#网站外链" class="headerlink" title="网站外链"></a><a href="https://www.joz.com/solutions-1/ipv6-%E7%9A%84%E5%A4%A9%E7%AA%97%E9%97%AE%E9%A2%98">网站外链</a></h3><p>当网页包含指向其他网站内容的链接（外链），而这些外链的服务器尚未升级支持IPv6时，IPv6用户访问这些网页时会出现响应缓慢、部分内容无法显示等问题。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>network</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>troubleshoot</tag>
+      
+      <tag>network</tag>
+      
+      <tag>Windows</tag>
+      
+      <tag>dns</tag>
+      
+      <tag>ipv4</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LaTeX 实现空间不足时换到下一页</title>
     <link href="/2025/03/13/latex-%E5%AE%9E%E7%8E%B0%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E6%97%B6%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E9%A1%B5/"/>
     <url>/2025/03/13/latex-%E5%AE%9E%E7%8E%B0%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E6%97%B6%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E9%A1%B5/</url>
     
@@ -29,7 +87,7 @@
   
   
   <entry>
-    <title>latex 如何让subfig中的subfloat子标题设为斜体</title>
+    <title>LaTeX 如何让subfig中的subfloat子标题设为斜体</title>
     <link href="/2025/03/13/latex-%E5%A6%82%E4%BD%95%E8%AE%A9subfig%E4%B8%AD%E7%9A%84subfloat%E5%AD%90%E6%A0%87%E9%A2%98%E8%AE%BE%E4%B8%BA%E6%96%9C%E4%BD%93/"/>
     <url>/2025/03/13/latex-%E5%A6%82%E4%BD%95%E8%AE%A9subfig%E4%B8%AD%E7%9A%84subfloat%E5%AD%90%E6%A0%87%E9%A2%98%E8%AE%BE%E4%B8%BA%E6%96%9C%E4%BD%93/</url>
     
@@ -54,7 +112,7 @@
   
   
   <entry>
-    <title>LaTex 的图编号如何关联章节</title>
+    <title>LaTeX 的图编号如何关联章节</title>
     <link href="/2025/03/13/LaTex-%E7%9A%84%E5%9B%BE%E7%BC%96%E5%8F%B7%E5%A6%82%E4%BD%95%E5%85%B3%E8%81%94%E7%AB%A0%E8%8A%82/"/>
     <url>/2025/03/13/LaTex-%E7%9A%84%E5%9B%BE%E7%BC%96%E5%8F%B7%E5%A6%82%E4%BD%95%E5%85%B3%E8%81%94%E7%AB%A0%E8%8A%82/</url>
     
@@ -104,7 +162,7 @@
   
   
   <entry>
-    <title>latex 自定义超大的字体</title>
+    <title>LaTeX 自定义超大的字体</title>
     <link href="/2025/03/13/latex-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B6%85%E5%A4%A7%E7%9A%84%E5%AD%97%E4%BD%93/"/>
     <url>/2025/03/13/latex-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B6%85%E5%A4%A7%E7%9A%84%E5%AD%97%E4%BD%93/</url>
     
@@ -129,11 +187,11 @@
   
   
   <entry>
-    <title>latex 在列表前显示项目总数</title>
+    <title>LaTeX 在列表前显示项目总数</title>
     <link href="/2025/03/13/latex-%E5%9C%A8%E5%88%97%E8%A1%A8%E5%89%8D%E6%98%BE%E7%A4%BA%E9%A1%B9%E7%9B%AE%E6%80%BB%E6%95%B0-%E4%BA%8C%E6%AC%A1%E7%BC%96%E8%AF%91%E6%98%BE%E7%A4%BA%E6%80%BB%E6%95%B0/"/>
     <url>/2025/03/13/latex-%E5%9C%A8%E5%88%97%E8%A1%A8%E5%89%8D%E6%98%BE%E7%A4%BA%E9%A1%B9%E7%9B%AE%E6%80%BB%E6%95%B0-%E4%BA%8C%E6%AC%A1%E7%BC%96%E8%AF%91%E6%98%BE%E7%A4%BA%E6%80%BB%E6%95%B0/</url>
     
-    <content type="html"><![CDATA[<h1 id="latex-在列表前显示项目总数"><a href="#latex-在列表前显示项目总数" class="headerlink" title="latex 在列表前显示项目总数"></a>latex 在列表前显示项目总数</h1><p>在 LaTeX 中，如果想在列表之前显示列表中项目的总数，需要在处理完列表之后再回过头来设置这个计数。<br>这是因为 TeX 是一次性的编译器，它从上到下依次处理文档中的内容，所以在开始时无法知道列表的长度。</p><p>要实现这一点，可以使用 <code>totcount</code> 宏包或者利用 LaTeX 的标签和引用机制来完成这项任务。这里给出一个使用 <code>totcount</code> 宏包的例子：</p><ol><li><p>首先，导言区添加 <code>totcount</code> 宏包，并声明计数器为可总计数器：</p> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\usepackage</span>&#123;totcount&#125;<br><span class="hljs-keyword">\newtotcounter</span>&#123;mycounter&#125;<br></code></pre></td></tr></table></figure></li><li><p>然后定义列表命令 <code>\myitem</code>，并在每个 <code>\myitem</code> 调用时增加计数器：</p> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\newcommand</span>&#123;<span class="hljs-keyword">\myitem</span>&#125;&#123;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\refstepcounter</span>&#123;mycounter&#125;<span class="hljs-comment">%</span><br>  <span class="hljs-comment">% 你的列表项格式</span><br>&#125;<br></code></pre></td></tr></table></figure></li><li><p>在想显示总项目数的地方，使用 <code>\total&#123;mycounter&#125;</code> 来输出总数。但是要注意，由于 TeX 编译是单程的，要两次编译才能得到正确的总数。</p> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">总共有 <span class="hljs-keyword">\total</span>&#123;mycounter&#125; 个项目。<br></code></pre></td></tr></table></figure></li><li><p>最后，在文档中使用自定义列表命令 <code>\myitem</code> 来创建列表项。</p></li></ol><p>完整的示例代码：</p><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>&#123;article&#125;<br><span class="hljs-keyword">\usepackage</span>&#123;totcount&#125;<br><br><span class="hljs-comment">% 声明并注册可总计数器</span><br><span class="hljs-keyword">\newtotcounter</span>&#123;mycounter&#125;<br><br><span class="hljs-comment">% 定义自定义列表项命令</span><br><span class="hljs-keyword">\newcommand</span>&#123;<span class="hljs-keyword">\myitem</span>&#125;&#123;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\refstepcounter</span>&#123;mycounter&#125;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\item</span> <span class="hljs-comment">% 或者其他你想要的列表项格式</span><br>&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;document&#125;<br><br><span class="hljs-comment">% 显示总项目数</span><br>总共有 <span class="hljs-keyword">\total</span>&#123;mycounter&#125; 个项目。<br><br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;<br>  <span class="hljs-keyword">\myitem</span> 第一个项目<br>  <span class="hljs-keyword">\myitem</span> 第二个项目<br>  <span class="hljs-keyword">\myitem</span> 第三个项目<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br><span class="hljs-keyword">\end</span>&#123;document&#125;<br></code></pre></td></tr></table></figure><p>第一次编译时，<code>\total&#123;mycounter&#125;</code> 可能会显示错误的值（通常是0）。第二次编译时，计数器的总数会被正确计算并显示出来。如果需要的话，请多次编译以确保所有的引用都被正确更新。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="latex-在列表前显示项目总数"><a href="#latex-在列表前显示项目总数" class="headerlink" title="latex 在列表前显示项目总数"></a>latex 在列表前显示项目总数</h1><p>在 LaTeX 中，如果想在列表之前显示列表中项目的总数，需要在处理完列表之后再回过头来设置这个计数。<br>这是因为 TeX 是一次性的编译器，它从上到下依次处理文档中的内容，所以在开始时无法知道列表的长度。</p><p>要实现这一点，可以使用 <code>totcount</code> 宏包或者利用 LaTeX 的标签和引用机制来完成这项任务。这里给出一个使用 <code>totcount</code> 宏包的例子：</p><ol><li><p>首先，导言区添加 <code>totcount</code> 宏包，并声明计数器为可总计数器：</p> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\usepackage</span>&#123;totcount&#125;<br><span class="hljs-keyword">\newtotcounter</span>&#123;mycounter&#125;<br></code></pre></td></tr></table></figure></li><li><p>然后定义列表命令 <code>\myitem</code>，并在每个 <code>\myitem</code> 调用时增加计数器：</p> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\newcommand</span>&#123;<span class="hljs-keyword">\myitem</span>&#125;&#123;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\refstepcounter</span>&#123;mycounter&#125;<span class="hljs-comment">%</span><br>  <span class="hljs-comment">% 你的列表项格式</span><br>&#125;<br></code></pre></td></tr></table></figure></li><li><p>在想显示总项目数的地方，使用 <code>\total&#123;mycounter&#125;</code> 来输出总数。但是要注意，由于 TeX 编译是单程的，要两次编译才能得到正确的总数。</p> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">总共有 <span class="hljs-keyword">\total</span>&#123;mycounter&#125; 个项目。<br></code></pre></td></tr></table></figure></li><li><p>最后，在文档中使用自定义列表命令 <code>\myitem</code> 来创建列表项。</p></li></ol><p>完整的示例代码：</p><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>&#123;article&#125;<br><span class="hljs-keyword">\usepackage</span>&#123;totcount&#125;<br><br><span class="hljs-comment">% 声明并注册可总计数器</span><br><span class="hljs-keyword">\newtotcounter</span>&#123;mycounter&#125;<br><br><span class="hljs-comment">% 定义自定义列表项命令</span><br><span class="hljs-keyword">\newcommand</span>&#123;<span class="hljs-keyword">\myitem</span>&#125;&#123;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\refstepcounter</span>&#123;mycounter&#125;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\item</span> <span class="hljs-comment">% 或者其他你想要的列表项格式</span><br>&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;document&#125;<br><br><span class="hljs-comment">% 显示总项目数</span><br>总共有 <span class="hljs-keyword">\total</span>&#123;mycounter&#125; 个项目。<br><br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;<br>  <span class="hljs-keyword">\myitem</span> 第一个项目<br>  <span class="hljs-keyword">\myitem</span> 第二个项目<br>  <span class="hljs-keyword">\myitem</span> 第三个项目<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br><span class="hljs-keyword">\end</span>&#123;document&#125;<br></code></pre></td></tr></table></figure><p><img src="/images/latex_list_number.png"></p><p>第一次编译时，<code>\total&#123;mycounter&#125;</code> 可能会显示错误的值（通常是0）。第二次编译时，计数器的总数会被正确计算并显示出来。如果需要的话，请多次编译以确保所有的引用都被正确更新。</p>]]></content>
     
     
     <categories>
@@ -170,11 +228,11 @@
     
     <tags>
       
+      <tag>troubleshoot</tag>
+      
       <tag>ubuntu</tag>
       
       <tag>qbittorrent</tag>
-      
-      <tag>troubleshooting</tag>
       
     </tags>
     
@@ -1192,9 +1250,9 @@
       
       <tag>blazor</tag>
       
-      <tag>web</tag>
-      
       <tag>sweetalert</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
