@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>支持中文的等宽字体</title>
+    <link href="/2025/03/16/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/"/>
+    <url>/2025/03/16/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/</url>
+    
+    <content type="html"><![CDATA[<h1 id="支持中文的等宽字体（中英文可对齐）"><a href="#支持中文的等宽字体（中英文可对齐）" class="headerlink" title="支持中文的等宽字体（中英文可对齐）"></a>支持中文的等宽字体（中英文可对齐）</h1><p>本文介绍了一些可用于中文的编程字体，且中英文混排时，中英文可以对齐</p><h2 id="更纱黑体系列"><a href="#更纱黑体系列" class="headerlink" title="更纱黑体系列"></a>更纱黑体系列</h2><p><a href="https://github.com/be5invis/Sarasa-Gothic">Sarasa Gothic</a> 是一个免费的开源字体，支持拉丁语，希腊语和西里尔字母。</p><p><strong>Sarasa Fixed SC</strong></p><p><img src="/images/mono-font/Sarasa%20Fixed%20SC.png" alt="Sarasa Fixed SC"></p><p><strong>Sarasa Term SC</strong></p><p><img src="/images/mono-font/Sarasa%20Term%20SC.png" alt="Sarasa Term SC"></p><h2 id="Maple-Mono"><a href="#Maple-Mono" class="headerlink" title="Maple Mono"></a>Maple Mono</h2><p><a href="https://github.com/subframe7536/maple-font">maple-font</a> Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font for IDE and command line, fine-grained customization options.</p><p>带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p><p><img src="/images/mono-font/Maple%20Mono%20SC%20NF.png" alt="Maple mono"></p><p>其<a href="https://github.com/subframe7536/maple-font">官方 github 页面</a>给出了图片示例</p><p><img src="/images/mono-font/maple-header.png" alt="maple mono banner"></p><p><img src="/images/mono-font/maple-2-1.png" alt="maple mono github example 1"></p><p><img src="https://github.com/subframe7536/maple-font/blob/variable/resources/showcase.png?raw=true" alt="maple mono github example 2"></p><p>这个字体的斜体有特殊设计，看起来挺好看</p><h2 id="JetBrains-Maple-Mono"><a href="#JetBrains-Maple-Mono" class="headerlink" title="JetBrains Maple Mono"></a>JetBrains Maple Mono</h2><p><a href="https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono">JetBrainsMapleMono</a> JetBrains Maple Mono: 一只基于 Github Workflows (Bash) 的 <a href="https://github.com/JetBrains/JetBrainsMono">JetBrains Mono</a> + <a href="https://github.com/subframe7536/maple-font">Maple Mono</a> 合成字体</p><ul><li>完美融合，Maple Mono 补充 JetBrains Mono 中日字形空缺</li><li>高可读性，等宽无衬线，中英文 2:1 宽完美对齐</li><li>丰富字重，智能连字，Nerd Font，Hints 原生支持</li><li>实时更新，构建合成优化发布全流程自动化</li></ul><p>发布文件按 JetBrainsMapleMono-[NF&#x2F;XX]-[NR&#x2F;XX]-[HT&#x2F;XX].zip 的格式命名:</p><ul><li>XX: 占位符，表示该字体没有增加这一特性</li><li>NF: Nerd Font，为部分开发工具、命令行终端、代码编辑器等提供图标支持 (会导致字体文件体积略微增大)</li><li>NR: CN Narrow，实验性功能，缩小中文字体间距 (会导致中英文不再 2:1 宽完美对齐)</li><li>HT: Hinted，使字体在低分辨率屏幕上 (&lt;&#x3D;1080P) 的渲染更加均匀 (可能会导致字体在高分辨率屏幕上的渲染略微模糊)</li></ul><p><img src="/images/mono-font/jetbrains-maple.png" alt="JetBrainsMapleMono"></p><h2 id="LXGW-Bright-Code"><a href="#LXGW-Bright-Code" class="headerlink" title="LXGW Bright Code"></a>LXGW Bright Code</h2><p><a href="https://github.com/lxgw/LxgwBright-Code">LxgwBright-Code</a> A merged font of Monaspace Argon and LXGW WenKai.</p><p>仓库介绍：</p><blockquote><p>LXGW Bright Code 是由 <a href="https://github.com/githubnext/monaspace">Monaspace Argon</a> 与 <a href="https://github.com/lxgw/LxgwWenKai">霞鹜文楷系列字体</a> 合并而成的字体，采用 <a href="https://github.com/nowar-fonts/Warcraft-Font-Merger">魔兽字体合并补全工具</a> 合并。仅提供 TrueType 格式字体文件。</p></blockquote><p><img src="/images/mono-font/LXGW%20Bright%20Code.png" alt="LXGW Bright Code"></p><h2 id="Noto-Sans-Mono-CJK-SC"><a href="#Noto-Sans-Mono-CJK-SC" class="headerlink" title="Noto Sans Mono CJK SC"></a>Noto Sans Mono CJK SC</h2><p><a href="https://notofonts.github.io/noto-docs/specimen/NotoSansMonoCJKsc/">Noto Sans Mono CJK SC</a> is a monospaced, unmodulated (“sans serif”) design suitable for programming code and other uses where a fixed-width font is needed.</p><p><img src="/images/mono-font/Noto%20Sans%20Mono%20CJK%20SC.png" alt="Noto Sans Mono CJK SC"></p><p>Noto 字体官方指出，”Noto Sans Mono CJK SC contains 65,535 glyphs”。这一字体包括的字形非常多，可以涵盖部分生僻字。这款字体同样适合给 $\LaTeX$ 编辑器使用，方便编辑生僻字文档。</p><h2 id="YaHei-Ubuntu-Mono"><a href="#YaHei-Ubuntu-Mono" class="headerlink" title="YaHei Ubuntu Mono"></a>YaHei Ubuntu Mono</h2><p><a href="https://github.com/chenyium/Microsoft-Yahei-Mono">Github</a></p><p>其仓库注明</p><blockquote><p>个人非常喜欢的一款编程字体，所以从网上找来资源，放到 GitHub 上备用，后续如果有更新，也方便版本追溯。</p></blockquote><p><img src="/images/mono-font/YaHei%20Ubuntu%20Mono.png" alt="YaHei Ubuntu Mono"></p><h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><p>在支持字体 fallback 机制的编辑器中，还可以设置字体为 Ubuntu Mono derivative Powerline 和微软雅黑，这两个字体刚好能够将中英文进行对齐。</p><p><img src="/images/mono-font/Ubuntu%20Mono%20derivative%20Powerline+yahei.png" alt="Ubuntu Mono derivative Powerline+yahei"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>other</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>font</tag>
+      
+      <tag>mono font</tag>
+      
+      <tag>monospace font</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>网速正常但网站打开慢</title>
     <link href="/2025/03/16/network-%E7%BD%91%E9%80%9F%E6%AD%A3%E5%B8%B8%E4%BD%86%E7%BD%91%E7%AB%99%E6%89%93%E5%BC%80%E6%85%A2/"/>
     <url>/2025/03/16/network-%E7%BD%91%E9%80%9F%E6%AD%A3%E5%B8%B8%E4%BD%86%E7%BD%91%E7%AB%99%E6%89%93%E5%BC%80%E6%85%A2/</url>
@@ -328,35 +357,6 @@
   
   
   <entry>
-    <title>支持中文的等宽字体</title>
-    <link href="/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/"/>
-    <url>/2025/02/12/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/</url>
-    
-    <content type="html"><![CDATA[<h1 id="支持中文的等宽字体（中英文可对齐）"><a href="#支持中文的等宽字体（中英文可对齐）" class="headerlink" title="支持中文的等宽字体（中英文可对齐）"></a>支持中文的等宽字体（中英文可对齐）</h1><p>本文介绍了一些可用于中文的编程字体，且中英文混排时，中英文可以对齐</p><h2 id="更纱黑体系列"><a href="#更纱黑体系列" class="headerlink" title="更纱黑体系列"></a>更纱黑体系列</h2><p><a href="https://github.com/be5invis/Sarasa-Gothic">Sarasa Gothic</a> 是一个免费的开源字体，支持拉丁语，希腊语和西里尔字母。</p><p><strong>Sarasa Fixed SC</strong></p><p><img src="/images/mono-font/Sarasa%20Fixed%20SC.png" alt="Sarasa Fixed SC"></p><p><strong>Sarasa Term SC</strong></p><p><img src="/images/mono-font/Sarasa%20Term%20SC.png" alt="Sarasa Term SC"></p><h2 id="Maple-mono"><a href="#Maple-mono" class="headerlink" title="Maple mono"></a>Maple mono</h2><p><a href="https://github.com/subframe7536/maple-font">maple-font</a> Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font for IDE and command line, fine-grained customization options.</p><p>带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p><p><img src="/images/mono-font/Maple%20Mono%20SC%20NF.png" alt="Maple mono"></p><p>其<a href="https://github.com/subframe7536/maple-font">官方 github 页面</a>给出了图片示例</p><p><img src="/images/mono-font/maple-header.png" alt="maple mono banner"></p><p><img src="/images/mono-font/maple-2-1.png" alt="maple mono github example 1"></p><p><img src="https://github.com/subframe7536/maple-font/blob/variable/resources/showcase.png?raw=true" alt="maple mono github example 2"></p><p>这个字体的斜体有特殊设计，看起来挺好看</p><h2 id="LXGW-Bright-Code"><a href="#LXGW-Bright-Code" class="headerlink" title="LXGW Bright Code"></a>LXGW Bright Code</h2><p><a href="https://github.com/lxgw/LxgwBright-Code">LxgwBright-Code</a> A merged font of Monaspace Argon and LXGW WenKai.</p><p>仓库介绍：</p><blockquote><p>LXGW Bright Code 是由 <a href="https://github.com/githubnext/monaspace">Monaspace Argon</a> 与 <a href="https://github.com/lxgw/LxgwWenKai">霞鹜文楷系列字体</a> 合并而成的字体，采用 <a href="https://github.com/nowar-fonts/Warcraft-Font-Merger">魔兽字体合并补全工具</a> 合并。仅提供 TrueType 格式字体文件。</p></blockquote><p><img src="/images/mono-font/LXGW%20Bright%20Code.png" alt="LXGW Bright Code"></p><h2 id="Noto-Sans-Mono-CJK-SC"><a href="#Noto-Sans-Mono-CJK-SC" class="headerlink" title="Noto Sans Mono CJK SC"></a>Noto Sans Mono CJK SC</h2><p><a href="https://notofonts.github.io/noto-docs/specimen/NotoSansMonoCJKsc/">Noto Sans Mono CJK SC</a> is a monospaced, unmodulated (“sans serif”) design suitable for programming code and other uses where a fixed-width font is needed.</p><p><img src="/images/mono-font/Noto%20Sans%20Mono%20CJK%20SC.png" alt="Noto Sans Mono CJK SC"></p><p>Noto 字体官方指出，”Noto Sans Mono CJK SC contains 65,535 glyphs”。这一字体包括的字形非常多，可以涵盖部分生僻字。这款字体同样适合给 $\LaTeX$ 编辑器使用，方便编辑生僻字文档。</p><h2 id="YaHei-Ubuntu-Mono"><a href="#YaHei-Ubuntu-Mono" class="headerlink" title="YaHei Ubuntu Mono"></a>YaHei Ubuntu Mono</h2><p><a href="https://github.com/chenyium/Microsoft-Yahei-Mono">Github</a></p><p>其仓库注明</p><blockquote><p>个人非常喜欢的一款编程字体，所以从网上找来资源，放到 GitHub 上备用，后续如果有更新，也方便版本追溯。</p></blockquote><p><img src="/images/mono-font/YaHei%20Ubuntu%20Mono.png" alt="YaHei Ubuntu Mono"></p><h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><p>在支持字体 fallback 机制的编辑器中，还可以设置字体为 Ubuntu Mono derivative Powerline 和微软雅黑，这两个字体刚好能够将中英文进行对齐。</p><p><img src="/images/mono-font/Ubuntu%20Mono%20derivative%20Powerline+yahei.png" alt="Ubuntu Mono derivative Powerline+yahei"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>other</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>font</tag>
-      
-      <tag>mono font</tag>
-      
-      <tag>monospace font</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>windows 屏幕自动关闭后又会自动亮起</title>
     <link href="/2025/02/06/windows-%E5%B1%8F%E5%B9%95%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%BA%AE%E8%B5%B7/"/>
     <url>/2025/02/06/windows-%E5%B1%8F%E5%B9%95%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E4%BA%AE%E8%B5%B7/</url>
@@ -404,9 +404,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>balzor</tag>
-      
       <tag>web</tag>
+      
+      <tag>balzor</tag>
       
     </tags>
     
@@ -503,9 +503,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>blazor</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -762,9 +762,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>blazor</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -1062,9 +1062,9 @@
       
       <tag>microsoft</tag>
       
-      <tag>edge</tag>
-      
       <tag>video</tag>
+      
+      <tag>edge</tag>
       
       <tag>internet</tag>
       
@@ -1124,11 +1124,11 @@
     
     <tags>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
       
       <tag>nvidia</tag>
+      
+      <tag>video</tag>
       
       <tag>gpu</tag>
       
@@ -1275,11 +1275,11 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>blazor</tag>
       
       <tag>sweetalert</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -1308,9 +1308,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>balzor</tag>
-      
       <tag>web</tag>
+      
+      <tag>balzor</tag>
       
     </tags>
     
