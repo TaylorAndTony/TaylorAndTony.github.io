@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>latex 如何让 tcolorbox 环境中的段落首行缩进</title>
+    <link href="/2025/03/16/latex-%E5%A6%82%E4%BD%95%E8%AE%A9-tcolorbox-%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E6%AE%B5%E8%90%BD%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B/"/>
+    <url>/2025/03/16/latex-%E5%A6%82%E4%BD%95%E8%AE%A9-tcolorbox-%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E6%AE%B5%E8%90%BD%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="latex-如何让-tcolorbox-环境中的段落首行缩进"><a href="#latex-如何让-tcolorbox-环境中的段落首行缩进" class="headerlink" title="latex 如何让 tcolorbox 环境中的段落首行缩进"></a>latex 如何让 tcolorbox 环境中的段落首行缩进</h1><p>引用自 <a href="https://ask.latexstudio.net/ask/question/3782.html">LaTeX 如何让 tcolorbox 环境中的段落首行缩进</a></p><blockquote><p>群里有人解答了，转述一下，加上before upper&#x3D;\par,before lower&#x3D;\par</p></blockquote><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[cn]&#123;elegantbook&#125;<br><span class="hljs-keyword">\usepackage</span>&#123;zhlipsum&#125;<br><br><span class="hljs-keyword">\newtcolorbox</span>&#123;ab&#125;&#123;<br>    parbox=false,<br>    before upper=<span class="hljs-keyword">\par</span>,<br>    before lower=<span class="hljs-keyword">\par</span><br>&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;document&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;ab&#125;<br>    <span class="hljs-keyword">\zhlipsum</span>[1]<br>    <span class="hljs-keyword">\tcblower</span><br>    <span class="hljs-keyword">\zhlipsum</span>[2]<br>    <span class="hljs-keyword">\zhlipsum</span>[3]<br><span class="hljs-keyword">\end</span>&#123;ab&#125;<br><br><span class="hljs-keyword">\end</span>&#123;document&#125;<br></code></pre></td></tr></table></figure><p><img src="/images/latex_list_number.png" alt="latex-如何让-tcolorbox-环境中的段落首行缩进"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LaTeX 字体字形设置（斜体、加粗等）</title>
     <link href="/2025/03/14/latex-%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E7%9A%84LATEX%E5%AD%97%E4%BD%93%E5%AD%97%E5%BD%A2%E5%AD%97%E5%9E%8B%E8%AE%BE%E7%BD%AE/"/>
     <url>/2025/03/14/latex-%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E7%9A%84LATEX%E5%AD%97%E4%BD%93%E5%AD%97%E5%BD%A2%E5%AD%97%E5%9E%8B%E8%AE%BE%E7%BD%AE/</url>
@@ -377,9 +390,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>balzor</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -476,9 +489,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
-      
       <tag>web</tag>
+      
+      <tag>blazor</tag>
       
     </tags>
     
@@ -534,9 +547,9 @@
     
     <tags>
       
-      <tag>software</tag>
-      
       <tag>linux</tag>
+      
+      <tag>software</tag>
       
       <tag>tmux</tag>
       
@@ -563,9 +576,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
     </tags>
     
@@ -590,11 +603,11 @@
     
     <tags>
       
-      <tag>software</tag>
+      <tag>linux</tag>
       
       <tag>ubuntu</tag>
       
-      <tag>linux</tag>
+      <tag>software</tag>
       
     </tags>
     
@@ -619,9 +632,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
       <tag>dev</tag>
       
@@ -735,9 +748,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
-      
       <tag>web</tag>
+      
+      <tag>blazor</tag>
       
     </tags>
     
@@ -1248,11 +1261,11 @@
       
       <tag>asp.net</tag>
       
+      <tag>web</tag>
+      
       <tag>blazor</tag>
       
       <tag>sweetalert</tag>
-      
-      <tag>web</tag>
       
     </tags>
     
@@ -1281,9 +1294,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>balzor</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
