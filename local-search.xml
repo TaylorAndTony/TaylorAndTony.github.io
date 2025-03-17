@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>csharp WPF 显示带有 URL 转义字符的图片</title>
+    <link href="/2025/03/17/csharp-WPF-%E6%98%BE%E7%A4%BA%E5%B8%A6%E6%9C%89-URL-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E7%9A%84%E5%9B%BE%E7%89%87/"/>
+    <url>/2025/03/17/csharp-WPF-%E6%98%BE%E7%A4%BA%E5%B8%A6%E6%9C%89-URL-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E7%9A%84%E5%9B%BE%E7%89%87/</url>
+    
+    <content type="html"><![CDATA[<h1 id="csharp-WPF-显示带有-URL-转义字符的图片"><a href="#csharp-WPF-显示带有-URL-转义字符的图片" class="headerlink" title="csharp WPF 显示带有 URL 转义字符的图片"></a>csharp WPF 显示带有 URL 转义字符的图片</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>如果 C# 使用代码更改 WPF 中 <code>&lt;Image&gt;</code> 的图片，使用自带的 <code>BitmapImage</code> 类，会发现带有百分号转移字符的图片显示不出来。</p><p>例如：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 原始路径</span><br><span class="hljs-built_in">string</span> filePath = <span class="hljs-string">@&quot;F:\png_test\test test %20.jpg&quot;</span>;<br><span class="hljs-comment">// 创建 Uri 对象</span><br><span class="hljs-keyword">var</span> uri = <span class="hljs-keyword">new</span> Uri(filePath);<br><span class="hljs-comment">// 使用 BitmapImage 加载图片</span><br><span class="hljs-keyword">var</span> bitmapImage = <span class="hljs-keyword">new</span> BitmapImage(uri);<br></code></pre></td></tr></table></figure><p>就会报错：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">System.IO.FileNotFoundException:“Could <span class="hljs-keyword">not</span> find <span class="hljs-keyword">file</span> &#x27;F:\png_test\<span class="hljs-keyword">test</span> <span class="hljs-keyword">test</span>  .jpeg&#x27;.”<br></code></pre></td></tr></table></figure><p>注意文件名末尾，<code>%20</code> 被替换成了空格。说明 <code>Uri</code> 自动解码了 <code>%20</code> 转义字符。但是，<code>BitmapImage</code> 不接受其它的构造函数，只能使用 <code>Uri</code> 构造函数，也就无法避免这种情况。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>用文件流，绕开 <code>Uri</code> 自动解码的机制，直接加载图片。</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> BitmapImage? currentImage = <span class="hljs-literal">null</span>;<br><span class="hljs-comment">// imgMain 是 WPF 的 &lt;Image&gt; 控件</span><br><span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> fs = <span class="hljs-keyword">new</span> FileStream(filePath, FileMode.Open, FileAccess.Read))<br>&#123;<br>    currentImage = <span class="hljs-keyword">new</span> BitmapImage();<br>    currentImage.BeginInit();<br>    currentImage.CacheOption = BitmapCacheOption.OnLoad; <span class="hljs-comment">// 确保图片立即加载</span><br>    currentImage.StreamSource = fs;<br>    currentImage.EndInit();<br>    currentImage.Freeze();<br>    imgMain.Source = currentImage;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>csharp</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>wpf</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>支持中文的等宽字体</title>
     <link href="/2025/03/16/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/"/>
     <url>/2025/03/16/other-%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93/</url>
@@ -400,13 +425,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>balzor</tag>
+      
+      <tag>csharp</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -431,15 +456,15 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
-      <tag>asp.net</tag>
+      <tag>ef core</tag>
       
       <tag>microsoft</tag>
       
-      <tag>ef core</tag>
+      <tag>asp.net</tag>
       
       <tag>sqlite</tag>
+      
+      <tag>csharp</tag>
       
       <tag>dotnet</tag>
       
@@ -466,13 +491,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
-      <tag>asp.net</tag>
+      <tag>ef core</tag>
       
       <tag>microsoft</tag>
       
-      <tag>ef core</tag>
+      <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>dotnet</tag>
       
@@ -499,13 +524,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
+      <tag>csharp</tag>
       
       <tag>web</tag>
+      
+      <tag>blazor</tag>
       
     </tags>
     
@@ -530,11 +555,11 @@
     
     <tags>
       
-      <tag>asp.net</tag>
+      <tag>ef core</tag>
       
       <tag>microsoft</tag>
       
-      <tag>ef core</tag>
+      <tag>asp.net</tag>
       
       <tag>sqlite</tag>
       
@@ -561,9 +586,9 @@
     
     <tags>
       
-      <tag>software</tag>
-      
       <tag>linux</tag>
+      
+      <tag>software</tag>
       
       <tag>tmux</tag>
       
@@ -590,9 +615,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
     </tags>
     
@@ -617,11 +642,11 @@
     
     <tags>
       
-      <tag>software</tag>
+      <tag>linux</tag>
       
       <tag>ubuntu</tag>
       
-      <tag>linux</tag>
+      <tag>software</tag>
       
     </tags>
     
@@ -646,9 +671,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
       <tag>dev</tag>
       
@@ -729,11 +754,11 @@
     
     <tags>
       
-      <tag>csharp</tag>
+      <tag>microsoft</tag>
       
       <tag>asp.net</tag>
       
-      <tag>microsoft</tag>
+      <tag>csharp</tag>
       
     </tags>
     
@@ -758,13 +783,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
+      <tag>csharp</tag>
       
       <tag>web</tag>
+      
+      <tag>blazor</tag>
       
     </tags>
     
@@ -818,9 +843,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>microsoft</tag>
+      
+      <tag>csharp</tag>
       
       <tag>dotnet</tag>
       
@@ -847,9 +872,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>microsoft</tag>
+      
+      <tag>csharp</tag>
       
       <tag>dotnet</tag>
       
@@ -878,13 +903,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>microsoft</tag>
       
-      <tag>dotnet</tag>
+      <tag>csharp</tag>
       
       <tag>wpf</tag>
+      
+      <tag>dotnet</tag>
       
       <tag>winform</tag>
       
@@ -911,13 +936,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
-      <tag>asp.net</tag>
+      <tag>ef core</tag>
       
       <tag>microsoft</tag>
       
-      <tag>ef core</tag>
+      <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>dotnet</tag>
       
@@ -1062,9 +1087,9 @@
       
       <tag>microsoft</tag>
       
-      <tag>video</tag>
-      
       <tag>edge</tag>
+      
+      <tag>video</tag>
       
       <tag>internet</tag>
       
@@ -1124,11 +1149,11 @@
     
     <tags>
       
+      <tag>video</tag>
+      
       <tag>ffmpeg</tag>
       
       <tag>nvidia</tag>
-      
-      <tag>video</tag>
       
       <tag>gpu</tag>
       
@@ -1271,15 +1296,15 @@
     
     <tags>
       
+      <tag>asp.net</tag>
+      
       <tag>csharp</tag>
       
-      <tag>asp.net</tag>
+      <tag>web</tag>
       
       <tag>blazor</tag>
       
       <tag>sweetalert</tag>
-      
-      <tag>web</tag>
       
     </tags>
     
@@ -1304,13 +1329,13 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>balzor</tag>
+      
+      <tag>csharp</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
