@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="latex 如何让 tcolorbox 环境中的段落首行缩进引用自 LaTeX 如何让 tcolorbox 环境中的段落首行缩进  群里有人解答了，转述一下，加上before upper&#x3D;\par,before lower&#x3D;\par  12345678910111213141516171819\documentclass[cn]&#123;elegantbook&#125;\u">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://taylorandtony.github.io/2025/03/16/latex-%E5%A6%82%E4%BD%95%E8%AE%A9-tcolorbox-%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E6%AE%B5%E8%90%BD%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B/images/latex_list_number.png">
+<meta property="og:image" content="https://taylorandtony.github.io/images/latex_list_number.png">
 <meta property="article:published_time" content="2025-03-16T01:00:56.000Z">
-<meta property="article:modified_time" content="2025-03-16T01:10:41.957Z">
+<meta property="article:modified_time" content="2025-03-26T15:14:30.355Z">
 <meta property="article:author" content="TaylorAndTony">
 <meta property="article:tag" content="latex">
 <meta property="article:tag" content="tcolorbox">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://taylorandtony.github.io/2025/03/16/latex-%E5%A6%82%E4%BD%95%E8%AE%A9-tcolorbox-%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E6%AE%B5%E8%90%BD%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B/images/latex_list_number.png">
+<meta name="twitter:image" content="https://taylorandtony.github.io/images/latex_list_number.png">
   
   
   
@@ -285,7 +285,7 @@
 </blockquote>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[cn]&#123;elegantbook&#125;<br><span class="hljs-keyword">\usepackage</span>&#123;zhlipsum&#125;<br><br><span class="hljs-keyword">\newtcolorbox</span>&#123;ab&#125;&#123;<br>    parbox=false,<br>    before upper=<span class="hljs-keyword">\par</span>,<br>    before lower=<span class="hljs-keyword">\par</span><br>&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;document&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;ab&#125;<br>    <span class="hljs-keyword">\zhlipsum</span>[1]<br>    <span class="hljs-keyword">\tcblower</span><br>    <span class="hljs-keyword">\zhlipsum</span>[2]<br>    <span class="hljs-keyword">\zhlipsum</span>[3]<br><span class="hljs-keyword">\end</span>&#123;ab&#125;<br><br><span class="hljs-keyword">\end</span>&#123;document&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="images/latex_list_number.png" srcset="/img/loading.gif" lazyload alt="latex-如何让-tcolorbox-环境中的段落首行缩进"></p>
+<p><img src="/images/latex_list_number.png" srcset="/img/loading.gif" lazyload alt="latex-如何让-tcolorbox-环境中的段落首行缩进"></p>
 
                 
               </div>
