@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>在不使用构建步骤下使用 UnoCSS CLI</title>
+    <link href="/2025/03/28/css-%E5%9C%A8%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9E%84%E5%BB%BA%E6%AD%A5%E9%AA%A4%E4%B8%8B%E4%BD%BF%E7%94%A8-UnoCSS-CLI/"/>
+    <url>/2025/03/28/css-%E5%9C%A8%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9E%84%E5%BB%BA%E6%AD%A5%E9%AA%A4%E4%B8%8B%E4%BD%BF%E7%94%A8-UnoCSS-CLI/</url>
+    
+    <content type="html"><![CDATA[<h1 id="在不使用构建步骤下使用-UnoCSS-CLI"><a href="#在不使用构建步骤下使用-UnoCSS-CLI" class="headerlink" title="在不使用构建步骤下使用 UnoCSS CLI"></a>在不使用构建步骤下使用 UnoCSS CLI</h1><p><a href="https://unocss.dev/integrations/cli">UnoCSS CLI</a> 提供了一种不使用构建工具，就可以使用 UnoCSS 的方式来编写 CSS 代码的方案。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>新建文件夹，并使用 <code>npm init</code> 命令初始化项目。新建 <code>index.html</code> 文件。</p><p>安装 UnoCSS CLI：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -D unocss<br></code></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>项目结构：</p><p><img src="./proj.png" alt="project-structure"></p><p>在项目根目录下创建一个 <code>uno.config.js</code> 文件，内容如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; defineConfig, presetAttributify, presetWind3 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;unocss&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(&#123;<br>    <span class="hljs-attr">cli</span>: &#123;<br>        <span class="hljs-attr">entry</span>: &#123;<br>            <span class="hljs-attr">patterns</span>: [<span class="hljs-string">&#x27;index.html&#x27;</span>]<br>        &#125;<br>    &#125;,<br>    <span class="hljs-attr">shortcuts</span>: &#123;<br>        <span class="hljs-string">&#x27;ooooohhhhhh&#x27;</span>: <span class="hljs-string">&#x27;text-red-500 text-3xl font-bold&#x27;</span>,<br>    &#125;,<br>    <span class="hljs-attr">presets</span>: [<br>        <span class="hljs-title function_">presetAttributify</span>(),<br>        <span class="hljs-title function_">presetWind3</span>(),<br>    ]<br>    <span class="hljs-comment">// ...</span><br>&#125;);<br></code></pre></td></tr></table></figure><p>更多配置项见 <a href="https://unocss.dev/config/">Configuring UnoCSS</a>。</p><p>然后在 <code>index.html</code> 文件中添加以下代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 见后文描述，这是 UnoCSS 生成的样式文件 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;./uno.css&quot;</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- 使用 presetWind3 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">bg-stone-800</span>&gt;</span>  <br>    <span class="hljs-comment">&lt;!-- 使用 presetAttributify --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;2xl blue-500&quot;</span>&gt;</span>This is h1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 使用 shortcut --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">ooooohhhhhh</span>&gt;</span>this is h2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>   <br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><p>上述代码：</p><ol><li><code>&lt;body bg-stone-800&gt;</code> 使用了 <code>presetWind3</code> 预设，可以直接使用 <code>bg-stone-800</code> 类名来设置背景颜色。这里的类名和 <a href="https://tailwindcss.com/">TailwindCSS</a> 是一样的</li><li><code>&lt;h1 text=&quot;2xl blue-500&quot;&gt;This is h1&lt;/h1&gt;</code> 使用了 <a href="https://unocss.dev/presets/attributify">Attributify preset</a> 预设，可以直接使用 <code>text</code> 属性来设置字体大小和颜色。</li><li><code>&lt;h2 ooooohhhhhh&gt;this is h2&lt;/h2&gt;</code> 使用了 <code>shortcuts</code> 配置，可以直接使用 <code>ooooohhhhhh</code> 来应用配置文件中定义的样式。</li></ol><p>此时浏览器肯定是不识别的，运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx unocss index.html<br></code></pre></td></tr></table></figure><p>会生成 <code>uno.css</code> 文件，然后在 <code>index.html</code> 文件中引入即可。</p><p><img src="./ex.png" alt="example"></p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li>如果不按照官方文档的方法，使用 <code>watch</code>，每次修改 <code>index.html</code> 文件后，都需要重新运行 <code>npx unocss index.html</code> 命令。</li><li>如需清空原有样式，需要自行引入一些 css，见 <a href="https://unocss.dev/guide/style-reset">Browser Style Reset</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>css</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>frontend</tag>
+      
+      <tag>unocss</tag>
+      
+      <tag>tailwindcss</tag>
+      
+      <tag>nodejs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LaTeX Url 换行问题</title>
     <link href="/2025/03/25/LaTeX-Url-%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98/"/>
     <url>/2025/03/25/LaTeX-Url-%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98/</url>
@@ -1288,9 +1319,9 @@
       
       <tag>microsoft</tag>
       
-      <tag>edge</tag>
-      
       <tag>video</tag>
+      
+      <tag>edge</tag>
       
       <tag>internet</tag>
       
@@ -1350,11 +1381,11 @@
     
     <tags>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
       
       <tag>nvidia</tag>
+      
+      <tag>video</tag>
       
       <tag>gpu</tag>
       
