@@ -8,7 +8,7 @@
     <link href="/2025/04/03/js-window-open-%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/"/>
     <url>/2025/04/03/js-window-open-%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/</url>
     
-    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>通过 window.open 打开的部分网页会无法访问，以 qBittorrent 为例，会出现 <code>Unauthorized</code> 错误。</p><p>用 Fiddler 抓包发现，qBittorrent 返回状态码为 401，内容为 <code>Unauthorized</code>。</p><p><img src="./1.png" alt="401 Unauthorized"></p><p>检查浏览器发出的请求可见，<code>window.open</code> 添加了 <code>Referer</code> 头，<code>Referer: http://192.168.5.90:10010/</code></p><p>此地址是发起 <code>window.open</code> 的页面地址。</p><p><img src="./2.png" alt="referer header"></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在发起 <code>window.open()</code> 的 HTML 内，添加 <code>meta</code> 标签，指定 <code>Referrer-Policy</code> 为 <code>no-referrer</code>。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;referrer&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;no-referrer&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure><p><img src="./3.png" alt="add meta tag"></p><p>再次访问，正常了</p><p><img src="./4png" alt="no referer"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>通过 window.open 打开的部分网页会无法访问，以 qBittorrent 为例，会出现 <code>Unauthorized</code> 错误。</p><p>用 Fiddler 抓包发现，qBittorrent 返回状态码为 401，内容为 <code>Unauthorized</code>。</p><p><img src="./1.png" alt="401 Unauthorized"></p><p>检查浏览器发出的请求可见，<code>window.open</code> 添加了 <code>Referer</code> 头，<code>Referer: http://192.168.5.90:10010/</code></p><p>此地址是发起 <code>window.open</code> 的页面地址。</p><p><img src="./2.png" alt="referer header"></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在发起 <code>window.open()</code> 的 HTML 内，添加 <code>meta</code> 标签，指定 <code>Referrer-Policy</code> 为 <code>no-referrer</code>。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;referrer&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;no-referrer&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure><p><img src="./3.png" alt="add meta tag"></p><p>再次访问，正常了</p><p><img src="./4.png" alt="no referer"></p>]]></content>
     
     
     <categories>
@@ -847,9 +847,9 @@
     
     <tags>
       
-      <tag>software</tag>
-      
       <tag>linux</tag>
+      
+      <tag>software</tag>
       
       <tag>tmux</tag>
       
@@ -876,9 +876,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
     </tags>
     
@@ -903,11 +903,11 @@
     
     <tags>
       
-      <tag>software</tag>
+      <tag>linux</tag>
       
       <tag>ubuntu</tag>
       
-      <tag>linux</tag>
+      <tag>software</tag>
       
     </tags>
     
@@ -932,9 +932,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
       <tag>dev</tag>
       
@@ -1168,9 +1168,9 @@
       
       <tag>microsoft</tag>
       
-      <tag>dotnet</tag>
-      
       <tag>wpf</tag>
+      
+      <tag>dotnet</tag>
       
       <tag>winform</tag>
       
