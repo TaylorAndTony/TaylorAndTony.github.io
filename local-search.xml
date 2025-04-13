@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>js JavaScript 复制图片到剪贴板（非图片链接）</title>
+    <link href="/2025/04/03/js-JavaScript-%E5%A4%8D%E5%88%B6%E5%9B%BE%E7%89%87%E5%88%B0%E5%89%AA%E8%B4%B4%E6%9D%BF%EF%BC%88%E9%9D%9E%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%EF%BC%89/"/>
+    <url>/2025/04/03/js-JavaScript-%E5%A4%8D%E5%88%B6%E5%9B%BE%E7%89%87%E5%88%B0%E5%89%AA%E8%B4%B4%E6%9D%BF%EF%BC%88%E9%9D%9E%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在前端页面中，需要将图片复制到剪贴板，效果是前往微信、QQ 等应用，粘贴图片，能够直接粘贴出图片本身，而不是图片链接。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs js"><br><span class="hljs-comment">// 复制图片，支持jpg，png，传入图片url即可</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">copyJpgToClipboard</span>(<span class="hljs-params">url</span>) &#123;<br>    <span class="hljs-keyword">var</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>)<br>    <span class="hljs-keyword">let</span> image = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>()<br>    image.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;crossOrigin&quot;</span>, <span class="hljs-string">&#x27;Anonymous&#x27;</span>)<br>    image.<span class="hljs-property">src</span> = url<br>    image.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>        canvas.<span class="hljs-property">width</span> = image.<span class="hljs-property">width</span><br>        canvas.<span class="hljs-property">height</span> = image.<span class="hljs-property">height</span> <br>        canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>).<span class="hljs-title function_">drawImage</span>(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">let</span> url = canvas.<span class="hljs-title function_">toDataURL</span>(<span class="hljs-string">&quot;image/png&quot;</span>) <span class="hljs-comment">// 转换图片为dataURL，格式为png</span><br>        <span class="hljs-title function_">copyImageToClipboardCallback</span>(url)<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 从url下载并复制图片，如果是png格式的图片直接调用此方法就能复制成功</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">copyImageToClipboardCallback</span>(<span class="hljs-params">url</span>) &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(url);<br>        <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">await</span> data.<span class="hljs-title function_">blob</span>();<br>        <span class="hljs-keyword">await</span> navigator.<span class="hljs-property">clipboard</span>.<span class="hljs-title function_">write</span>([<br>            <span class="hljs-keyword">new</span> <span class="hljs-variable language_">window</span>.<span class="hljs-title class_">ClipboardItem</span>(&#123;<br>                [blob.<span class="hljs-property">type</span>]: blob<br>            &#125;)<br>        ]);<br>        <span class="hljs-title class_">Swal</span>.<span class="hljs-title function_">fire</span>(&#123;<br>            <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;图片复制成功&#x27;</span>,<br>            <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;success&#x27;</span>,<br>            <span class="hljs-attr">confirmButtonText</span>: <span class="hljs-string">&#x27;确定&#x27;</span>,<br>            <span class="hljs-attr">timer</span>: <span class="hljs-number">1000</span><br>        &#125;);<br>    &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(err.<span class="hljs-property">name</span>, err.<span class="hljs-property">message</span>);<br>        <span class="hljs-title class_">Swal</span>.<span class="hljs-title function_">fire</span>(&#123;<br>            <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;图片复制失败&#x27;</span>,<br>            <span class="hljs-attr">text</span>: err.<span class="hljs-property">message</span>,<br>            <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;error&#x27;</span>,<br>            <span class="hljs-attr">confirmButtonText</span>: <span class="hljs-string">&#x27;确定&#x27;</span>,<br>            <span class="hljs-attr">timer</span>: <span class="hljs-number">1000</span><br>        &#125;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>其中，第二个函数如果传入的是 png 格式的图片，直接调用即可。如果不是，那么要用第一个函数套一层娃。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>javascript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>frontend</tag>
+      
+      <tag>javascript</tag>
+      
+      <tag>clipboard</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>window.open 打开网页无法访问，但复制地址访问可以</title>
     <link href="/2025/04/03/js-window-open-%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/"/>
     <url>/2025/04/03/js-window-open-%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/</url>
@@ -616,7 +645,7 @@
     <link href="/2025/03/08/win-%E8%BE%93%E5%85%A5%E6%B3%95-%E9%A6%96%E5%AD%97%E6%AF%8D%E5%8F%98%E6%88%90%E8%8B%B1%E6%96%87/"/>
     <url>/2025/03/08/win-%E8%BE%93%E5%85%A5%E6%B3%95-%E9%A6%96%E5%AD%97%E6%AF%8D%E5%8F%98%E6%88%90%E8%8B%B1%E6%96%87/</url>
     
-    <content type="html"><![CDATA[<h1 id="输入法问题"><a href="#输入法问题" class="headerlink" title="输入法问题"></a>输入法问题</h1><p>现象：在切换窗口或输入框后，接着开始打字，会出现拼音首字母直接出现在输入框内，按下第二个字母才出现输入法。</p><p>在<code>版本 23H2（OS 内部版本 22631.4751）</code>上，通过切换窗口→复制一段文字→切换回文本编辑器→粘贴→立即打字，可以稳定复现此现象。</p><p>下面这个动图展示了该现象，我分别尝试打出以下内容：</p><ul><li>第一行，期望打出<code>你好</code>，小鹤双拼为 <code>nich</code>，可看到字母 <code>n</code> 直接上屏，输入法识别到的是 <code>ich</code>。</li><li>第二行，期望打出<code>你好</code>。</li><li>第三行拼音首字母为 <code>i</code>，我按下一个字母后，可看到上屏了 <code>ch</code>，这是双拼的特点。</li><li>第四行，期望打出<code>卡键</code>。</li></ul><p><img src="https://pic1.imgdb.cn/item/67930d85d0e0a243d4f76aa9.gif" alt="example of IME&#39;s bug"></p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>非输入法原因造成，而是<strong>只要打开过一次屏幕键盘，就会永久产生此 bug</strong>，只能等待微软修复。<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e">Windows11 24H2开启触摸键盘功能后，会导致输入法首字母不被自定义输入法接管（变为英文）</a>问答同样提出了下面的这种情况</p><p><img src="https://filestore.community.support.microsoft.com/api/images/45ae8b0f-a8b9-422c-bd63-d834c982c702?upload=true&fud_access=hC1SxZhn7m/ZQJkOIiOVstu10yTQgXS4A/DBzZTg8nbaCgIogkrcDydMeI5Y4za2dOqDdWtsG2JNS3E35V60i9TiGHR7STMpJHheeXuDvO8nwjUlqCBHhJ0NDvuYN7OSRRp9bmvjnhEISMadqToCfqKLVN9hlZDhkHR415ZMhl1NswjCQADON1C9TuNlqvXekgExslMTgQ53ybvVsiTJ8EMtmz+2oOJhm/5O+ImoRmXrOj3S/5ob00CwpEsjEgpc64HMVOec7iV5sbXiWN20HIynZFnehEhjStCFl5kh3XkNGtO/pgNXlhLipZwrl29TG3OqCiDpATLMsRDyIqoHy+EaRzIQsKCuuImQ4cCh20jbC+uptO6ZbFlPVTn6yYDAs4R21OyvjfgnceI3aycYoK1IU4lfBHQJXHr+i4nX2KE=" alt="IME bug from Microsoft community"></p><blockquote><p><a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c">此处提到</a>触摸键盘可能是引发这个问题的元凶 遂使用虚拟机全新安装24H2后 安装搜狗 打开触摸键盘后重启 问题果然复现  </p></blockquote><p><img src="https://filestore.community.support.microsoft.com/api/images/2bada343-b6ca-412e-865b-61447398558d?upload=true&fud_access=hC1SxZhn7m/ZQJkOIiOVstu10yTQgXS4A/DBzZTg8nbaCgIogkrcDydMeI5Y4za2dOqDdWtsG2JNS3E35V60i9TiGHR7STMpJHheeXuDvO8nwjUlqCBHhJ0NDvuYN7OSRtmjyFL3ihM0u/CcRjbI9qZIew00ZUHmheBdPiF8nlasyx4hP47DKni8ntgovVbktfzOCLJ5I5qtjajaw+d8ThijvDcvylsgbzPGcTvQBfo+L+91d2+B+cLr01aTUCGEF7Y7I4NQ8alBj+wuiB0KEfGk9ufmB5f1+CC/A/jVfQ8hWVuXhr48XzDH9MnbKLfVv6yttgyBhJQO2qaGtum8Y2BuSEtrs74w8vkI+J3pFVCdEnylMhd3IUMChtl+mc31X0p9FJ5qrxkiORgqbZfjoxb9ZzW6M5tSGn/W2vKQWh8=" alt="打开触摸板并粘贴文本后复现"></p><p>微软社区用户 KirsKiKi 指出，</p><blockquote><p>这个问题已经出现了半年左右。<br>我目前版本是Windows 11 24H2, 26100.3194</p><p>依然会出现该问题。每次开机必须点击开启一次 触摸键盘 才可以临时解决，关机就失效，下次开机必须再次点击一次 触摸键盘。</p><p>请求修复。</p></blockquote><p>同时，<a href="https://github.com/rime/weasel/issues/1519">ctrl+c之后，rime出现奇怪的上屏问题 · Issue #1519 · rime&#x2F;weasel</a> 也反映了相同的情况</p><p><img src="/images/win-ime/416246250-468e960d-6a72-44ff-a66b-8d4e3c17c426.gif" alt="github rime issue"></p><blockquote><p>上图中，我在notepad中Ctrl+C复制了一些文字，切换窗口后试图输入wget，此时第一个字母无法正常上屏，且一直黏在光标上。</p><p>此时我如果切到别的窗口再切回来，第一个字母w就会上屏了（这个部分没有录）。</p></blockquote><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>截止 2025-03-08，微软仍未修复此问题，<strong>只能通过开关屏幕键盘来维持本次开机期间 bug 不出现</strong>。</p><ol><li>使用 <code>Win + i</code> 打开设置界面。</li><li>转到<code>个性化</code>，<code>任务栏</code></li><li>下滑找到<code>触摸键盘</code>改成<code>始终</code></li><li>桌面右下角任务栏出现键盘图标，点击打开屏幕键盘一次，再关闭，问题解决。</li></ol><h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p><a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e">Windows11 24H2开启触摸键盘功能后，会导致输入法首字母不被自定义输入法接管（变为英文）</a> 网友给出了如下方法</p><h3 id="TabTip-exe"><a href="#TabTip-exe" class="headerlink" title="TabTip.exe"></a>TabTip.exe</h3><blockquote><p>把”C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe”加入到开机启动项能临时解决。</p><p>TabTip进程就是触摸键盘，开机打开一次，再关掉，Bug暂时就不会出现。</p></blockquote><h3 id="github-rime-输入法给出的方案"><a href="#github-rime-输入法给出的方案" class="headerlink" title="github rime 输入法给出的方案"></a>github rime 输入法给出的方案</h3><p><a href="https://github.com/oTnTh">oTnTh</a> 在 <a href="https://github.com/rime/weasel/issues/1519">ctrl+c之后，rime出现奇怪的上屏问题 · Issue #1519 · rime&#x2F;weasel</a> 给出了解决方案：</p><blockquote><p><a href="https://github.com/pqpeqr">@pqpeqr</a> 非常感谢~</p><p>有人提到将这个文件删掉可以解决问题：<code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe</code></p><p>去查了一下自己硬盘上的这个文件，创建时间2025&#x2F;2&#x2F;13，更新时间2025&#x2F;2&#x2F;21。</p><p>在Windows更新历史记录里，2&#x2F;21安装了KB5051989。</p><p>将这个更新卸载以后，该问题确实就消失了。看起来，确实是Windows系统更新所导致的。</p><p>另外，如果不能或者不愿意卸载更新，也可以将<code>C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe</code>加入自动启动。</p><p>Windows里的设置、个性化、文本输入，往下拉找触摸键盘，将键盘大小设置为最小，然后拖到桌面右下角。</p><p>该触摸键盘似乎是会自动隐藏的，权且可以当作一个临时的解决办法。</p></blockquote><h3 id="杂项解决方法"><a href="#杂项解决方法" class="headerlink" title="杂项解决方法"></a>杂项解决方法</h3><ol><li>新建用户</li><li>重装系统</li><li>使用微软拼音输入法</li><li>在 PE 环境下，重命名 <code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy</code> 到任意其他文件名。</li><li>（不推荐）重命名 <code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy</code> 里的 <code>TextInputHost.exe</code> 到其他名称。但可能导致 <code>Win+V</code> 剪贴板不工作。同时有用户指出，也会导致左下角任务栏搜索功能失效</li><li>（无效）有回答提到，升级 <code>Windows11 KB5048667</code> 可以解决，但后续回复表示，仍未解决。</li></ol><h2 id="与此问题有关的链接"><a href="#与此问题有关的链接" class="headerlink" title="与此问题有关的链接"></a>与此问题有关的链接</h2><ul><li><a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c">Windows11 24H2开启触摸键盘功能后导致输入法首字母会变英文</a></li><li><a href="https://bbs.pcbeta.com/viewthread-2029177-1-1.html">win11 24H2 第三方输入法吞首字母Bug严重影响日常使用</a></li><li><a href="https://blog.csdn.net/alan16356/article/details/143787272">Win11 24H2&#x2F;23H2 输入法 首字母变成英文&#x2F;首字母打不出汉字&#x2F;首击键不被认定为拼音 临时解决方案</a></li></ul><p>上文第一个链接下面给出了修复方法，但涉及更改文件，未自行尝试。</p><p>用户 John Smith_2001 提出</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">我尝试了如下方法，解决了问题：<br>在 Windows PE 环境下将：<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><br>进行重命名，变成<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><span class="hljs-selector-class">.bak</span><br>之后进入系统，问题解决了。<br></code></pre></td></tr></table></figure><p>用户 SuHeAndZI 提出</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">感谢提供方法和思路 <br>在此基础上我研究这个问题应该是<br>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy里的TextInputHost.exe引发 <br>只重命名此文件即可解决 非常感谢！<br>不过经朋友测试后发现（因为我已经重装了系统） 重命名TextInputHost.exe会使<span class="hljs-keyword">win</span>+v和<span class="hljs-keyword">win</span>+。的两个功能失效<br>不知道还会不会有更多副作用 还是请官方积极重视此问题 尽快解决<br></code></pre></td></tr></table></figure><p>用户 hl h1 提出：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">我尝试了如下方法，解决了问题：<br>在 Windows PE 环境下将：<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><br>进行重命名，变成<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><span class="hljs-selector-class">.bak</span><br>之后进入系统，问题解决了。    <br>用了楼上的方法解决了，不过毕竟烦 要做PE然后 在PE里面修改，现在的硬盘都默认加密，还要一串解密的码。电脑小白比较麻烦，稍微懂一点的可以解决。<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="输入法问题"><a href="#输入法问题" class="headerlink" title="输入法问题"></a>输入法问题</h1><p>现象：在切换窗口或输入框后，接着开始打字，会出现拼音首字母直接出现在输入框内，按下第二个字母才出现输入法。</p><p>在<code>版本 23H2（OS 内部版本 22631.4751）</code>上，通过切换窗口→复制一段文字→切换回文本编辑器→粘贴→立即打字，可以稳定复现此现象。</p><h2 id="bug-复现"><a href="#bug-复现" class="headerlink" title="bug 复现"></a>bug 复现</h2><h3 id="在我的电脑上"><a href="#在我的电脑上" class="headerlink" title="在我的电脑上"></a>在我的电脑上</h3><p>下面这个动图展示了该现象，我分别尝试打出以下内容：</p><ul><li>第一行，期望打出<code>你好</code>，小鹤双拼为 <code>nich</code>，可看到字母 <code>n</code> 直接上屏，输入法识别到的是 <code>ich</code>。</li><li>第二行，期望打出<code>你好</code>。</li><li>第三行拼音首字母为 <code>i</code>，我按下一个字母后，可看到上屏了 <code>ch</code>，这是双拼的特点。</li><li>第四行，期望打出<code>卡键</code>。</li></ul><p><img src="https://pic1.imgdb.cn/item/67930d85d0e0a243d4f76aa9.gif" alt="example of IME&#39;s bug"></p><h3 id="微软社区-SuHeAndZI-用户复现"><a href="#微软社区-SuHeAndZI-用户复现" class="headerlink" title="微软社区 SuHeAndZI 用户复现"></a>微软社区 SuHeAndZI 用户复现</h3><p><a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e">SuHeAndZI</a> 复现了此问题</p><blockquote><p>早在24H2未推送时，我使用本地ISO升级24H2后发现，拼音输入的首字母不被自定义输入法接管，而是被微软拼音强行接管。导致输入的第一个字符为英文 。</p><p>当时我寻遍各处也都未得到解决方法，无奈之下只好格盘重装 。</p><p>自那以后一切安好，但后来的某天我突然发现，这个问题又出现了。我仔细回想当天操作了什么，只想起自己打开过触摸键盘功能，且在当天系统被安装了“ink.handwriting.main.store.zh”这个软件，遂即怀疑是此软件作祟。但使用geek卸载后，问题依旧。</p><p>继续尝试删除简中并重新添加、本地iso原地升级、dism++删除简中输入等方法都无效。</p><p>想到触摸键盘可能是引发这个问题的元凶，遂使用虚拟机全新安装24H2后安装搜狗，打开触摸键盘后重启，问题果然复现 。</p><p>请官方尽快提供解决方案，这个问题非常恶心，非常影响正常使用。</p><p>症状复现方法：新建一个文本文档后随意复制一段文字后再用第三方输入法进行输入，首字母必定是英文。</p></blockquote><h3 id="微软社区-boneonenee-用户提问"><a href="#微软社区-boneonenee-用户提问" class="headerlink" title="微软社区 boneonenee 用户提问"></a>微软社区 boneonenee 用户提问</h3><p><a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/fab4c269-3ef3-43e9-b9f8-8204f1274ef9">Windows11 24H2开启触摸键盘功能后，会导致输入法首字母不被自定义输入法接管（变为英文）</a></p><blockquote><p>系统版本：Windows 11 专业版<br>版本号：24H2<br>操作系统版本：26100.3194 ，</p><p>问题复现前置条件：系统已经完成所有更新，且使用搜狗输入法，中文输入<br>问题复现步骤：</p><ol><li>系统开启触摸键盘功能</li><li>使用ctrl+c 复制（或者鼠标右键复制）任意一段文本</li><li>在任意文本输入框输入中文</li></ol><p>补充复现问题前置条件：<br>需要将任务栏触摸键盘设置为打开状态</p></blockquote><p><img src="/images/win-ime/white.png"></p><p>在这一提问下面，用户 <a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/fab4c269-3ef3-43e9-b9f8-8204f1274ef9">C0mp1ex</a> 也提出了自己的复现情况</p><blockquote><p>我最近也遇到了这个问题，但系统是23H2。总结一下问题：</p><ul><li>在vsc中的表现与记事本有些许不同。下面都是在txt文件中测试得出的结论，但编辑其他文件也遇到过问题。</li><li>不一定100%复现，但概率很高。</li><li>似乎微软拼音没有这个问题。遇到问题时都在使用搜狗拼音输入法智慧版。</li><li>都是在复制文本之后出现的，不需要粘贴；同时只对复制后的第一次输入有效。</li><li>复制后，搜狗无法按shift切换中英文。</li><li>如果当时是中文输入，则输入的第一个字母直接上屏，不参与拼音；如果是英文，则所有后续输入的字母都是在第一个字母的位置替换上一个输入的字母。（这是vsc中存在的问题，记事本没有。在记事本中，第一个输入的字母会有下划线提示，继续输入的话下划线消失，变正常）</li><li>如果是在使用vsc时英文输入出现问题，切微软拼音也不可以修复，切纯英文输入法就变得正常。</li></ul></blockquote><p><img src="/images/win-ime/vscode.png"></p><h3 id="rime-输入法社区提出的-issue"><a href="#rime-输入法社区提出的-issue" class="headerlink" title="rime 输入法社区提出的 issue"></a>rime 输入法社区提出的 issue</h3><p><a href="https://github.com/rime/weasel/issues/1519">ctrl+c之后，rime出现奇怪的上屏问题 · Issue #1519 · rime&#x2F;weasel</a> 也反映了相同的情况</p><p><img src="/images/win-ime/416246250-468e960d-6a72-44ff-a66b-8d4e3c17c426.gif" alt="github rime issue"></p><blockquote><p>上图中，我在notepad中Ctrl+C复制了一些文字，切换窗口后试图输入wget，此时第一个字母无法正常上屏，且一直黏在光标上。</p><p>此时我如果切到别的窗口再切回来，第一个字母w就会上屏了（这个部分没有录）。</p><p>该问题在我这里可以稳定复现，只是不同程序里的表现不太一样，这个是notepad内部的情况。</p><p>出现问题的平台是Windows 11，小狼毫0.16.3。</p><p>该问题是突然发生的，之前并没有。</p><p>一开始我还以为是自己替换了CI里的rime.dll所导致，后来发现卸载重装release版小狼毫，用户文件只保留最简单的luna_pinyin_simp，问题依旧。</p></blockquote><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>截止 2025-03-08，微软仍未修复此问题，<strong>只能通过开关屏幕键盘来维持本次开机期间 bug 不出现</strong>。</p><ol><li>使用 <code>Win + i</code> 打开设置界面。</li><li>转到<code>个性化</code>，<code>任务栏</code></li><li>下滑找到<code>触摸键盘</code>改成<code>始终</code></li><li>桌面右下角任务栏出现键盘图标，点击打开屏幕键盘一次，再关闭，问题解决。</li></ol><h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p><a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e">Windows11 24H2开启触摸键盘功能后，会导致输入法首字母不被自定义输入法接管（变为英文）</a> 网友给出了如下方法</p><h3 id="TabTip-exe"><a href="#TabTip-exe" class="headerlink" title="TabTip.exe"></a>TabTip.exe</h3><blockquote><p>把”C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe”加入到开机启动项能临时解决。</p><p>TabTip进程就是触摸键盘，开机打开一次，再关掉，Bug暂时就不会出现。</p></blockquote><h3 id="github-rime-输入法给出的方案"><a href="#github-rime-输入法给出的方案" class="headerlink" title="github rime 输入法给出的方案"></a>github rime 输入法给出的方案</h3><p><a href="https://github.com/oTnTh">oTnTh</a> 在 <a href="https://github.com/rime/weasel/issues/1519">ctrl+c之后，rime出现奇怪的上屏问题 · Issue #1519 · rime&#x2F;weasel</a> 给出了解决方案：</p><blockquote><p><a href="https://github.com/pqpeqr">@pqpeqr</a> 非常感谢~</p><p>有人提到将这个文件删掉可以解决问题：<code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe</code></p><p>去查了一下自己硬盘上的这个文件，创建时间2025&#x2F;2&#x2F;13，更新时间2025&#x2F;2&#x2F;21。</p><p>在Windows更新历史记录里，2&#x2F;21安装了KB5051989。</p><p>将这个更新卸载以后，该问题确实就消失了。看起来，确实是Windows系统更新所导致的。</p><p>另外，如果不能或者不愿意卸载更新，也可以将<code>C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe</code>加入自动启动。</p><p>Windows里的设置、个性化、文本输入，往下拉找触摸键盘，将键盘大小设置为最小，然后拖到桌面右下角。</p><p>该触摸键盘似乎是会自动隐藏的，权且可以当作一个临时的解决办法。</p></blockquote><h3 id="杂项解决方法"><a href="#杂项解决方法" class="headerlink" title="杂项解决方法"></a>杂项解决方法</h3><ol><li>新建用户</li><li>重装系统</li><li>使用微软拼音输入法</li><li>在 PE 环境下，重命名 <code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy</code> 到任意其他文件名。</li><li>（不推荐）重命名 <code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy</code> 里的 <code>TextInputHost.exe</code> 到其他名称。但可能导致 <code>Win+V</code> 剪贴板不工作。同时有用户指出，也会导致左下角任务栏搜索功能失效</li><li>（无效）有回答提到，升级 <code>Windows11 KB5048667</code> 可以解决，但后续回复表示，仍未解决。</li></ol><h2 id="与此问题有关的链接"><a href="#与此问题有关的链接" class="headerlink" title="与此问题有关的链接"></a>与此问题有关的链接</h2><ul><li><a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c">Windows11 24H2开启触摸键盘功能后导致输入法首字母会变英文</a></li><li><a href="https://bbs.pcbeta.com/viewthread-2029177-1-1.html">win11 24H2 第三方输入法吞首字母Bug严重影响日常使用</a></li><li><a href="https://blog.csdn.net/alan16356/article/details/143787272">Win11 24H2&#x2F;23H2 输入法 首字母变成英文&#x2F;首字母打不出汉字&#x2F;首击键不被认定为拼音 临时解决方案</a></li></ul><p>上文第一个链接下面给出了修复方法，但涉及更改文件，未自行尝试。</p><p>用户 <code>John Smith_2001</code> 提出</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">我尝试了如下方法，解决了问题：<br>在 Windows PE 环境下将：<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><br>进行重命名，变成<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><span class="hljs-selector-class">.bak</span><br>之后进入系统，问题解决了。<br></code></pre></td></tr></table></figure><p>用户 <code>SuHeAndZI</code> 提出</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">感谢提供方法和思路 <br>在此基础上我研究这个问题应该是<br>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy里的TextInputHost.exe引发 <br>只重命名此文件即可解决 非常感谢！<br>不过经朋友测试后发现（因为我已经重装了系统） 重命名TextInputHost.exe会使<span class="hljs-keyword">win</span>+v和<span class="hljs-keyword">win</span>+。的两个功能失效<br>不知道还会不会有更多副作用 还是请官方积极重视此问题 尽快解决<br></code></pre></td></tr></table></figure><p>用户 <code>hl h1</code> 提出：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">我尝试了如下方法，解决了问题：<br>在 Windows PE 环境下将：<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><br>进行重命名，变成<br>C:\Windows\SystemApps\MicrosoftWindows<span class="hljs-selector-class">.Client</span><span class="hljs-selector-class">.CBS_cw5n1h2txyewy</span><span class="hljs-selector-class">.bak</span><br>之后进入系统，问题解决了。    <br>用了楼上的方法解决了，不过毕竟烦 要做PE然后 在PE里面修改，现在的硬盘都默认加密，还要一串解密的码。电脑小白比较麻烦，稍微懂一点的可以解决。<br></code></pre></td></tr></table></figure><h2 id="后续更新"><a href="#后续更新" class="headerlink" title="后续更新"></a>后续更新</h2><h3 id="2025-04-13"><a href="#2025-04-13" class="headerlink" title="2025-04-13"></a>2025-04-13</h3><p>微软仍未解决。</p><p>用户<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?page=9">月色真美</a>提到</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">25</span>年<span class="hljs-number">4</span>月中了，微软还没解决这问题，太折磨了，不知道是不是arcgis或者其他工程类软件的锅<br></code></pre></td></tr></table></figure><p>用户<a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c&page=8">杳雾</a>提到</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs nix">这是我从csdn那看来的，并测试有效。以下是粘贴来的，希望对大伙有帮助。<br><br>我有一计，重制输入法组件，并且修复系统文件完整性。<br>以管理员权限打开cmd，输入：<br>taskkill <span class="hljs-symbol">/f</span> <span class="hljs-symbol">/im</span> ctfmon.exe<br>reg delete <span class="hljs-string">&quot;HKCU<span class="hljs-char escape_">\S</span>oftware<span class="hljs-char escape_">\M</span>icrosoft<span class="hljs-char escape_">\C</span>TF&quot;</span> <span class="hljs-symbol">/f</span><br>reg delete <span class="hljs-string">&quot;HKCU<span class="hljs-char escape_">\S</span>oftware<span class="hljs-char escape_">\M</span>icrosoft<span class="hljs-char escape_">\I</span>nputMethod&quot;</span> <span class="hljs-symbol">/f</span><br>sfc <span class="hljs-symbol">/scannow</span><br>dism <span class="hljs-symbol">/online</span> <span class="hljs-symbol">/cleanup-image</span> <span class="hljs-symbol">/restorehealth</span><br>shutdown <span class="hljs-operator">-</span>r <span class="hljs-operator">-</span>t <span class="hljs-number">0</span><br>操作完成后系统会自动重启，或许能解诸君燃眉之急，若旧病复发，重新执行此命令即可。<br></code></pre></td></tr></table></figure><p>在 <a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c&page=8">微软社区 SuHeAndZI 提问</a> 和 <a href="https://github.com/rime/weasel/issues/1519">Rime 输入法 issue</a> 中都提到了，Github 用户 <code>cs0tony</code> 开发了一个自动打开屏幕键盘，并在 1s 后关闭的工具，可解决此问题：<a href="https://github.com/cs0tony/ime-savior">ime-savior</a></p>]]></content>
     
     
     <categories>
@@ -686,9 +715,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>web</tag>
       
@@ -717,9 +746,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>microsoft</tag>
       
@@ -752,9 +781,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>microsoft</tag>
       
@@ -785,11 +814,11 @@
     
     <tags>
       
-      <tag>csharp</tag>
+      <tag>blazor</tag>
       
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
+      <tag>csharp</tag>
       
       <tag>web</tag>
       
@@ -847,9 +876,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>software</tag>
+      
+      <tag>linux</tag>
       
       <tag>tmux</tag>
       
@@ -876,9 +905,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>ubuntu</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -903,11 +932,11 @@
     
     <tags>
       
-      <tag>linux</tag>
+      <tag>software</tag>
       
       <tag>ubuntu</tag>
       
-      <tag>software</tag>
+      <tag>linux</tag>
       
     </tags>
     
@@ -932,9 +961,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>ubuntu</tag>
+      
+      <tag>linux</tag>
       
       <tag>dev</tag>
       
@@ -1015,9 +1044,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>microsoft</tag>
       
@@ -1044,11 +1073,11 @@
     
     <tags>
       
-      <tag>csharp</tag>
+      <tag>blazor</tag>
       
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
+      <tag>csharp</tag>
       
       <tag>web</tag>
       
@@ -1168,9 +1197,9 @@
       
       <tag>microsoft</tag>
       
-      <tag>wpf</tag>
-      
       <tag>dotnet</tag>
+      
+      <tag>wpf</tag>
       
       <tag>winform</tag>
       
@@ -1197,9 +1226,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>microsoft</tag>
       
@@ -1317,11 +1346,11 @@
       
       <tag>web</tag>
       
+      <tag>javascript</tag>
+      
       <tag>express.js</tag>
       
       <tag>node.js</tag>
-      
-      <tag>javascript</tag>
       
     </tags>
     
@@ -1348,9 +1377,9 @@
       
       <tag>microsoft</tag>
       
-      <tag>edge</tag>
-      
       <tag>video</tag>
+      
+      <tag>edge</tag>
       
       <tag>internet</tag>
       
@@ -1410,11 +1439,11 @@
     
     <tags>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
       
       <tag>nvidia</tag>
+      
+      <tag>video</tag>
       
       <tag>gpu</tag>
       
@@ -1557,11 +1586,11 @@
     
     <tags>
       
-      <tag>csharp</tag>
+      <tag>blazor</tag>
       
       <tag>asp.net</tag>
       
-      <tag>blazor</tag>
+      <tag>csharp</tag>
       
       <tag>web</tag>
       
@@ -1590,9 +1619,9 @@
     
     <tags>
       
-      <tag>csharp</tag>
-      
       <tag>asp.net</tag>
+      
+      <tag>csharp</tag>
       
       <tag>web</tag>
       
