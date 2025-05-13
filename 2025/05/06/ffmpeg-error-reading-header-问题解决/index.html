@@ -19,26 +19,24 @@
   <meta name="author" content="TaylorAndTony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C#弹窗获取文件等Winform获取文件123456789101112&#x2F;&#x2F; 文件选取 这里只允许txt文件private void button1_Click(object sender, EventArgs e)&#123;    OpenFileDialog dialog &#x3D; new OpenFileDialog();    dialog.Multiselect &#x3D; false;   &#x2F;&#x2F;是否">
+    <meta name="description" content="问题在使用ffmpeg进行视频转码时，出现了如下错误： 1[mov,mp4,m4a,3gp,3g2,mj2 @ 000001b1af269840] error reading header F:&#x2F;xxx.mp4: Operation not permitted      解决在 superuser 上看到了解决方案： The sample MP4 is fragmented and so inst">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# 弹窗获取文件等">
-<meta property="og:url" content="https://taylorandtony.github.io/2025/01/25/csharp-popups/index.html">
+<meta property="og:title" content="ffmpeg error reading header 问题解决">
+<meta property="og:url" content="https://taylorandtony.github.io/2025/05/06/ffmpeg-error-reading-header-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="C#弹窗获取文件等Winform获取文件123456789101112&#x2F;&#x2F; 文件选取 这里只允许txt文件private void button1_Click(object sender, EventArgs e)&#123;    OpenFileDialog dialog &#x3D; new OpenFileDialog();    dialog.Multiselect &#x3D; false;   &#x2F;&#x2F;是否">
+<meta property="og:description" content="问题在使用ffmpeg进行视频转码时，出现了如下错误： 1[mov,mp4,m4a,3gp,3g2,mj2 @ 000001b1af269840] error reading header F:&#x2F;xxx.mp4: Operation not permitted      解决在 superuser 上看到了解决方案： The sample MP4 is fragmented and so inst">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-25T02:19:57.000Z">
-<meta property="article:modified_time" content="2025-01-25T02:21:46.118Z">
+<meta property="article:published_time" content="2025-05-06T04:02:03.000Z">
+<meta property="article:modified_time" content="2025-05-06T04:18:25.083Z">
 <meta property="article:author" content="TaylorAndTony">
-<meta property="article:tag" content="csharp">
-<meta property="article:tag" content="microsoft">
-<meta property="article:tag" content="wpf">
-<meta property="article:tag" content="dotnet">
-<meta property="article:tag" content="winform">
+<meta property="article:tag" content="troubleshoot">
+<meta property="article:tag" content="video">
+<meta property="article:tag" content="ffmpeg">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>C# 弹窗获取文件等 - Hexo</title>
+  <title>ffmpeg error reading header 问题解决 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C# 弹窗获取文件等"></span>
+            <span id="subtitle" data-typed-text="ffmpeg error reading header 问题解决"></span>
           
         </div>
 
@@ -215,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-25 10:19" pubdate>
-          2025年1月25日 上午
+        <time datetime="2025-05-06 12:02" pubdate>
+          2025年5月6日 中午
         </time>
       </span>
     
@@ -227,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          349 字
+          219 字
         
       </span>
     
@@ -238,7 +236,7 @@
         
         
         
-          3 分钟
+          2 分钟
         
       </span>
     
@@ -275,38 +273,25 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">C# 弹窗获取文件等</h1>
+            <h1 id="seo-header">ffmpeg error reading header 问题解决</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="C-弹窗获取文件等"><a href="#C-弹窗获取文件等" class="headerlink" title="C#弹窗获取文件等"></a>C#弹窗获取文件等</h1><h2 id="Winform获取文件"><a href="#Winform获取文件" class="headerlink" title="Winform获取文件"></a>Winform获取文件</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 文件选取 这里只允许txt文件</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">button1_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, EventArgs e</span>)</span><br>&#123;<br>    OpenFileDialog dialog = <span class="hljs-keyword">new</span> OpenFileDialog();<br>    dialog.Multiselect = <span class="hljs-literal">false</span>;   <span class="hljs-comment">//是否允许多选</span><br>    dialog.Title = <span class="hljs-string">&quot;请选择要处理的文件&quot;</span>;  <span class="hljs-comment">//窗口title</span><br>    dialog.Filter = <span class="hljs-string">&quot;文本文件(*.txt)|*.*&quot;</span>;   <span class="hljs-comment">//可选择的文件类型</span><br>    <span class="hljs-keyword">if</span> (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)<br>    &#123;<br>        <span class="hljs-built_in">string</span> path = dialog.FileName;  <span class="hljs-comment">//获取文件路径</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在使用ffmpeg进行视频转码时，出现了如下错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[mov,mp4,m4a,3gp,3g2,mj2 @ 000001b1af269840] error reading header F:/xxx.mp4: Operation not permitted    <br></code></pre></td></tr></table></figure>
 
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在 <a target="_blank" rel="noopener" href="https://superuser.com/questions/1462076/25-of-my-mp4-have-error-reading-header-in-ffmpeg-opencv-but-videos-all-pl">superuser</a> 上看到了解决方案：</p>
+<p>The sample MP4 is fragmented and so instead of having a global index for samples i.e. frames, the metadata is per fragment. Within each fragment’s metadata, there is a track run box trun which has data for all samples within the fragment. There was a change made in Oct 2017 (ffmpeg 4.0+) where ffmpeg would bail if the trun box indicated that 0 samples were stored within the fragment.</p>
+<p>mp4box or older versions of ffmpeg do not fail, so you may use them to remux the file to regular MP4s.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ffmpeg-3.4 -i in.mp4 -c copy out.mp4<br></code></pre></td></tr></table></figure>
 
+<p>or</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">mp4box -add in.mp4 -new out.mp4<br></code></pre></td></tr></table></figure>
 
-<h2 id="Winform另存为"><a href="#Winform另存为" class="headerlink" title="Winform另存为"></a>Winform另存为</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs csharp">SaveFileDialog savedialog = <span class="hljs-keyword">new</span> SaveFileDialog();<br>savedialog.Filter = <span class="hljs-string">&quot;Jpg 图片|*.jpg|Bmp 图片|*.bmp|Gif 图片|*.gif|Png 图片|*.png|Wmf  图片|*.wmf&quot;</span>;<br>savedialog.FilterIndex = <span class="hljs-number">0</span>;<br>savedialog.RestoreDirectory = <span class="hljs-literal">true</span>;<span class="hljs-comment">//保存对话框是否记忆上次打开的目录</span><br>savedialog.CheckPathExists = <span class="hljs-literal">true</span>;<span class="hljs-comment">//检查目录</span><br>savedialog.FileName = System.DateTime.Now.ToString(<span class="hljs-string">&quot;yyyyMMddHHmmss&quot;</span>) + <span class="hljs-string">&quot;-&quot;</span>; ;<span class="hljs-comment">//设置默认文件名</span><br><span class="hljs-keyword">if</span> (savedialog.ShowDialog() == DialogResult.OK)<br>&#123;<br>    image.Save(savedialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);<span class="hljs-comment">// image为要保存的图片</span><br>    MessageBox.Show(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;图片保存成功！&quot;</span>, <span class="hljs-string">&quot;信息提示&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="WPF获取文件-Win32"><a href="#WPF获取文件-Win32" class="headerlink" title="WPF获取文件(Win32)"></a>WPF获取文件(Win32)</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// Microsoft.Win32.OpenFileDialog</span><br><span class="hljs-keyword">using</span> Microsoft.Win32;<br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ButtonBase_OnClick</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, RoutedEventArgs e</span>)</span><br>&#123;<br>    <span class="hljs-keyword">var</span> openFileDialog = <span class="hljs-keyword">new</span> OpenFileDialog();<br>    <span class="hljs-keyword">if</span> (openFileDialog.ShowDialog() == <span class="hljs-literal">true</span>)<br>    &#123;<br>        <span class="hljs-comment">// do something with the filename</span><br>        MessageBox.Show(openFileDialog.FileName);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>You can also specify a filter, which will show only certain type of files, like this:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> openFileDialog = <span class="hljs-keyword">new</span> OpenFileDialog<br>&#123;<br>    Filter = <span class="hljs-string">&quot;Text files (*.txt)|*.txt|All files (*.*)|*.*&quot;</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h2 id="WPF另存为"><a href="#WPF另存为" class="headerlink" title="WPF另存为"></a>WPF另存为</h2><p>SaveFileDialog类位于PresentationFramework.dll 的Microsoft.Win32命名空间</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">ChooseSaveFile</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> title,<span class="hljs-built_in">string</span> initFolder</span>)</span><br>&#123;<br>    SaveFileDialog dlg = <span class="hljs-keyword">new</span> SaveFileDialog();<br>    dlg.Title = title;<br>    dlg.FileName = <span class="hljs-string">&quot;User.txt&quot;</span>; <span class="hljs-comment">// Default file name</span><br>    dlg.DefaultExt = <span class="hljs-string">&quot;.txt&quot;</span>; <span class="hljs-comment">// Default file extension</span><br>    dlg.Filter = <span class="hljs-string">&quot;Text documents|*.txt&quot;</span>; <span class="hljs-comment">// Filter files by extension</span><br>    dlg.InitialDirectory = initFolder;<br><br>    <span class="hljs-comment">// Process save file dialog box results</span><br>    <span class="hljs-keyword">if</span> (dlg.ShowDialog() == <span class="hljs-literal">true</span>)<br>    &#123;<br>        <span class="hljs-keyword">return</span> dlg.FileName;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="通用获取文件夹-Ookii"><a href="#通用获取文件夹-Ookii" class="headerlink" title="通用获取文件夹(Ookii)"></a>通用获取文件夹(Ookii)</h2><p>Another typical case is when you need the user to select a folder. This time a File Dialog won’t do the job and you’ll need something different. If you’ve ever used WinForms you’d probably know FolderBrowserDialog class. Unfortunately this is not available in WPF by default, but don’t worry, you can still solve this in at least 3 different ways:</p>
-<ol>
-<li>Add the System.Windows.Forms DLL and use the FolderBrowserDialog class</li>
-<li>Install the <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/Ookii.Dialogs/">Ookii.Dialogs nuget</a> and use the VistaFolderBrowserDialog class</li>
-<li>Install the <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/Microsoft.WindowsAPICodePack-Shell">Windows API Code Pack-Shell</a> and use the CommonOpenFileDialog class</li>
-</ol>
-<p>The one I use the most is the Ookii.Dialogs one which looks easier and simpler to me. Just use this snippet and you’re ready to go:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ButtonBase2_OnClick</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, RoutedEventArgs e</span>)</span><br>&#123;<br>    <span class="hljs-keyword">var</span> ookiiDialog = <span class="hljs-keyword">new</span> VistaFolderBrowserDialog();<br>    <span class="hljs-keyword">if</span> (ookiiDialog.ShowDialog() == DialogResult.OK)<br>    &#123;<br>        <span class="hljs-comment">// do something with the folder path</span><br>        MessageBox.Show(ookiiDialog.SelectedPath);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<blockquote>
+<p>该 MP4 样本存在碎片化现象，因此不像通常那样为样本（即帧）设置全局索引，而是为每个片段设置元数据。在每个片段的元数据中，有一个 track run box（运行框），其中包含该片段内所有样本的数据。在 2017 年 10 月（ffmpeg 4.0 及以上版本）进行了一次更改，当时如果运行框显示片段内存储的样本数为 0，ffmpeg 将会终止运行。<br>mp4box 或者较旧版本的 ffmpeg 不会失败，所以您可以使用它们将文件重编码为常规的 MP4 格式。</p>
+</blockquote>
 
                 
               </div>
@@ -325,7 +310,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/csharp/" class="category-chain-item">csharp</a>
+  <a href="/categories/software/" class="category-chain-item">software</a>
   
   
 
@@ -340,15 +325,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/csharp/" class="print-no-link">#csharp</a>
+        <a href="/tags/troubleshoot/" class="print-no-link">#troubleshoot</a>
       
-        <a href="/tags/microsoft/" class="print-no-link">#microsoft</a>
+        <a href="/tags/video/" class="print-no-link">#video</a>
       
-        <a href="/tags/wpf/" class="print-no-link">#wpf</a>
-      
-        <a href="/tags/dotnet/" class="print-no-link">#dotnet</a>
-      
-        <a href="/tags/winform/" class="print-no-link">#winform</a>
+        <a href="/tags/ffmpeg/" class="print-no-link">#ffmpeg</a>
       
     </div>
   
@@ -360,8 +341,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C# 弹窗获取文件等</div>
-      <div>https://taylorandtony.github.io/2025/01/25/csharp-popups/</div>
+      <div>ffmpeg error reading header 问题解决</div>
+      <div>https://taylorandtony.github.io/2025/05/06/ffmpeg-error-reading-header-问题解决/</div>
     </div>
     <div class="license-meta">
       
@@ -373,7 +354,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月25日</div>
+          <div>2025年5月6日</div>
         </div>
       
       
@@ -405,18 +386,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/25/csharp-images/" title="C# bitmap 图片编码及压缩参数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C# bitmap 图片编码及压缩参数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/25/csharp-efcore/" title="EF Core 快速开始">
-                        <span class="hidden-mobile">EF Core 快速开始</span>
+                      <a href="/2025/05/03/python-%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C-AES-%E5%8A%A0%E5%AF%86%E7%9B%B8%E5%90%8C%E6%96%87%E6%9C%AC%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%90%8C%E7%BB%93%E6%9E%9C/" title="Python 读取文件进行 AES 加密，相同文本出现不同结果">
+                        <span class="hidden-mobile">Python 读取文件进行 AES 加密，相同文本出现不同结果</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
