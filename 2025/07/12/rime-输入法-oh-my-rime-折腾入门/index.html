@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="TaylorAndTony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言oh-my-rime 输入法 是一套 rime 输入法的配置文件，能够让用户快速开始使用 rime 输入法。 本文将介绍如何安装并配置 oh-my-rime 输入法。 安装 oh-my-rime 配置文件首先要自行安装 rime 输入法本体，看官方文档即可，此处略过。 前往 oh-my-rime 项目主页 下载整个仓库即可。可打包 zip 或者克隆。 按照官方文档打开自己 rime 的配置文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rime 输入法 oh my rime 折腾入门">
+<meta property="og:url" content="https://taylorandtony.github.io/2025/07/12/rime-%E8%BE%93%E5%85%A5%E6%B3%95-oh-my-rime-%E6%8A%98%E8%85%BE%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言oh-my-rime 输入法 是一套 rime 输入法的配置文件，能够让用户快速开始使用 rime 输入法。 本文将介绍如何安装并配置 oh-my-rime 输入法。 安装 oh-my-rime 配置文件首先要自行安装 rime 输入法本体，看官方文档即可，此处略过。 前往 oh-my-rime 项目主页 下载整个仓库即可。可打包 zip 或者克隆。 按照官方文档打开自己 rime 的配置文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://taylorandtony.github.io/2025/07/12/rime-%E8%BE%93%E5%85%A5%E6%B3%95-oh-my-rime-%E6%8A%98%E8%85%BE%E5%85%A5%E9%97%A8/check.jpg">
+<meta property="article:published_time" content="2025-07-12T03:34:46.000Z">
+<meta property="article:modified_time" content="2025-07-12T03:53:48.320Z">
+<meta property="article:author" content="TaylorAndTony">
+<meta property="article:tag" content="rime">
+<meta property="article:tag" content="oh-my-rime">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://taylorandtony.github.io/2025/07/12/rime-%E8%BE%93%E5%85%A5%E6%B3%95-oh-my-rime-%E6%8A%98%E8%85%BE%E5%85%A5%E9%97%A8/check.jpg">
+  
+  
+  
+  <title>rime 输入法 oh my rime 折腾入门 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"taylorandtony.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/sakura.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="rime 输入法 oh my rime 折腾入门"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-12 11:34" pubdate>
+          2025年7月12日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          919 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">rime 输入法 oh my rime 折腾入门</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="https://www.mintimate.cc/zh/">oh-my-rime 输入法</a> 是一套 <a target="_blank" rel="noopener" href="https://rime.im/">rime</a> 输入法的配置文件，能够让用户快速开始使用 rime 输入法。</p>
+<p>本文将介绍如何安装并配置 oh-my-rime 输入法。</p>
+<h2 id="安装-oh-my-rime-配置文件"><a href="#安装-oh-my-rime-配置文件" class="headerlink" title="安装 oh-my-rime 配置文件"></a>安装 oh-my-rime 配置文件</h2><p>首先要自行安装 rime 输入法本体，看官方文档即可，此处略过。</p>
+<p>前往 <a target="_blank" rel="noopener" href="https://github.com/Mintimate/oh-my-rime?tab=readme-ov-file">oh-my-rime 项目主页</a> 下载整个仓库即可。可打包 zip 或者克隆。</p>
+<p>按照<a target="_blank" rel="noopener" href="https://www.mintimate.cc/zh/guide/importMint.html">官方文档</a>打开自己 rime 的配置文件位置，如此位置有其他文件，则删除。然后复制整个仓库内的文件到这里。切换输入法到 rime 输入法，右键，重新部署。等待几秒即可看到生效。</p>
+<h2 id="配置词库"><a href="#配置词库" class="headerlink" title="配置词库"></a>配置词库</h2><p>我使用的是双拼，在 rime 图形配置界面里面仅勾选了双拼：</p>
+<p><img src="check.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>打开 <code>default.custom.yaml</code> 可以看到启用的方案名称：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">customization:</span><br>  <span class="hljs-attr">distribution_code_name:</span> <span class="hljs-string">Weasel</span><br>  <span class="hljs-attr">distribution_version:</span> <span class="hljs-number">0.15</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>  <span class="hljs-attr">generator:</span> <span class="hljs-string">&quot;Rime::SwitcherSettings&quot;</span><br>  <span class="hljs-attr">modified_time:</span> <span class="hljs-string">&quot;Sat Jul 12 11:31:57 2025&quot;</span><br>  <span class="hljs-attr">rime_version:</span> <span class="hljs-number">1.9</span><span class="hljs-number">.0</span><br><span class="hljs-attr">patch:</span><br>  <span class="hljs-attr">schema_list:</span><br>    <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">schema:</span> <span class="hljs-string">double_pinyin_flypy</span>&#125;  <span class="hljs-comment"># 双拼方案</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.mintimate.cc/zh/guide/configurationOverride.html">官方文档</a>说法如下：</p>
+<blockquote>
+<p>接下来，我们看看「输入法方案配置」，方案的全局配置是<code>default.yaml</code>和<code>defalut.custom.yaml</code>；对于局部，以薄荷输入法内全拼为例：</p>
+<p><code>rime_mint.schema.yaml</code>就是一个局部配置（全拼）。<code>rime_mint.schema.yaml</code>内可以覆写<code>default.yaml</code>的配置。<br>创建<code>rime_mint.custom.yaml</code>文件，优先级高于<code>rime_mint.schema.yaml</code>。可以覆写<code>rime_mint.schema.yaml</code>的配置。</p>
+<p>rime_mint.custom.yaml → rime_mint.schema.yaml → default.custom.yaml → default.yaml → 客户端自带的default.yaml</p>
+</blockquote>
+<p>继续按照官方文档，结合前面获取到的方案名称，创建 <code>double_pinyin_flypy.custom.yaml</code> 文件，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">patch:</span><br>  <span class="hljs-comment"># 使用 rime_mint.custom.dict.yaml 文件</span><br>  <span class="hljs-attr">translator/dictionary:</span> <span class="hljs-string">rime_mint.custom</span><br></code></pre></td></tr></table></figure>
+
+<p>这表示词库文件将使用 <code>rime_mint.custom.dict.yaml</code> 文件。</p>
+<p>新建此文件，按照官方文档，填入：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">name:</span> <span class="hljs-string">rime_mint.custom</span>                  <span class="hljs-comment"># 注意name和文件名一致</span><br><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;2024.02.11&quot;</span><br><span class="hljs-attr">sort:</span> <span class="hljs-string">by_weight</span><br><span class="hljs-comment"># 此处为 输入法所用到的词库，既补充拓展词库的地方</span><br><span class="hljs-comment"># 雾凇拼音词库，由Github Robot自动更新</span><br><span class="hljs-attr">import_tables:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/custom_simple</span>          <span class="hljs-comment"># 自定义</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/rime_ice.8105</span>          <span class="hljs-comment"># 霧凇拼音 常用字集合</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/rime_ice.41448</span>         <span class="hljs-comment"># 霧凇拼音 完整字集合</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/rime_ice.base</span>          <span class="hljs-comment"># 雾凇拼音 基础词库</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/rime_ice.ext</span>           <span class="hljs-comment"># 雾凇拼音 扩展词库</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/other_kaomoji</span>          <span class="hljs-comment"># 颜文字表情（按`vv`呼出)</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/other_emoji</span>            <span class="hljs-comment"># Emoji(仅仅作为补充，实际使用一般是OpenCC生效)</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/rime_ice.others</span>        <span class="hljs-comment"># 雾凇拼音 others词库（用于自动纠错）</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/mine_rime_merged_20250418</span>         <span class="hljs-comment"># 你的自定义词典</span><br><span class="hljs-string">...</span><br></code></pre></td></tr></table></figure>
+
+<p>其中 <code>mine_rime_merged_20250418</code> 是我自己创建的词库，按格式填入即可。</p>
+<p>导航到 dicts 文件夹，创建 <code>mine_rime_merged_20250418.dict.yaml</code> 文件，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">name:</span> <span class="hljs-string">mine_rime_merged_20250418</span><br><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;2025-07-12&quot;</span><br><span class="hljs-attr">sort:</span> <span class="hljs-string">by_weight</span><br><span class="hljs-string">...</span><br><span class="hljs-string">艾米莉亚</span>	<span class="hljs-string">ai</span> <span class="hljs-string">mi</span> <span class="hljs-string">li</span> <span class="hljs-string">ya</span>	<span class="hljs-number">1</span><br><span class="hljs-string">爱蜜莉雅</span>	<span class="hljs-string">ai</span> <span class="hljs-string">mi</span> <span class="hljs-string">li</span> <span class="hljs-string">ya</span>	<span class="hljs-number">1</span><br><span class="hljs-string">艾妮丝菲亚</span>	<span class="hljs-string">ai</span> <span class="hljs-string">ni</span> <span class="hljs-string">si</span> <span class="hljs-string">fei</span> <span class="hljs-string">ya</span>	<span class="hljs-number">1</span><br><span class="hljs-string">帕雷提亚</span>	<span class="hljs-string">pa</span> <span class="hljs-string">lei</span> <span class="hljs-string">ti</span> <span class="hljs-string">ya</span>	<span class="hljs-number">1</span><br><span class="hljs-string">尤菲莉亚</span>	<span class="hljs-string">you</span> <span class="hljs-string">fei</span> <span class="hljs-string">li</span> <span class="hljs-string">ya</span>	<span class="hljs-number">1</span><br><span class="hljs-string">玛赞塔</span>	<span class="hljs-string">ma</span> <span class="hljs-string">zan</span> <span class="hljs-string">ta</span>	<span class="hljs-number">1</span><br><span class="hljs-string">伊莉雅</span>	<span class="hljs-string">yi</span> <span class="hljs-string">li</span> <span class="hljs-string">ya</span>	<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>词库创建用的是<a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter">深蓝词库转换器</a></p>
+<p><strong>踩坑点</strong></p>
+<ol>
+<li>看好自己的配置文件。我用的是 double_pinyin_flypy，那么去修改 rime_mint.custom.dict.yaml 是没用的。</li>
+<li>词库扩展名是 .dict.yaml，不是 .yaml。</li>
+<li>词库内每一行中文和拼音之间用制表符分隔，不是空格。特别注意不要让文本编辑器自动格式化。</li>
+</ol>
+<h2 id="外观配置"><a href="#外观配置" class="headerlink" title="外观配置"></a>外观配置</h2><p><a target="_blank" rel="noopener" href="https://www.mintimate.cc/zh/guide/configurationOverride.html">官方文档</a>说法如下：</p>
+<blockquote>
+<p>如果是想自定义外观展示的，那么就设置「输入法的应用配置」，macOS上就是squirrel.yaml和squirrel.custom.yaml；而Windows上就是weasel.yaml和weasel.custom.yaml。</p>
+</blockquote>
+<p>编辑 <code>weasel.yaml</code> 文件即可修改外观。关于换皮肤，配置文件的注释里面写了两个网站用于生成皮肤：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://fxliang.github.io/RimeSeeMe/">RIME 西米</a></li>
+<li><a target="_blank" rel="noopener" href="https://pdog18.github.io/rime-soak/#/theme">润笔</a></li>
+</ul>
+<p>编辑 <code>weasel.yaml</code> → <code>preset_color_schemes</code> 字段即可。我用 <a target="_blank" rel="noopener" href="https://catppuccin.com/">catppuccin</a> 配色创建了一个：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">preset_color_schemes:</span><br> <span class="hljs-attr">catppuccin:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">名字</span><br>    <span class="hljs-attr">author:</span> <span class="hljs-string">作者</span><br>    <span class="hljs-attr">back_color:</span> <span class="hljs-number">0x463430</span><br>    <span class="hljs-attr">shadow_color:</span> <span class="hljs-number">0x33000000</span><br>    <span class="hljs-attr">border_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">text_color:</span> <span class="hljs-number">0xF5D0C6</span><br>    <span class="hljs-attr">hilited_text_color:</span> <span class="hljs-number">0xEEAA8C</span><br>    <span class="hljs-attr">hilited_back_color:</span> <span class="hljs-number">0x342623</span><br>    <span class="hljs-attr">hilited_shadow_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">hilited_mark_color:</span> <span class="hljs-number">0x00F5D0C6</span><br>    <span class="hljs-attr">hilited_label_color:</span> <span class="hljs-number">0xF5D0C6</span><br>    <span class="hljs-attr">hilited_candidate_text_color:</span> <span class="hljs-number">0x89D1A6</span><br>    <span class="hljs-attr">hilited_comment_text_color:</span> <span class="hljs-number">0x90C8E5</span><br>    <span class="hljs-attr">hilited_candidate_back_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">hilited_candidate_border_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">hilited_candidate_shadow_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">label_color:</span> <span class="hljs-number">0xF5D0C6</span><br>    <span class="hljs-attr">candidate_text_color:</span> <span class="hljs-number">0xF5D0C6</span><br>    <span class="hljs-attr">comment_text_color:</span> <span class="hljs-number">0xCEADA5</span><br>    <span class="hljs-attr">candidate_back_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">candidate_border_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">candidate_shadow_color:</span> <span class="hljs-number">0x00000000</span><br>    <span class="hljs-attr">prevpage_color:</span> <span class="hljs-number">0x00FFFFFF</span><br>    <span class="hljs-attr">nextpage_color:</span> <span class="hljs-number">0x00FFFFFF</span><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BE%93%E5%85%A5%E6%B3%95/" class="category-chain-item">输入法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/rime/" class="print-no-link">#rime</a>
+      
+        <a href="/tags/oh-my-rime/" class="print-no-link">#oh-my-rime</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>rime 输入法 oh my rime 折腾入门</div>
+      <div>https://taylorandtony.github.io/2025/07/12/rime-输入法-oh-my-rime-折腾入门/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>TaylorAndTony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/16/csharp-winform-%E5%9C%A8%E9%AB%98-DPI-%E7%BC%A9%E6%94%BE%E4%B8%8B%E7%95%8C%E9%9D%A2%E9%94%99%E4%BD%8D/" title="csharp winform 在高 DPI 缩放下界面错位">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">csharp winform 在高 DPI 缩放下界面错位</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/11/windows-explorer-%E9%A2%91%E7%B9%81%E5%B4%A9%E6%BA%83-%E6%A1%8C%E9%9D%A2%E9%BB%91%E5%B1%8F/" title="windows explorer 频繁崩溃 桌面黑屏">
+                        <span class="hidden-mobile">windows explorer 频繁崩溃 桌面黑屏</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -30,8 +30,12 @@
 <meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/white.png">
 <meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/vscode.png">
 <meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/416246250-468e960d-6a72-44ff-a66b-8d4e3c17c426.gif">
+<meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/new-1.png">
+<meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/new-2.png">
+<meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/new-3.png">
+<meta property="og:image" content="https://taylorandtony.github.io/images/win-ime/new-4.png">
 <meta property="article:published_time" content="2025-03-08T13:47:46.000Z">
-<meta property="article:modified_time" content="2025-04-13T11:27:37.779Z">
+<meta property="article:modified_time" content="2025-05-13T01:31:02.942Z">
 <meta property="article:author" content="TaylorAndTony">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="troubleshoot">
@@ -231,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          3.4k 字
         
       </span>
     
@@ -242,7 +246,7 @@
         
         
         
-          21 分钟
+          29 分钟
         
       </span>
     
@@ -394,6 +398,51 @@
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs nix">这是我从csdn那看来的，并测试有效。以下是粘贴来的，希望对大伙有帮助。<br><br>我有一计，重制输入法组件，并且修复系统文件完整性。<br>以管理员权限打开cmd，输入：<br>taskkill <span class="hljs-symbol">/f</span> <span class="hljs-symbol">/im</span> ctfmon.exe<br>reg delete <span class="hljs-string">&quot;HKCU<span class="hljs-char escape_">\S</span>oftware<span class="hljs-char escape_">\M</span>icrosoft<span class="hljs-char escape_">\C</span>TF&quot;</span> <span class="hljs-symbol">/f</span><br>reg delete <span class="hljs-string">&quot;HKCU<span class="hljs-char escape_">\S</span>oftware<span class="hljs-char escape_">\M</span>icrosoft<span class="hljs-char escape_">\I</span>nputMethod&quot;</span> <span class="hljs-symbol">/f</span><br>sfc <span class="hljs-symbol">/scannow</span><br>dism <span class="hljs-symbol">/online</span> <span class="hljs-symbol">/cleanup-image</span> <span class="hljs-symbol">/restorehealth</span><br>shutdown <span class="hljs-operator">-</span>r <span class="hljs-operator">-</span>t <span class="hljs-number">0</span><br>操作完成后系统会自动重启，或许能解诸君燃眉之急，若旧病复发，重新执行此命令即可。<br></code></pre></td></tr></table></figure>
 
 <p>在 <a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=c170f9a7-3629-49a1-a087-2fdd5cbbc23c&page=8">微软社区 SuHeAndZI 提问</a> 和 <a target="_blank" rel="noopener" href="https://github.com/rime/weasel/issues/1519">Rime 输入法 issue</a> 中都提到了，Github 用户 <code>cs0tony</code> 开发了一个自动打开屏幕键盘，并在 1s 后关闭的工具，可解决此问题：<a target="_blank" rel="noopener" href="https://github.com/cs0tony/ime-savior">ime-savior</a></p>
+<h3 id="2025-05-13"><a href="#2025-05-13" class="headerlink" title="2025-05-13"></a>2025-05-13</h3><p><strong>微软仍未修复，但是微软社区内已经有了答案</strong></p>
+<p><a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/all/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e">Windows11 24H2开启触摸键盘功能后，会导致输入法首字母不被自定义输入法接管（变为英文）[内附解决方案]</a></p>
+<p>以下操作在23H2，内部版本号22631.5039上测试有效，TextInputHost与TabTip修改日期均为25年3月26号；对于24H2，如找不到对应键值，可<a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=433b1d25-bf8f-4319-922a-94a2d7354e0c">参考此处（点击跳转）</a>，使用下述类似的方法清空 Common 项内的全部条目并锁定权限来解决，在24H2 LTSC 26100.1742下测试有效，TextInputHost和TabTip修改日期都是2024年9月6号<a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=69b51604-7a3d-4f4f-89b7-b6553cbab984">参考来源（点击跳转）</a></p>
+<p>具体操作步骤如下：</p>
+<ol>
+<li>按 <code>Win + R</code> 打开运行窗口，输入 <code>regedit</code> ，打开注册表编辑器</li>
+<li>粘贴 <code>HKEY_CURRENT_USER\Software\Microsoft\InputMethod\Settings\Common</code> 到地址栏按回车，</li>
+<li>在右侧找到 <code>TouchKeyboardHasEverShown</code> ，双击或右键选择修改，在输入框中输入<code>0</code>点击确定保存</li>
+<li>注销或直接重启，此后只要不打开触摸键盘便可正常使用，如果不小心打开了，再次修改这个条目为0就行</li>
+</ol>
+<hr>
+<p>（以下为可选）</p>
+<p>如果有的时候确实要用到触摸键盘或者想一劳永逸解决，可以按以下步骤操作，锁掉该项权限避免被触摸键盘改掉</p>
+<p>修改权限可能导致未知问题，如非必要不建议修改，不知道为什么注册表好像不能单独控制写入权限，这个全部拒绝的操作不确定会不会引入新的bug</p>
+<p>感谢<a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=8461f212-f5dd-4aba-bb20-361dda382c9d">此回复帖提供的对于单独拒绝写入权限的操作指南（点击跳转）</a>，内容已经更新进下方步骤中</p>
+<ol>
+<li>从刚刚第二步开始，找到左侧 <code>Common</code> 项，右键点击权限，在权限窗口中点高级，在新弹出的高级安全设置窗口中点添加，在新弹出的窗口中点选择主体，输入 <code>Everyone</code> 点击确定</li>
+</ol>
+<p><img src="/images/win-ime/new-1.png" srcset="/img/loading.gif" lazyload></p>
+<ol start="2">
+<li>依次选择类型<code>拒绝</code>，应用于<code>只有该项</code>并点击<code>显示高级权限</code></li>
+</ol>
+<p><img src="/images/win-ime/new-2.png" srcset="/img/loading.gif" lazyload></p>
+<ol start="3">
+<li>勾选<code>设置数值</code>，点击确定</li>
+</ol>
+<p><img src="/images/win-ime/new-3.png" srcset="/img/loading.gif" lazyload></p>
+<ol start="4">
+<li>现在高级安全设置的窗口中应该有一条对于Everyone，拒绝设置数值的条目，点击确定，然后在弹出的对话框里点是，继续点权限窗口的确定</li>
+</ol>
+<p><img src="/images/win-ime/new-4.png" srcset="/img/loading.gif" lazyload></p>
+<ol start="5">
+<li>注销或者直接重启，此后打开触摸键盘后出现bug，无需其他操作，再次注销或者重启即可解决。</li>
+</ol>
+<hr>
+<p>同时其他方法：</p>
+<ol>
+<li>新建账户（最稳妥但代价相对最大）</li>
+<li>被迫使用系统自带的微软拼音（更改习惯是很痛苦的事情）</li>
+<li>Windows PE 把 <code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy</code> 重命名成 <code>C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.bak</code> 注：此方法会影响win+v剪切板等问题，请酌情使用。</li>
+<li>把“C:\Program Files\Common Files\microsoft shared\ink\TabTip.exe”加入到开机启动项（TabTip进程就是触摸键盘，开机打开一次，再关掉，Bug暂时就不会出现） 可以使用方法6中热心网友开发的软件实现更好的效果</li>
+<li>查找系统更新补丁 KB5051989（如有） 尝试将其卸载。答案来源：<a target="_blank" rel="noopener" href="https://github.com/rime/weasel/issues/1519#issuecomment-2692728343">https://github.com/rime/weasel/issues/1519#issuecomment-2692728343</a></li>
+<li>使用回复本帖的热心网友开发的工具来解决此问题，原理是自动打开触摸键盘，并在一秒后关闭。<a target="_blank" rel="noopener" href="https://github.com/cs0tony/ime-savior">https://github.com/cs0tony/ime-savior</a></li>
+<li>使用回复本帖的热心网友提供的解决方法来尝试解决此问题，原理是重置输入法组件，而后修复系统文件完整性。（涉及到系统校验恢复命令，精简版、修改版Windows用户慎用）<a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=e677954d-c928-4ff1-b7d9-75e070c4b625">点击跳转</a> 如果在线修复命令速度过慢可参考此方法手动下载原版镜像本地修复 <a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/windows/forum/windows_11-wintop_language/windows11/85892fa6-cda9-467b-a633-b5ab6f1f098e?messageId=a853d9a7-e9a6-4dfb-8ba0-5d6d8ff98f11">点击跳转</a></li>
+</ol>
 
                 
               </div>
