@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="TaylorAndTony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实现匹配形如 D:&#x2F;test&#x2F;*abc.txt 的路径通配符输入：一个包含通配符的路径字符串，例如 D:&#x2F;test&#x2F;*abc.txt 输出：匹配所有符合条件的文件路径，例如 D:&#x2F;test&#x2F;123abc.txt 和 D:&#x2F;test&#x2F;456abc.txt 1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-实现路径通配符匹配">
+<meta property="og:url" content="https://taylorandtony.github.io/2026/03/06/python-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E5%BE%84%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实现匹配形如 D:&#x2F;test&#x2F;*abc.txt 的路径通配符输入：一个包含通配符的路径字符串，例如 D:&#x2F;test&#x2F;*abc.txt 输出：匹配所有符合条件的文件路径，例如 D:&#x2F;test&#x2F;123abc.txt 和 D:&#x2F;test&#x2F;456abc.txt 1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-06T04:03:02.000Z">
+<meta property="article:modified_time" content="2026-03-06T04:07:01.144Z">
+<meta property="article:author" content="TaylorAndTony">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>python-实现路径通配符匹配 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"taylorandtony.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/sakura.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="python-实现路径通配符匹配"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-06 12:03" pubdate>
+          2026年3月6日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          938 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">python-实现路径通配符匹配</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="实现匹配形如-D-test-abc-txt-的路径通配符"><a href="#实现匹配形如-D-test-abc-txt-的路径通配符" class="headerlink" title="实现匹配形如 D:/test/*abc.txt 的路径通配符"></a>实现匹配形如 <code>D:/test/*abc.txt</code> 的路径通配符</h2><p>输入：一个包含通配符的路径字符串，例如 <code>D:/test/*abc.txt</code></p>
+<p>输出：匹配<strong>所有符合条件</strong>的文件路径，例如 <code>D:/test/123abc.txt</code> 和 <code>D:/test/456abc.txt</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> fnmatch<br><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path<br><br><span class="hljs-keyword">from</span> rich.console <span class="hljs-keyword">import</span> Console<br><br>console = Console()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">wildcard_match</span>(<span class="hljs-params">path: Path, pattern: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    基于文件名/目录名的通配符匹配（支持*、?等通配符）</span><br><span class="hljs-string"></span><br><span class="hljs-string">    参数:</span><br><span class="hljs-string">        path: Path对象，待匹配的文件/目录路径</span><br><span class="hljs-string">        pattern: 字符串，通配符匹配模式（如test*、abc?等）</span><br><span class="hljs-string"></span><br><span class="hljs-string">    返回:</span><br><span class="hljs-string">        bool: 匹配结果，True表示path的名称符合pattern，False反之</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># fnmatch.fnmatch仅匹配路径的最后一部分（名称），而非完整路径</span><br>    <span class="hljs-keyword">return</span> fnmatch.fnmatch(path.name, pattern)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack_match</span>(<span class="hljs-params">parts: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>]</span>) -&gt; <span class="hljs-built_in">list</span>[Path]:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    基于回溯法递归查找符合层级通配符规则的目录路径</span><br><span class="hljs-string"></span><br><span class="hljs-string">    核心逻辑：</span><br><span class="hljs-string">        1. 将目标路径拆分为多个层级部分（如[&#x27;D:/&#x27;, &#x27;转移文件&#x27;, &#x27;test*&#x27;, &#x27;test*&#x27;]）</span><br><span class="hljs-string">        2. 从根路径开始，逐层递归匹配每个层级的通配符规则</span><br><span class="hljs-string">        3. 匹配成功则进入下一层级，匹配失败则回溯到上一层级继续探索其他可能</span><br><span class="hljs-string">        4. 收集所有完整匹配的路径并返回</span><br><span class="hljs-string"></span><br><span class="hljs-string">    参数:</span><br><span class="hljs-string">        parts: 路径层级列表，每个元素为对应层级的路径/通配符规则</span><br><span class="hljs-string">               示例：[&#x27;D:/&#x27;, &#x27;转移文件&#x27;, &#x27;test*&#x27;, &#x27;test*&#x27;] 表示查找</span><br><span class="hljs-string">                    D:/转移文件/以test开头的目录/以test开头的目录</span><br><span class="hljs-string"></span><br><span class="hljs-string">    返回:</span><br><span class="hljs-string">        list[Path]: 所有符合层级通配符规则的完整路径列表（Path对象）</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 存储所有匹配成功的完整路径</span><br>    all_paths: <span class="hljs-built_in">list</span>[Path] = []<br>    <br>    <span class="hljs-comment"># 维护当前递归的路径状态（存储各层级目录名），初始化为根路径部分</span><br>    current_path_state: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>] = [parts[<span class="hljs-number">0</span>]]<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">index: <span class="hljs-built_in">int</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        递归回溯的核心内部函数</span><br><span class="hljs-string"></span><br><span class="hljs-string">        参数:</span><br><span class="hljs-string">            index: 当前正在匹配的路径层级索引（对应parts列表的下标）</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        now_looking_at = Path(<span class="hljs-string">&#x27;/&#x27;</span>.join(current_path_state))<br>        <br>        <span class="hljs-comment"># 递归终止条件：已匹配完所有层级，找到完整有效路径</span><br>        <span class="hljs-keyword">if</span> index == <span class="hljs-built_in">len</span>(parts):<br>            <span class="hljs-comment"># 将当前路径状态拼接为完整Path对象并加入结果列表</span><br>            all_paths.append(now_looking_at)<br>            <span class="hljs-comment"># 控制台输出找到的有效路径（绿色加粗）</span><br>            console.<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[bold green]    Answer: <span class="hljs-subst">&#123;now_looking_at.as_posix()&#125;</span>&quot;</span>)<br>            <span class="hljs-keyword">return</span><br>        <br>        <span class="hljs-comment"># 拼接当前已匹配的路径，用于遍历子目录</span><br>        console.<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Checking path: <span class="hljs-subst">&#123;now_looking_at.as_posix()&#125;</span>&quot;</span>)<br>        <br>        <span class="hljs-comment"># 遍历当前路径下的所有子项（文件/目录）</span><br>        <span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> now_looking_at.iterdir():<br>            <span class="hljs-comment"># 仅处理目录，且目录名符合当前层级的通配符规则</span><br>            <span class="hljs-keyword">if</span> child.is_dir() <span class="hljs-keyword">and</span> wildcard_match(child, parts[index]):<br>                console.<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;  Valid path found: <span class="hljs-subst">&#123;child.as_posix()&#125;</span>&#x27;</span>)<br>                <span class="hljs-comment"># 将符合规则的子目录名加入当前路径状态</span><br>                current_path_state.append(child.name)<br>                <span class="hljs-comment"># 递归匹配下一层级</span><br>                backtrack(index + <span class="hljs-number">1</span>)<br>                <span class="hljs-comment"># 回溯：移除最后加入的目录名，回到上一层级继续探索其他子目录</span><br>                current_path_state.pop()<br>                console.<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;  Backtracking to: <span class="hljs-subst">&#123;now_looking_at.as_posix()&#125;</span>&quot;</span>)<br><br>    <span class="hljs-comment"># 从层级索引1开始递归（索引0是根路径，已初始化到current_path_state）</span><br>    backtrack(<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">return</span> all_paths<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">separate_path</span>(<span class="hljs-params">p: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>]:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    将路径字符串拆分为层级列表</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    p = p.replace(<span class="hljs-string">&#x27;\\&#x27;</span>, <span class="hljs-string">&#x27;/&#x27;</span>)<br>    lst = <span class="hljs-built_in">list</span>(p.split(<span class="hljs-string">&#x27;/&#x27;</span>))<br>    <span class="hljs-keyword">if</span> lst <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;:&#x27;</span> <span class="hljs-keyword">in</span> lst[<span class="hljs-number">0</span>]:<br>        <span class="hljs-comment"># windows drive, add a /</span><br>        <span class="hljs-comment"># 对于windows的盘符，需要在盘符后添加一个 /，否则返回 D: 算法无法识别为合法路径</span><br>        lst[<span class="hljs-number">0</span>] += <span class="hljs-string">&#x27;/&#x27;</span><br>    <br>    <span class="hljs-keyword">return</span> lst<br><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>核心功能：<code>backtrack_match</code> 通过<strong>回溯递归逐层匹配</strong>路径层级的通配符规则，<code>wildcard_match</code> 是底层的通配符匹配工具函数；</li>
+<li>关键逻辑：递归终止条件是匹配完所有路径层级，回溯操作通过 <code>current_path_state.pop()</code> 实现，确保探索所有可能的路径分支；</li>
+<li>输出特性：使用 <code>rich</code> 库美化控制台输出。</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python/" class="category-chain-item">python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python/" class="print-no-link">#python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>python-实现路径通配符匹配</div>
+      <div>https://taylorandtony.github.io/2026/03/06/python-实现路径通配符匹配/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>TaylorAndTony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/16/csharp-winform-%E5%9C%A8%E9%AB%98-DPI-%E7%BC%A9%E6%94%BE%E4%B8%8B%E7%95%8C%E9%9D%A2%E9%94%99%E4%BD%8D/" title="csharp winform 在高 DPI 缩放下界面错位">
+                        <span class="hidden-mobile">csharp winform 在高 DPI 缩放下界面错位</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
