@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="TaylorAndTony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Lambda1234567891011121314151617public class FuncTest &#123;    static void main() &#123;        USB usb&#x3D;new USB() &#123;            @Override            public void open() &#123;                System">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 进阶内容">
+<meta property="og:url" content="https://taylorandtony.github.io/2026/10/10/Java-%E8%BF%9B%E9%98%B6%E5%86%85%E5%AE%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Lambda1234567891011121314151617public class FuncTest &#123;    static void main() &#123;        USB usb&#x3D;new USB() &#123;            @Override            public void open() &#123;                System">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-10T02:49:32.000Z">
+<meta property="article:modified_time" content="2026-10-11T08:40:30.520Z">
+<meta property="article:author" content="TaylorAndTony">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Java 进阶内容 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"taylorandtony.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/sakura.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java 进阶内容"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-10-10 10:49" pubdate>
+          2026年10月10日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java 进阶内容</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FuncTest</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>        USB usb=<span class="hljs-keyword">new</span> <span class="hljs-title class_">USB</span>() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">open</span><span class="hljs-params">()</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;USB Oopen&quot;</span>);<br>            &#125;<br>        &#125;;<br>    &#125;<br>&#125;<br><br><br><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">USB</span>&#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">open</span><span class="hljs-params">()</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>可以减写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FuncTest</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br><br>        UseUSB((s) -&gt; System.out.println(s + <span class="hljs-string">&quot; opened&quot;</span>));<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">UseUSB</span><span class="hljs-params">(USB usb)</span>&#123;<br>        usb.open(<span class="hljs-string">&quot;Mouse&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">USB</span>&#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">open</span><span class="hljs-params">(String s)</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> lombok.Getter;<br><span class="hljs-keyword">import</span> lombok.Setter;<br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">Person</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br>        p.getName();<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">@Getter</span><br><span class="hljs-meta">@Setter</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>&#123;<br>    <span class="hljs-type">int</span> age;<br>    String name;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Supplier"><a href="#Supplier" class="headerlink" title="Supplier"></a>Supplier</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SupTest</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>        method(() -&gt; &#123;<br>            <span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">67</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;;<br>            Arrays.sort(arr);<br>            <span class="hljs-keyword">return</span> arr[arr.length - <span class="hljs-number">1</span>];<br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">(Supplier&lt;Integer&gt; supplier)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">max</span> <span class="hljs-operator">=</span> supplier.get();<br>        System.out.println(<span class="hljs-string">&quot;Max value is &quot;</span> + max);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.Collections;<br><span class="hljs-keyword">import</span> java.util.function.Consumer;<br><span class="hljs-keyword">import</span> java.util.function.Supplier;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SupTest</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>        method((s) -&gt; &#123;<br>            System.out.println(s.length());<br>        &#125;, <span class="hljs-string">&quot;Hello World&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">(Consumer&lt;String&gt; s1, String s2)</span> &#123;<br>        s1.accept(s2);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.function.Function;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SupTest</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>        method((s) -&gt; &#123;<br>            <span class="hljs-keyword">return</span> s.toString();<br>        &#125;, <span class="hljs-number">2</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">method</span><span class="hljs-params">(Function&lt;Integer,String &gt; func, Integer num)</span> &#123;<br>        <span class="hljs-keyword">return</span> func.apply(num);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.stream.Stream;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StreamTest</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        list.add(<span class="hljs-string">&quot;123&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;298&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;323&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;478&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;556&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;634&quot;</span>);<br><br>        Stream&lt;String&gt; stream = list.stream();<br><br>        Stream&lt;String&gt; stringStream = stream<br>                .filter((s) -&gt; s.contains(<span class="hljs-string">&quot;1&quot;</span>))<br>                .filter((a) -&gt; a.contains(<span class="hljs-string">&quot;2&quot;</span>));<br><br>        stringStream.forEach((s)-&gt; System.out.println(s));<br><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.xerial<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sqlite-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.49.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.sql.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// JDBC 连接字符串格式: jdbc:sqlite:数据库文件路径</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jdbc:sqlite:test.db&quot;</span>; <span class="hljs-comment">// 会在当前目录创建 test.db 文件</span><br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;CREATE TABLE IF NOT EXISTS users (&quot;</span><br>                + <span class="hljs-string">&quot;id INTEGER PRIMARY KEY AUTOINCREMENT,&quot;</span><br>                + <span class="hljs-string">&quot;name TEXT NOT NULL,&quot;</span><br>                + <span class="hljs-string">&quot;email TEXT NOT NULL UNIQUE)&quot;</span>;<br><br>        <span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url);<br>             <span class="hljs-type">Statement</span> <span class="hljs-variable">stmt</span> <span class="hljs-operator">=</span> conn.createStatement()) &#123;<br>            stmt.execute(sql);<br>            System.out.println(<span class="hljs-string">&quot;表创建成功！&quot;</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;INSERT INTO users (name, email) VALUES (?, ?)&quot;</span>;<br><br><span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url);<br>     <span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">pstmt</span> <span class="hljs-operator">=</span> conn.prepareStatement(sql)) &#123;<br>    pstmt.setString(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;张三&quot;</span>);<br>    pstmt.setString(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;zhangsan@example.com&quot;</span>);<br>    pstmt.executeUpdate();<br>    System.out.println(<span class="hljs-string">&quot;数据插入成功！&quot;</span>);<br>&#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>    e.printStackTrace();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SELECT * FROM users&quot;</span>;<br><br><span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url);<br>     <span class="hljs-type">Statement</span> <span class="hljs-variable">stmt</span> <span class="hljs-operator">=</span> conn.createStatement();<br>     <span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> stmt.executeQuery(sql)) &#123;<br><br>    <span class="hljs-keyword">while</span> (rs.next()) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> rs.getInt(<span class="hljs-string">&quot;id&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> rs.getString(<span class="hljs-string">&quot;name&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">email</span> <span class="hljs-operator">=</span> rs.getString(<span class="hljs-string">&quot;email&quot;</span>);<br>        System.out.println(id + <span class="hljs-string">&quot;, &quot;</span> + name + <span class="hljs-string">&quot;, &quot;</span> + email);<br>    &#125;<br>&#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>    e.printStackTrace();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>完整查询代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) &#123;<br>    <span class="hljs-keyword">try</span> (<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> conn.prepareStatement(<span class="hljs-string">&quot;SELECT id, grade, name, gender FROM students WHERE gender=? AND grade=?&quot;</span>)) &#123;<br>        ps.setObject(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;M&quot;</span>); <span class="hljs-comment">// 注意：索引从1开始</span><br>        ps.setObject(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br>        <span class="hljs-keyword">try</span> (<span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> ps.executeQuery()) &#123;<br>            <span class="hljs-keyword">while</span> (rs.next()) &#123;<br>                <span class="hljs-type">long</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> rs.getLong(<span class="hljs-string">&quot;id&quot;</span>);<br>                <span class="hljs-type">long</span> <span class="hljs-variable">grade</span> <span class="hljs-operator">=</span> rs.getLong(<span class="hljs-string">&quot;grade&quot;</span>);<br>                <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> rs.getString(<span class="hljs-string">&quot;name&quot;</span>);<br>                <span class="hljs-type">String</span> <span class="hljs-variable">gender</span> <span class="hljs-operator">=</span> rs.getString(<span class="hljs-string">&quot;gender&quot;</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>插入操作是<code>INSERT</code>，即插入一条新记录。通过JDBC进行插入，本质上也是用<code>PreparedStatement</code>执行一条SQL语句，不过最后执行的不是<code>executeQuery()</code>，而是<code>executeUpdate()</code>。示例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) &#123;<br>    <span class="hljs-keyword">try</span> (<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> conn.prepareStatement(<br>            <span class="hljs-string">&quot;INSERT INTO students (id, grade, name, gender) VALUES (?,?,?,?)&quot;</span>)) &#123;<br>        ps.setObject(<span class="hljs-number">1</span>, <span class="hljs-number">999</span>); <span class="hljs-comment">// 注意：索引从1开始</span><br>        ps.setObject(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// grade</span><br>        ps.setObject(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;Bob&quot;</span>); <span class="hljs-comment">// name</span><br>        ps.setObject(<span class="hljs-number">4</span>, <span class="hljs-string">&quot;M&quot;</span>); <span class="hljs-comment">// gender</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> ps.executeUpdate(); <span class="hljs-comment">// 1</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>更新操作是<code>UPDATE</code>语句，它可以一次更新若干列的记录。更新操作和插入操作在JDBC代码的层面上实际上没有区别，除了SQL语句不同：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) &#123;<br>    <span class="hljs-keyword">try</span> (<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> conn.prepareStatement(<span class="hljs-string">&quot;UPDATE students SET name=? WHERE id=?&quot;</span>)) &#123;<br>        ps.setObject(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Bob&quot;</span>); <span class="hljs-comment">// 注意：索引从1开始</span><br>        ps.setObject(<span class="hljs-number">2</span>, <span class="hljs-number">999</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> ps.executeUpdate(); <span class="hljs-comment">// 返回更新的行数</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>executeUpdate()</code>返回数据库实际更新的行数。返回结果可能是正数，也可能是0（表示没有任何记录更新）。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>删除操作是<code>DELETE</code>语句，它可以一次删除若干行。和更新一样，除了SQL语句不同外，JDBC代码都是相同的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) &#123;<br>    <span class="hljs-keyword">try</span> (<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> conn.prepareStatement(<span class="hljs-string">&quot;DELETE FROM students WHERE id=?&quot;</span>)) &#123;<br>        ps.setObject(<span class="hljs-number">1</span>, <span class="hljs-number">999</span>); <span class="hljs-comment">// 注意：索引从1开始</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> ps.executeUpdate(); <span class="hljs-comment">// 删除的行数</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Connection</span> <span class="hljs-variable">conn</span> <span class="hljs-operator">=</span> openConnection();<br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 关闭自动提交:</span><br>    conn.setAutoCommit(<span class="hljs-literal">false</span>);<br>    <span class="hljs-comment">// 执行多条SQL语句:</span><br>    insert(); update(); delete();<br>    <span class="hljs-comment">// 提交事务:</span><br>    conn.commit();<br>&#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>    <span class="hljs-comment">// 回滚事务:</span><br>    conn.rollback();<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>    conn.setAutoCommit(<span class="hljs-literal">true</span>);<br>    conn.close();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中，开启事务的关键代码是<code>conn.setAutoCommit(false)</code>，表示关闭自动提交。提交事务的代码在执行完指定的若干条SQL语句后，调用<code>conn.commit()</code>。要注意事务不是总能成功，如果事务提交失败，会抛出SQL异常（也可能在执行SQL语句的时候就抛出了），此时我们必须捕获并调用<code>conn.rollback()</code>回滚事务。最后，在<code>finally</code>中通过<code>conn.setAutoCommit(true)</code>把<code>Connection</code>对象的状态恢复到初始值。</p>
+<p>实际上，默认情况下，我们获取到<code>Connection</code>连接后，总是处于“自动提交”模式，也就是每执行一条SQL都是作为事务自动执行的，这也是为什么前面几节我们的更新操作总能成功的原因：因为默认有这种“隐式事务”。只要关闭了<code>Connection</code>的<code>autoCommit</code>，那么就可以在一个事务中执行多条语句，事务以<code>commit()</code>方法结束。</p>
+<p>如果要设定事务的隔离级别，可以使用如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 设定隔离级别为READ COMMITTED:</span><br>conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);<br></code></pre></td></tr></table></figure>
+
+<p>只有参数不同的若干语句可以作为batch执行，即批量执行，这种操作有特别优化，速度远远快于循环执行每个SQL。</p>
+<p>在JDBC代码中，我们可以利用SQL数据库的这一特性，把同一个SQL但参数不同的若干次操作合并为一个batch执行。我们以批量插入为例，示例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> conn.prepareStatement(<span class="hljs-string">&quot;INSERT INTO students (name, gender, grade, score) VALUES (?, ?, ?, ?)&quot;</span>)) &#123;<br>    <span class="hljs-comment">// 对同一个PreparedStatement反复设置参数并调用addBatch():</span><br>    <span class="hljs-keyword">for</span> (Student s : students) &#123;<br>        ps.setString(<span class="hljs-number">1</span>, s.name);<br>        ps.setBoolean(<span class="hljs-number">2</span>, s.gender);<br>        ps.setInt(<span class="hljs-number">3</span>, s.grade);<br>        ps.setInt(<span class="hljs-number">4</span>, s.score);<br>        ps.addBatch(); <span class="hljs-comment">// 添加到batch</span><br>    &#125;<br>    <span class="hljs-comment">// 执行batch:</span><br>    <span class="hljs-type">int</span>[] ns = ps.executeBatch();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> n : ns) &#123;<br>        System.out.println(n + <span class="hljs-string">&quot; inserted.&quot;</span>); <span class="hljs-comment">// batch中每个SQL执行的结果数量</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring 基础"></a>Spring 基础</h2><h3 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs stylus">整个工程结构如下：<br><br>spring-ioc-annoconfig<br>├── pom<span class="hljs-selector-class">.xml</span><br>└── <span class="hljs-attribute">src</span><br>    └── <span class="hljs-selector-tag">main</span><br>        └── java<br>            └── com<br>                └── itranswarp<br>                    └── learnjava<br>                        ├── AppConfig<span class="hljs-selector-class">.java</span><br>                        └── service<br>                            ├── MailService<span class="hljs-selector-class">.java</span><br>                            ├── User<span class="hljs-selector-class">.java</span><br>                            └── UserService.java<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId</span> <span class="hljs-operator">=</span> ZoneId.systemDefault();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setZoneId</span><span class="hljs-params">(ZoneId zoneId)</span> &#123;<br>        <span class="hljs-built_in">this</span>.zoneId = zoneId;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getTime</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> ZonedDateTime.now(<span class="hljs-built_in">this</span>.zoneId).format(DateTimeFormatter.ISO_ZONED_DATE_TIME);<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserService</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> MailService mailService;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMailService</span><span class="hljs-params">(MailService mailService)</span> &#123;<br>        <span class="hljs-built_in">this</span>.mailService = mailService;<br>        System.out.println(<span class="hljs-built_in">this</span>.mailService);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printMailService</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-built_in">this</span>.mailService);<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);<br>        <span class="hljs-type">UserService</span> <span class="hljs-variable">userService</span> <span class="hljs-operator">=</span> context.getBean(UserService.class);<br>        userService.printMailService();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用Annotation配合自动扫描能大幅简化Spring的配置，我们只需要保证：</p>
+<ul>
+<li>每个Bean被标注为<code>@Component</code>并正确使用<code>@Autowired</code>注入；</li>
+<li>配置类被标注为<code>@Configuration</code>和<code>@ComponentScan</code>；</li>
+<li>所有Bean均在指定包以及子包内。</li>
+</ul>
+<p>使用<code>@ComponentScan</code>非常方便，但是，我们也要特别注意包的层次结构。通常来说，启动配置<code>AppConfig</code>位于自定义的顶层包（例如<code>com.itranswarp.learnjava</code>），其他Bean按类别放入子包。</p>
+<h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><p>对于Spring容器来说，当我们把一个Bean标记为<code>@Component</code>后，它就会自动为我们创建一个单例（Singleton），即容器初始化时创建Bean，容器关闭前销毁Bean。在容器运行期间，我们调用<code>getBean(Class)</code>获取到的Bean总是同一个实例。</p>
+<p>还有一种Bean，我们每次调用<code>getBean(Class)</code>，容器都返回一个新的实例，这种Bean称为Prototype（原型），它的生命周期显然和Singleton不同。声明一个Prototype的Bean时，需要添加一个额外的<code>@Scope</code>注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span> <span class="hljs-comment">// @Scope(&quot;prototype&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailSession</span> &#123;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="可选注入"><a href="#可选注入" class="headerlink" title="可选注入"></a>可选注入</h3><p>默认情况下，当我们标记了一个<code>@Autowired</code>后，Spring如果没有找到对应类型的Bean，它会抛出<code>NoSuchBeanDefinitionException</code>异常。</p>
+<p>可以给<code>@Autowired</code>增加一个<code>required = false</code>的参数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> &#123;<br>    <span class="hljs-meta">@Autowired(required = false)</span><br>    <span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId</span> <span class="hljs-operator">=</span> ZoneId.systemDefault();<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建第三方Bean"><a href="#创建第三方Bean" class="headerlink" title="创建第三方Bean"></a>创建第三方Bean</h3><p>如果一个Bean不在我们自己的package管理之内，例如<code>ZoneId</code>，如何创建它？</p>
+<p>答案是我们自己在<code>@Configuration</code>类中编写一个Java方法创建并返回它，注意给方法标记一个<code>@Bean</code>注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-comment">// 创建一个Bean:</span><br>    <span class="hljs-meta">@Bean</span><br>    ZoneId <span class="hljs-title function_">createZoneId</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> ZoneId.of(<span class="hljs-string">&quot;Z&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>e.g.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> context.getBean(<span class="hljs-string">&quot;getSomeString&quot;</span>, String.class);<br>        System.out.println(str);<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    String <span class="hljs-title function_">getSomeString</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello WOrld&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="初始化和销毁"><a href="#初始化和销毁" class="headerlink" title="初始化和销毁"></a>初始化和销毁</h3><p>有些时候，一个Bean在注入必要的依赖后，需要进行初始化（监听消息等）。在容器关闭时，有时候还需要清理资源（关闭连接池等）。我们通常会定义一个<code>init()</code>方法进行初始化，定义一个<code>shutdown()</code>方法进行清理，然后，引入JSR-250定义的Annotation：</p>
+<ul>
+<li>jakarta.annotation:jakarta.annotation-api:2.1.1</li>
+</ul>
+<p>在Bean的初始化和清理方法上标记<code>@PostConstruct</code>和<code>@PreDestroy</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> &#123;<br>    <span class="hljs-meta">@Autowired(required = false)</span><br>    <span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId</span> <span class="hljs-operator">=</span> ZoneId.systemDefault();<br><br>    <span class="hljs-meta">@PostConstruct</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Init mail service with zoneId = &quot;</span> + <span class="hljs-built_in">this</span>.zoneId);<br>    &#125;<br><br>    <span class="hljs-meta">@PreDestroy</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">shutdown</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Shutdown mail service&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h3><p>默认情况下，对一种类型的Bean，容器只创建一个实例。但有些时候，我们需要对一种类型的Bean创建多个实例。例如，同时连接多个数据库，就必须创建多个<code>DataSource</code>实例。</p>
+<p>这个时候，需要给每个Bean添加不同的名字：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-meta">@Bean(&quot;z&quot;)</span><br>    ZoneId <span class="hljs-title function_">createZoneOfZ</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> ZoneId.of(<span class="hljs-string">&quot;Z&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-meta">@Qualifier(&quot;utc8&quot;)</span><br>    ZoneId <span class="hljs-title function_">createZoneOfUTC8</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> ZoneId.of(<span class="hljs-string">&quot;UTC+08:00&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以用<code>@Bean(&quot;name&quot;)</code>指定别名，也可以用<code>@Bean</code>+<code>@Qualifier(&quot;name&quot;)</code>指定别名。</p>
+<p>意思是期待找到唯一的<code>ZoneId</code>类型Bean，但是找到两。因此，注入时，要指定Bean的名称：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> &#123;<br>	<span class="hljs-meta">@Autowired(required = false)</span><br>	<span class="hljs-meta">@Qualifier(&quot;z&quot;)</span> <span class="hljs-comment">// 指定注入名称为&quot;z&quot;的ZoneId</span><br>	<span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId</span> <span class="hljs-operator">=</span> ZoneId.systemDefault();<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="使用FactoryBean"><a href="#使用FactoryBean" class="headerlink" title="使用FactoryBean"></a>使用FactoryBean</h3><p>我们在设计模式的<a target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/java/design-patterns/creational/factory-method/index.html">工厂方法</a>中讲到，很多时候，可以通过工厂模式创建对象。Spring也提供了工厂模式，允许定义一个工厂，然后由工厂创建真正的Bean。</p>
+<p>用工厂模式创建Bean需要实现<code>FactoryBean</code>接口。我们观察下面的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ZoneIdFactoryBean</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">FactoryBean</span>&lt;ZoneId&gt; &#123;<br><br>    <span class="hljs-type">String</span> <span class="hljs-variable">zone</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Z&quot;</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> ZoneId <span class="hljs-title function_">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-keyword">return</span> ZoneId.of(zone);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Class&lt;?&gt; getObjectType() &#123;<br>        <span class="hljs-keyword">return</span> ZoneId.class;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当一个Bean实现了<code>FactoryBean</code>接口后，Spring会先实例化这个工厂，然后调用<code>getObject()</code>创建真正的Bean。<code>getObjectType()</code>可以指定创建的Bean的类型，因为指定类型不一定与实际类型一致，可以是接口或抽象类。</p>
+<p>因此，如果定义了一个<code>FactoryBean</code>，要注意Spring创建的Bean实际上是这个<code>FactoryBean</code>的<code>getObject()</code>方法返回的Bean。为了和普通Bean区分，我们通常都以<code>XxxFactoryBean</code>命名。</p>
+<p>由于可以用<code>@Bean</code>方法创建第三方Bean，本质上<code>@Bean</code>方法就是工厂方法，所以，<code>FactoryBean</code>已经用得越来越少了。</p>
+<h3 id="注入配置"><a href="#注入配置" class="headerlink" title="注入配置"></a>注入配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-meta">@PropertySource(&quot;app.properties&quot;)</span> <span class="hljs-comment">// 表示读取classpath的app.properties</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-meta">@Value(&quot;$&#123;app.zone:Z&#125;&quot;)</span><br>    String zoneId;<br><br>    <span class="hljs-meta">@Bean</span><br>    ZoneId <span class="hljs-title function_">createZoneId</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> ZoneId.of(zoneId);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Spring容器看到<code>@PropertySource(&quot;app.properties&quot;)</code>注解后，自动读取这个配置文件，然后，我们使用<code>@Value</code>正常注入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value(&quot;$&#123;app.zone:Z&#125;&quot;)</span><br>String zoneId;<br></code></pre></td></tr></table></figure>
+
+<p>注意注入的字符串语法，它的格式如下：</p>
+<ul>
+<li><code>&quot;$&#123;app.zone&#125;&quot;</code>表示读取key为<code>app.zone</code>的value，如果key不存在，启动将报错；</li>
+<li><code>&quot;$&#123;app.zone:Z&#125;&quot;</code>表示读取key为<code>app.zone</code>的value，但如果key不存在，就使用默认值<code>Z</code>。</li>
+</ul>
+<h2 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h2><h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId</span> <span class="hljs-operator">=</span> ZoneId.systemDefault();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setZoneId</span><span class="hljs-params">(ZoneId zoneId)</span> &#123;<br>        <span class="hljs-built_in">this</span>.zoneId = zoneId;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getTime</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> ZonedDateTime.now(<span class="hljs-built_in">this</span>.zoneId).format(DateTimeFormatter.ISO_ZONED_DATE_TIME);<br>    &#125;<br>&#125;<br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserService</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> MailService mailService;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMailService</span><span class="hljs-params">(MailService mailService)</span> &#123;<br>        <span class="hljs-built_in">this</span>.mailService = mailService;<br>        System.out.println(<span class="hljs-built_in">this</span>.mailService);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printMailService</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-built_in">this</span>.mailService);<br>    &#125;<br>&#125;<br><span class="hljs-meta">@Aspect</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoggingAspect</span> &#123;<br>    <span class="hljs-comment">// 在执行UserService的每个方法前执行:</span><br>    <span class="hljs-meta">@Before(&quot;execution(public * com.mine.anno.services.UserService.*(..))&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doAccessCheck</span><span class="hljs-params">()</span> &#123;<br>        System.err.println(<span class="hljs-string">&quot;[Before] do access check...&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-comment">// 在执行MailService的每个方法前后执行:</span><br>    <span class="hljs-meta">@Around(&quot;execution(public * com.mine.anno.services.MailService.*(..))&quot;)</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">doLogging</span><span class="hljs-params">(ProceedingJoinPoint pjp)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>        System.err.println(<span class="hljs-string">&quot;[Around] start &quot;</span> + pjp.getSignature());<br>        <span class="hljs-type">Object</span> <span class="hljs-variable">retVal</span> <span class="hljs-operator">=</span> pjp.proceed();<br>        System.err.println(<span class="hljs-string">&quot;[Around] done &quot;</span> + pjp.getSignature());<br>        <span class="hljs-keyword">return</span> retVal;<br>    &#125;<br>&#125;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-meta">@EnableAspectJAutoProxy</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);<br>        <span class="hljs-type">MailService</span> <span class="hljs-variable">mailService</span> <span class="hljs-operator">=</span> context.getBean(MailService.class);<br>        mailService.getTime();<br>        <span class="hljs-type">UserService</span> <span class="hljs-variable">userService</span> <span class="hljs-operator">=</span> context.getBean(UserService.class);<br>        userService.printMailService();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="interface"><a href="#interface" class="headerlink" title="@interface"></a>@interface</h3><p>为了监控应用程序的性能，我们定义一个性能监控的注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Target(METHOD)</span><br><span class="hljs-meta">@Retention(RUNTIME)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MetricTime &#123;<br>    String <span class="hljs-title function_">value</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在需要被监控的关键方法上标注该注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserService</span> &#123;<br>    <span class="hljs-comment">// 监控register()方法性能:</span><br>    <span class="hljs-meta">@MetricTime(&quot;register&quot;)</span><br>    <span class="hljs-keyword">public</span> User <span class="hljs-title function_">register</span><span class="hljs-params">(String email, String password, String name)</span> &#123;<br>        ...<br>    &#125;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后，我们定义<code>MetricAspect</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Aspect</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MetricAspect</span> &#123;<br>    <span class="hljs-meta">@Around(&quot;@annotation(metricTime)&quot;)</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">metric</span><span class="hljs-params">(ProceedingJoinPoint joinPoint, MetricTime metricTime)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> metricTime.value();<br>        <span class="hljs-type">long</span> <span class="hljs-variable">start</span> <span class="hljs-operator">=</span> System.currentTimeMillis();<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">return</span> joinPoint.proceed();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-type">long</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> System.currentTimeMillis() - start;<br>            <span class="hljs-comment">// 写入日志或发送至JMX:</span><br>            System.err.println(<span class="hljs-string">&quot;[Metrics] &quot;</span> + name + <span class="hljs-string">&quot;: &quot;</span> + t + <span class="hljs-string">&quot;ms&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>注意<code>metric()</code>方法标注了<code>@Around(&quot;@annotation(metricTime)&quot;)</code>，它的意思是，符合条件的目标方法是带有<code>@MetricTime</code>注解的方法，因为<code>metric()</code>方法参数类型是<code>MetricTime</code>（注意参数名是<code>metricTime</code>不是<code>MetricTime</code>），我们通过它获取性能监控的名称。</p>
+<p>有了<code>@MetricTime</code>注解，再配合<code>MetricAspect</code>，任何Bean，只要方法标注了<code>@MetricTime</code>注解，就可以自动实现性能监控。运行代码，输出结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">Welcome, Bob!<br>[Metrics] register: 16ms<br></code></pre></td></tr></table></figure>
+
+<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-context --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>7.1.0-M2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-aspects --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-aspects<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>7.1.0-M2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-jdbc --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>7.1.0-M2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>jakarta.annotation<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jakarta.annotation-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>config.properties</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">jdbc.url</span>=jdbc:sqlite:test.db<br><span class="hljs-attr">jdbc.username</span>=<br>jdbc.password=<br></code></pre></td></tr></table></figure>
+
+<p>main</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-meta">@PropertySource(&quot;config.properties&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);<br>    &#125;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;jdbc.url&#125;&quot;)</span><br>    String jdbcUrl;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;jdbc.username&#125;&quot;)</span><br>    String jdbcUsername;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;jdbc.password&#125;&quot;)</span><br>    String jdbcPassword;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> DataSource <span class="hljs-title function_">dataSource</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">DriverManagerDataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DriverManagerDataSource</span>();<br>        dataSource.setDriverClassName(<span class="hljs-string">&quot;org.sqlite.JDBC&quot;</span>);<br>        dataSource.setUrl(jdbcUrl);<br>        dataSource.setUsername(jdbcUsername);<br>        dataSource.setPassword(jdbcPassword);<br>        <span class="hljs-keyword">return</span> dataSource;<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> JdbcTemplate <span class="hljs-title function_">jdbcTemplate</span><span class="hljs-params">(DataSource dataSource)</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JdbcTemplate</span>(dataSource);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Init</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    JdbcTemplate template;<br><br>    <span class="hljs-meta">@PostConstruct</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">initDatabase</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Post construct&quot;</span>);<br>        template.update(<span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">                CREATE TABLE IF NOT EXISTS COMPANY (</span><br><span class="hljs-string">                   ID INTEGER PRIMARY KEY AUTOINCREMENT,</span><br><span class="hljs-string">                   NAME TEXT NOT NULL,</span><br><span class="hljs-string">                   AGE INTEGER NOT NULL,</span><br><span class="hljs-string">                   ADDRESS CHAR(50),</span><br><span class="hljs-string">                   SALARY REAL DEFAULT 0.0</span><br><span class="hljs-string">               );</span><br><span class="hljs-string">                &quot;&quot;&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>现在，所有准备工作都已完毕。我们只需要在需要访问数据库的Bean中，注入<code>JdbcTemplate</code>即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserService</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    JdbcTemplate jdbcTemplate;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="JdbcTemplate用法"><a href="#JdbcTemplate用法" class="headerlink" title="JdbcTemplate用法"></a>JdbcTemplate用法</h3><p>Spring提供的<code>JdbcTemplate</code>采用Template模式，提供了一系列以回调为特点的工具方法，目的是避免繁琐的<code>try...catch</code>语句。</p>
+<p>我们以具体的示例来说明JdbcTemplate的用法。</p>
+<p>首先我们看<code>T execute(ConnectionCallback&lt;T&gt; action)</code>方法，它提供了Jdbc的<code>Connection</code>供我们使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> User <span class="hljs-title function_">getUserById</span><span class="hljs-params">(<span class="hljs-type">long</span> id)</span> &#123;<br>    <span class="hljs-comment">// 注意传入的是ConnectionCallback:</span><br>    <span class="hljs-keyword">return</span> jdbcTemplate.execute((Connection conn) -&gt; &#123;<br>        <span class="hljs-comment">// 可以直接使用conn实例，不要释放它，回调结束后JdbcTemplate自动释放:</span><br>        <span class="hljs-comment">// 在内部手动创建的PreparedStatement、ResultSet必须用try(...)释放:</span><br>        <span class="hljs-keyword">try</span> (<span class="hljs-type">var</span> <span class="hljs-variable">ps</span> <span class="hljs-operator">=</span> conn.prepareStatement(<span class="hljs-string">&quot;SELECT * FROM users WHERE id = ?&quot;</span>)) &#123;<br>            ps.setObject(<span class="hljs-number">1</span>, id);<br>            <span class="hljs-keyword">try</span> (<span class="hljs-type">var</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> ps.executeQuery()) &#123;<br>                <span class="hljs-keyword">if</span> (rs.next()) &#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>( <span class="hljs-comment">// new User object:</span><br>                            rs.getLong(<span class="hljs-string">&quot;id&quot;</span>), <span class="hljs-comment">// id</span><br>                            rs.getString(<span class="hljs-string">&quot;email&quot;</span>), <span class="hljs-comment">// email</span><br>                            rs.getString(<span class="hljs-string">&quot;password&quot;</span>), <span class="hljs-comment">// password</span><br>                            rs.getString(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">// name</span><br>                &#125;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;user not found by id.&quot;</span>);<br>            &#125;<br>        &#125;<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我们再看<code>T execute(String sql, PreparedStatementCallback&lt;T&gt; action)</code>的用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> User <span class="hljs-title function_">getUserByName</span><span class="hljs-params">(String name)</span> &#123;<br>    <span class="hljs-comment">// 需要传入SQL语句，以及PreparedStatementCallback:</span><br>    <span class="hljs-keyword">return</span> jdbcTemplate.execute(<span class="hljs-string">&quot;SELECT * FROM users WHERE name = ?&quot;</span>, (PreparedStatement ps) -&gt; &#123;<br>        <span class="hljs-comment">// PreparedStatement实例已经由JdbcTemplate创建，并在回调后自动释放:</span><br>        ps.setObject(<span class="hljs-number">1</span>, name);<br>        <span class="hljs-keyword">try</span> (<span class="hljs-type">var</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> ps.executeQuery()) &#123;<br>            <span class="hljs-keyword">if</span> (rs.next()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>( <span class="hljs-comment">// new User object:</span><br>                        rs.getLong(<span class="hljs-string">&quot;id&quot;</span>), <span class="hljs-comment">// id</span><br>                        rs.getString(<span class="hljs-string">&quot;email&quot;</span>), <span class="hljs-comment">// email</span><br>                        rs.getString(<span class="hljs-string">&quot;password&quot;</span>), <span class="hljs-comment">// password</span><br>                        rs.getString(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">// name</span><br>            &#125;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;user not found by id.&quot;</span>);<br>        &#125;<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>最后，我们看<code>T queryForObject(String sql, RowMapper&lt;T&gt; rowMapper, Object... args)</code>方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> User <span class="hljs-title function_">getUserByEmail</span><span class="hljs-params">(String email)</span> &#123;<br>    <span class="hljs-comment">// 传入SQL，参数和RowMapper实例:</span><br>    <span class="hljs-keyword">return</span> jdbcTemplate.queryForObject(<span class="hljs-string">&quot;SELECT * FROM users WHERE email = ?&quot;</span>,<br>            (ResultSet rs, <span class="hljs-type">int</span> rowNum) -&gt; &#123;<br>                <span class="hljs-comment">// 将ResultSet的当前行映射为一个JavaBean:</span><br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>( <span class="hljs-comment">// new User object:</span><br>                        rs.getLong(<span class="hljs-string">&quot;id&quot;</span>), <span class="hljs-comment">// id</span><br>                        rs.getString(<span class="hljs-string">&quot;email&quot;</span>), <span class="hljs-comment">// email</span><br>                        rs.getString(<span class="hljs-string">&quot;password&quot;</span>), <span class="hljs-comment">// password</span><br>                        rs.getString(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">// name</span><br>            &#125;,<br>            email);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在<code>queryForObject()</code>方法中，传入SQL以及SQL参数后，<code>JdbcTemplate</code>会自动创建<code>PreparedStatement</code>，自动执行查询并返回<code>ResultSet</code>，我们提供的<code>RowMapper</code>需要做的事情就是把<code>ResultSet</code>的当前行映射成一个JavaBean并返回。整个过程中，使用<code>Connection</code>、<code>PreparedStatement</code>和<code>ResultSet</code>都不需要我们手动管理。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/java/" class="category-chain-item">java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/java/" class="print-no-link">#java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java 进阶内容</div>
+      <div>https://taylorandtony.github.io/2026/10/10/Java-进阶内容/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>TaylorAndTony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年10月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/10/08/Java-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="Java 快速入门">
+                        <span class="hidden-mobile">Java 快速入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
