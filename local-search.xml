@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>SpringBoot 项目启动后执行一次性任务</title>
+    <link href="/2026/10/18/SpringBoot-%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E5%90%8E%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E4%BB%BB%E5%8A%A1/"/>
+    <url>/2026/10/18/SpringBoot-%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E5%90%8E%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E4%BB%BB%E5%8A%A1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SpringBoot-项目启动后执行一次性任务"><a href="#SpringBoot-项目启动后执行一次性任务" class="headerlink" title="SpringBoot 项目启动后执行一次性任务"></a>SpringBoot 项目启动后执行一次性任务</h1><blockquote><p>需求：<strong>容器启动成功后，执行一次，只跑一遍</strong></p></blockquote><h2 id="1-【最简单推荐】CommandLineRunner"><a href="#1-【最简单推荐】CommandLineRunner" class="headerlink" title="1. 【最简单推荐】CommandLineRunner"></a>1. 【最简单推荐】<code>CommandLineRunner</code></h2><p>适合简单启动任务，写一个类实现接口，重写<code>run</code>方法。<strong>Spring 容器完全初始化完成后执行</strong>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.boot.CommandLineRunner;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppStartupRunner</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">CommandLineRunner</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">(String... args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">// 这里写你启动后一次性执行的业务代码</span><br>        System.out.println(<span class="hljs-string">&quot;====项目启动完成，执行一次性任务====&quot;</span>);<br>        <span class="hljs-comment">// initData();</span><br>        <span class="hljs-comment">// loadCache();</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><ul><li>特点：<ul><li><code>@Component</code>交给 Spring 管理，自动运行</li><li>多个 CommandLineRunner 可以用 <code>@Order(1)</code> 指定执行顺序，数字越小越先执行</li></ul></li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Order(1)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RunnerA</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">CommandLineRunner</span>&#123;...&#125;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Order(2)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RunnerB</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">CommandLineRunner</span>&#123;...&#125;<br></code></pre></td></tr></table></figure><h2 id="2-ApplicationRunner"><a href="#2-ApplicationRunner" class="headerlink" title="2. ApplicationRunner"></a>2. <code>ApplicationRunner</code></h2><p>和 <code>CommandLineRunner</code> 几乎一样，区别是<strong>参数被封装解析过</strong>，方便解析启动命令行参数。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.boot.ApplicationArguments;<br><span class="hljs-keyword">import</span> org.springframework.boot.ApplicationRunner;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppStartupTask</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ApplicationRunner</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">(ApplicationArguments args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        System.out.println(<span class="hljs-string">&quot;ApplicationRunner 执行&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><blockquote><p>✅ 两者执行时机：<strong>Bean 全部创建完成 → 容器就绪 → 执行 Runner</strong> 此时 <code>DataSource</code>、<code>MyBatis</code>、所有 Bean 都已经就绪，可以直接调用 Mapper&#x2F;Service。</p></blockquote><h2 id="3-监听事件：ApplicationReadyEvent（事件监听方案）"><a href="#3-监听事件：ApplicationReadyEvent（事件监听方案）" class="headerlink" title="3. 监听事件：ApplicationReadyEvent（事件监听方案）"></a>3. 监听事件：<code>ApplicationReadyEvent</code>（事件监听方案）</h2><p>适合解耦，监听<strong>应用就绪事件</strong>，容器完全启动成功才触发。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.boot.context.event.ApplicationReadyEvent;<br><span class="hljs-keyword">import</span> org.springframework.context.event.EventListener;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppReadyListener</span> &#123;<br><br>    <span class="hljs-meta">@EventListener(ApplicationReadyEvent.class)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onReady</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;监听到：应用完全启动就绪！&quot;</span>);<br>        <span class="hljs-comment">// 一次性初始化逻辑</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java MyBatis Plus 整合 Sqlite</title>
     <link href="/2026/10/16/Java-MyBatis-Plus-%E6%95%B4%E5%90%88-Sqlite/"/>
     <url>/2026/10/16/Java-MyBatis-Plus-%E6%95%B4%E5%90%88-Sqlite/</url>
@@ -450,11 +475,11 @@
       
       <tag>python</tag>
       
-      <tag>utf-8</tag>
-      
       <tag>AES256</tag>
       
       <tag>cryptography</tag>
+      
+      <tag>utf-8</tag>
       
     </tags>
     
@@ -1300,9 +1325,9 @@
       
       <tag>ef core</tag>
       
-      <tag>dotnet</tag>
-      
       <tag>sqlite</tag>
+      
+      <tag>dotnet</tag>
       
     </tags>
     
@@ -1892,11 +1917,11 @@
       
       <tag>web</tag>
       
+      <tag>javascript</tag>
+      
       <tag>express.js</tag>
       
       <tag>node.js</tag>
-      
-      <tag>javascript</tag>
       
     </tags>
     
