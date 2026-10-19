@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>SpringBoot AI 连接 Deepseek</title>
+    <link href="/2026/10/19/SpringBoot-AI-%E8%BF%9E%E6%8E%A5-Deepseek/"/>
+    <url>/2026/10/19/SpringBoot-AI-%E8%BF%9E%E6%8E%A5-Deepseek/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SpringBoot-AI-连接-Deepseek"><a href="#SpringBoot-AI-连接-Deepseek" class="headerlink" title="SpringBoot AI 连接 Deepseek"></a>SpringBoot AI 连接 Deepseek</h1><h2 id="POM-xml"><a href="#POM-xml" class="headerlink" title="POM.xml"></a>POM.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.mine<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>DailyReportAI<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>DailyReportAI<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>DailyReportAI<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">spring-ai.version</span>&gt;</span>1.0.0-M6<span class="hljs-tag">&lt;/<span class="hljs-name">spring-ai.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 必须手动开启milestone仓库支持，不然拿不到依赖 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">repositories</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>spring-milestones<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Spring Milestones<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://repo.spring.io/milestone<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">snapshots</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">enabled</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">enabled</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">snapshots</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://repo.maven.apache.org/maven2<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">repositories</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 开启依赖版本管理，使用新版的 spring AI。旧版的 API 不稳定 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.ai<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-ai-bom<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-ai.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><br>        <span class="hljs-comment">&lt;!-- 移除version，由BOM统一管理 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.ai<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-ai-openai-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.ai<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-ai-pdf-document-reader<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.ai<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-ai-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br><br></code></pre></td></tr></table></figure><h2 id="编辑API和Key"><a href="#编辑API和Key" class="headerlink" title="编辑API和Key"></a>编辑API和Key</h2><p>application.yml:</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">ai:</span><br>    <span class="hljs-attr">openai:</span><br>      <span class="hljs-attr">api-key:</span> <span class="hljs-string">sk-xxxxx</span><br>      <span class="hljs-attr">base-url:</span> <span class="hljs-string">https://api.deepseek.com</span><br>      <span class="hljs-attr">chat:</span><br>        <span class="hljs-attr">options:</span><br>          <span class="hljs-attr">model:</span> <span class="hljs-string">deepseek-flash</span><br></code></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AiService</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ChatClient chatClient;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ObjectMapper objectMapper;<br><br>    <span class="hljs-comment">// 注入 ChatClient.Builder</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">AiService</span><span class="hljs-params">(ChatClient.Builder builder)</span> &#123;<br>        <span class="hljs-built_in">this</span>.chatClient = builder.build();<br>        <span class="hljs-built_in">this</span>.objectMapper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectMapper</span>();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 接收 UserMessage 对象，不再接收原始字符串</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">simpleChat</span><span class="hljs-params">(UserMessage userMessage)</span> &#123;<br>        <span class="hljs-keyword">return</span> chatClient.prompt()<br>                .messages(userMessage)<br>                .call()<br>                .content();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><hr><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">promptTemplate</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        根据下面这份文档内容，整理生成工作日报。</span><br><span class="hljs-string"></span><br><span class="hljs-string">        编写 5 天的日报信息：**每天**日报都包含：</span><br><span class="hljs-string">        1. 今天阅读的内容</span><br><span class="hljs-string">        2. 明日计划；</span><br><span class="hljs-string"></span><br><span class="hljs-string">        表达语言要简要流畅，今天阅读的内容约80字，明日计划约40字，同时**体现一些论文的内容**。</span><br><span class="hljs-string">        文档内容：</span><br><span class="hljs-string">        %s</span><br><span class="hljs-string">        &quot;&quot;&quot;</span>.formatted(cleanText);<br><br><span class="hljs-comment">// 构造UserMessage，传给simpleChat，由SpringAI框架序列化JSON（自动转义）</span><br><span class="hljs-type">UserMessage</span> <span class="hljs-variable">userMessage</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserMessage</span>(promptTemplate);<br><span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> simpleChat(userMessage);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SpringBoot 项目启动后执行一次性任务</title>
     <link href="/2026/10/18/SpringBoot-%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E5%90%8E%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E4%BB%BB%E5%8A%A1/"/>
     <url>/2026/10/18/SpringBoot-%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E5%90%8E%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E4%BB%BB%E5%8A%A1/</url>
@@ -444,9 +469,9 @@
       
       <tag>troubleshoot</tag>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
+      
+      <tag>video</tag>
       
     </tags>
     
@@ -475,11 +500,11 @@
       
       <tag>python</tag>
       
+      <tag>utf-8</tag>
+      
       <tag>AES256</tag>
       
       <tag>cryptography</tag>
-      
-      <tag>utf-8</tag>
       
     </tags>
     
@@ -1290,9 +1315,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>balzor</tag>
-      
       <tag>web</tag>
+      
+      <tag>balzor</tag>
       
     </tags>
     
@@ -1325,9 +1350,9 @@
       
       <tag>ef core</tag>
       
-      <tag>sqlite</tag>
-      
       <tag>dotnet</tag>
+      
+      <tag>sqlite</tag>
       
     </tags>
     
@@ -1389,9 +1414,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>blazor</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -1447,9 +1472,9 @@
     
     <tags>
       
-      <tag>software</tag>
-      
       <tag>linux</tag>
+      
+      <tag>software</tag>
       
       <tag>tmux</tag>
       
@@ -1476,9 +1501,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
     </tags>
     
@@ -1503,11 +1528,11 @@
     
     <tags>
       
-      <tag>software</tag>
+      <tag>linux</tag>
       
       <tag>ubuntu</tag>
       
-      <tag>linux</tag>
+      <tag>software</tag>
       
     </tags>
     
@@ -1532,9 +1557,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
       <tag>dev</tag>
       
@@ -1648,9 +1673,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>blazor</tag>
+      
+      <tag>web</tag>
       
     </tags>
     
@@ -1950,9 +1975,9 @@
       
       <tag>troubleshoot</tag>
       
-      <tag>edge</tag>
-      
       <tag>video</tag>
+      
+      <tag>edge</tag>
       
       <tag>internet</tag>
       
@@ -2010,11 +2035,11 @@
     
     <tags>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
       
       <tag>nvidia</tag>
+      
+      <tag>video</tag>
       
       <tag>gpu</tag>
       
@@ -2161,9 +2186,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>web</tag>
-      
       <tag>blazor</tag>
+      
+      <tag>web</tag>
       
       <tag>sweetalert</tag>
       
@@ -2194,9 +2219,9 @@
       
       <tag>asp.net</tag>
       
-      <tag>balzor</tag>
-      
       <tag>web</tag>
+      
+      <tag>balzor</tag>
       
     </tags>
     
