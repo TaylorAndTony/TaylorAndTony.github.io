@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>java springboot 事件驱动开发最小示例</title>
+    <link href="/2026/10/30/java-springboot-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9C%80%E5%B0%8F%E7%A4%BA%E4%BE%8B/"/>
+    <url>/2026/10/30/java-springboot-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9C%80%E5%B0%8F%E7%A4%BA%E4%BE%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="java-springboot-事件驱动开发最小示例"><a href="#java-springboot-事件驱动开发最小示例" class="headerlink" title="java springboot 事件驱动开发最小示例"></a>java springboot 事件驱动开发最小示例</h1><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p><img src="1.png"></p><p>​</p><h2 id="1-pom-xml（只保留最小依赖）"><a href="#1-pom-xml（只保留最小依赖）" class="headerlink" title="1. pom.xml（只保留最小依赖）"></a>1. pom.xml（只保留最小依赖）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;<br>&lt;project xmlns=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br>         xmlns:xsi=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br>         xsi:schemaLocation=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;<br>    &lt;modelVersion&gt;<span class="hljs-number">4.0</span><span class="hljs-number">.0</span>&lt;/modelVersion&gt;<br>    &lt;parent&gt;<br>        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;<br>        &lt;version&gt;<span class="hljs-number">3.2</span><span class="hljs-number">.0</span>&lt;/version&gt;<br>        &lt;relativePath/&gt;<br>    &lt;/parent&gt;<br>    &lt;groupId&gt;com.example&lt;/groupId&gt;<br>    &lt;artifactId&gt;event-demo&lt;/artifactId&gt;<br>    &lt;version&gt;<span class="hljs-number">0.0</span><span class="hljs-number">.1</span>-SNAPSHOT&lt;/version&gt;<br>    &lt;name&gt;event-demo&lt;/name&gt;<br><br>    &lt;properties&gt;<br>        &lt;java.version&gt;<span class="hljs-number">17</span>&lt;/java.version&gt;<br>    &lt;/properties&gt;<br><br>    &lt;dependencies&gt;<br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;<br>        &lt;/dependency&gt;<br>    &lt;/dependencies&gt;<br>&lt;/project&gt;<br></code></pre></td></tr></table></figure><h2 id="2-自定义事件-UserRegisterEvent-java"><a href="#2-自定义事件-UserRegisterEvent-java" class="headerlink" title="2. 自定义事件 UserRegisterEvent.java"></a>2. 自定义事件 <code>UserRegisterEvent.java</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.eventdemo.event;<br><br><span class="hljs-keyword">import</span> org.springframework.context.ApplicationEvent;<br><br><span class="hljs-comment">// 自定义事件：用户注册事件</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserRegisterEvent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ApplicationEvent</span> &#123;<br>    <span class="hljs-comment">// 事件携带的数据</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String username;<br><br>    <span class="hljs-comment">// 继承 ApplicationEvent 需要完成的</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">UserRegisterEvent</span><span class="hljs-params">(Object source, String username)</span> &#123;<br>        <span class="hljs-built_in">super</span>(source);<br>        <span class="hljs-built_in">this</span>.username = username;<br>    &#125;<br><span class="hljs-comment">// 额外提供</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUsername</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> username;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="3-事件发布-Service-UserService-java"><a href="#3-事件发布-Service-UserService-java" class="headerlink" title="3. 事件发布 Service UserService.java"></a>3. 事件发布 Service <code>UserService.java</code></h2><p>未来会在控制器里面使用</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.eventdemo.service;<br><br><span class="hljs-keyword">import</span> com.example.eventdemo.event.UserRegisterEvent;<br><span class="hljs-keyword">import</span> lombok.RequiredArgsConstructor;<br><span class="hljs-keyword">import</span> org.springframework.context.ApplicationEventPublisher;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-meta">@Service</span><br><span class="hljs-meta">@RequiredArgsConstructor</span>  <span class="hljs-comment">// 自动新建 ApplicationEventPublisher</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserService</span> &#123;<br><br>    <span class="hljs-comment">// Spring 内置事件发布器</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ApplicationEventPublisher eventPublisher;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">register</span><span class="hljs-params">(String username)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;[业务] 用户注册主逻辑：&quot;</span> + username);<br><br>        <span class="hljs-comment">// 发布事件</span><br>        eventPublisher.publishEvent(<span class="hljs-keyword">new</span> <span class="hljs-title class_">UserRegisterEvent</span>(<span class="hljs-built_in">this</span>, username));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="4-事件监听器-UserEventListener-java"><a href="#4-事件监听器-UserEventListener-java" class="headerlink" title="4. 事件监听器 UserEventListener.java"></a>4. 事件监听器 <code>UserEventListener.java</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.eventdemo.listener;<br><br><span class="hljs-keyword">import</span> com.example.eventdemo.event.UserRegisterEvent;<br><span class="hljs-keyword">import</span> org.springframework.context.event.EventListener;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserEventListener</span> &#123;<br><br>    <span class="hljs-comment">// 监听 UserRegisterEvent</span><br>    <span class="hljs-meta">@EventListener</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onUserRegister</span><span class="hljs-params">(UserRegisterEvent event)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> event.getUsername();<br>        System.out.println(<span class="hljs-string">&quot;[监听器] 收到注册事件，发送欢迎邮件给：&quot;</span> + username);<br>    &#125;<br><br>    <span class="hljs-comment">// 可以多个监听器监听同一个事件，互不影响</span><br>    <span class="hljs-meta">@EventListener</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">anotherListener</span><span class="hljs-params">(UserRegisterEvent event)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;[监听器2] 新增用户统计：&quot;</span> + event.getUsername());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="5-测试-Controller-TestController-java"><a href="#5-测试-Controller-TestController-java" class="headerlink" title="5. 测试 Controller TestController.java"></a>5. 测试 Controller <code>TestController.java</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.eventdemo.controller;<br><br><span class="hljs-keyword">import</span> com.example.eventdemo.service.UserService;<br><span class="hljs-keyword">import</span> lombok.RequiredArgsConstructor;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequiredArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestController</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> UserService userService;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/register&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">register</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> String username)</span> &#123;<br>        userService.register(username);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;ok&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="6-启动类-EventDemoApplication-java"><a href="#6-启动类-EventDemoApplication-java" class="headerlink" title="6. 启动类 EventDemoApplication.java"></a>6. 启动类 <code>EventDemoApplication.java</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.eventdemo;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EventDemoApplication</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(EventDemoApplication.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>启动后访问：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">http://localhost:8080/register?username=zhangsan<br></code></pre></td></tr></table></figure><p>控制台输出顺序（同步）：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-string">[业务]</span> 用户注册主逻辑：zhangsan<br><span class="hljs-string">[监听器]</span> 收到注册事件，发送欢迎邮件给：zhangsan<br><span class="hljs-string">[监听器2]</span> 新增用户统计：zhangsan<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>java Springboot + Vue 文件上传</title>
     <link href="/2026/10/19/java-Springboot-Vue-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     <url>/2026/10/19/java-Springboot-Vue-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
@@ -494,9 +519,9 @@
       
       <tag>troubleshoot</tag>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
+      
+      <tag>video</tag>
       
     </tags>
     
@@ -523,13 +548,13 @@
       
       <tag>troubleshoot</tag>
       
-      <tag>python</tag>
-      
-      <tag>utf-8</tag>
-      
       <tag>AES256</tag>
       
+      <tag>python</tag>
+      
       <tag>cryptography</tag>
+      
+      <tag>utf-8</tag>
       
     </tags>
     
@@ -1497,9 +1522,9 @@
     
     <tags>
       
-      <tag>software</tag>
-      
       <tag>linux</tag>
+      
+      <tag>software</tag>
       
       <tag>tmux</tag>
       
@@ -1526,9 +1551,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
     </tags>
     
@@ -1553,11 +1578,11 @@
     
     <tags>
       
+      <tag>linux</tag>
+      
       <tag>software</tag>
       
       <tag>ubuntu</tag>
-      
-      <tag>linux</tag>
       
     </tags>
     
@@ -1582,9 +1607,9 @@
     
     <tags>
       
-      <tag>ubuntu</tag>
-      
       <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
       
       <tag>dev</tag>
       
@@ -2000,9 +2025,9 @@
       
       <tag>troubleshoot</tag>
       
-      <tag>edge</tag>
-      
       <tag>video</tag>
+      
+      <tag>edge</tag>
       
       <tag>internet</tag>
       
@@ -2060,11 +2085,11 @@
     
     <tags>
       
-      <tag>video</tag>
-      
       <tag>ffmpeg</tag>
       
       <tag>nvidia</tag>
+      
+      <tag>video</tag>
       
       <tag>gpu</tag>
       
@@ -2178,11 +2203,11 @@
       
       <tag>git</tag>
       
-      <tag>linux</tag>
-      
       <tag>zsh</tag>
       
       <tag>shell</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -2284,11 +2309,11 @@
     
     <tags>
       
-      <tag>git</tag>
-      
       <tag>hexo</tag>
       
       <tag>github</tag>
+      
+      <tag>git</tag>
       
     </tags>
     
